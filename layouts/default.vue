@@ -48,12 +48,14 @@
       <v-spacer />
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container class="fill-height" style="background-color: #fefcf9;">
         <nuxt />
       </v-container>
     </v-main>
     <v-footer app>
-      <span class="ml-auto">&copy; {{ new Date().getFullYear() }}</span>
+      <span class="ml-auto">
+        Bryan de Oliveira Brettas &copy; {{ new Date().getFullYear() }}
+      </span>
     </v-footer>
   </v-app>
 </template>
@@ -72,8 +74,8 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          title: 'About',
+          to: '/about',
         },
       ],
     }
