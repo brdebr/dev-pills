@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center>
     <v-flex xs12 sm10>
-      <v-card>
+      <v-card outlined tile>
         <v-card-title>
           About Page
         </v-card-title>

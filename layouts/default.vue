@@ -6,12 +6,13 @@
       mini-variant-width="80"
       :class="`the-drawer ${collapse ? 'the-drawer--collapsed' : null}`"
       clipped
+      floating
       app
     >
       <v-list v-if="collapse && !miniVariant">
         <v-list-item class="text-center headline">
           <span>
-            Dev - Pills
+            {{ appBarTitle }}
           </span>
         </v-list-item>
       </v-list>
@@ -37,6 +38,7 @@
         <v-list-item>
           <v-btn
             outlined
+            tile
             :block="!miniVariant"
             @click.stop="collapse = !collapse"
           >
@@ -48,6 +50,8 @@
         <v-list-item>
           <v-btn
             outlined
+            tile
+            color="primary"
             :block="!miniVariant"
             @click.stop="miniVariant = !miniVariant"
           >
@@ -60,15 +64,15 @@
     </v-navigation-drawer>
     <v-app-bar
       clipped-left
+      color="#D0EBE4"
       app
-      outlined
       flat
       :collapse="collapse"
       class="the-app-bar"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
-        Dev - Pills
+        {{ appBarTitle }}
       </v-toolbar-title>
       <v-spacer />
     </v-app-bar>
@@ -101,6 +105,7 @@ export default {
       drawer: false,
       miniVariant: false,
       collapse: false,
+      appBarTitle: '< Dev - Pills />',
       items: [
         {
           icon: 'mdi-apps',
