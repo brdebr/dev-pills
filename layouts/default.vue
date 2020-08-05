@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <the-drawer />
+    <the-drawer :items="items" />
     <the-toolbar />
     <v-main
       :style="{
@@ -24,7 +24,13 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      items: [],
+    }
+  },
+  async mounted() {
+    const itemsResp = await this.$content('drawer/items').only('items').fetch()
+    this.items = itemsResp.items
   },
 }
 </script>

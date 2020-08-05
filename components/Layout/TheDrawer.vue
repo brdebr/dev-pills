@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    :value="$store.state.layout.drawer"
     :mini-variant="$store.state.layout.drawerMini"
     mini-variant-width="80"
     :class="`the-drawer ${
@@ -61,19 +62,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  data: () => ({
-    items: [
-      {
-        icon: 'mdi-apps',
-        title: 'Welcome',
-        to: '/',
-      },
-      {
-        icon: 'mdi-chart-bubble',
-        title: 'About',
-        to: '/about',
-      },
-    ],
-  }),
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
 })
 </script>

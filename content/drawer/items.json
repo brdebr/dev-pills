@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "Home",
+      "to": "/",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": "Articles",
+      "to": "/Articles",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": "Categories",
+      "to": "/Categories",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": "Snippets",
+      "to": "/Snippets",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": "Utils",
+      "to": "/Utils",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": "About",
+      "to": "/about",
+      "icon": "mdi-chart-bubble"
+    }
+  ]
+}
