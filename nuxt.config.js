@@ -70,6 +70,19 @@ export default {
       themes: {
         light: {
           primary: colors.teal.base,
+          'toolbar-color': '#D0EBE4',
+          'bg-color': '#FEFCF9',
+          secondary: colors.pink.base,
+          accent: colors.indigo.base,
+          error: colors.red.base,
+          warning: colors.amber.base,
+          info: colors.lightBlue.base,
+          success: colors.lightGreen.base
+        },
+        dark: {
+          primary: colors.teal.base,
+          'toolbar-color': '#002922',
+          'bg-color': '#0D0D13',
           secondary: colors.pink.base,
           accent: colors.indigo.base,
           error: colors.red.base,

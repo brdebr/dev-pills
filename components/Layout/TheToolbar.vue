@@ -1,7 +1,7 @@
 <template>
   <v-app-bar
     clipped-left
-    color="#D0EBE4"
+    color="toolbar-color"
     app
     flat
     :collapse="$store.state.layout.collapseBar"

@@ -4,10 +4,9 @@
     <the-toolbar />
     <v-main
       :style="{
-        backgroundColor: '#fefcf9',
         paddingRight: $store.state.layout.collapseBar ? '120px' : null,
       }"
-      :class="$store.state.layout.collapseBar ? 'pt-1' : null"
+      :class="'bg-color ' + ($store.state.layout.collapseBar ? 'pt-1' : null)"
     >
       <v-container
         :class="`fill-height ${
