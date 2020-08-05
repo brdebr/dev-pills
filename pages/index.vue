@@ -6,9 +6,7 @@
           Welcome to DevPills
         </v-card-title>
         <v-card-text>
-          <p>
-            Personal blog to archive development tutorials, snippets, etc
-          </p>
+          <p v-t="'message'"></p>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -20,6 +18,16 @@
     </v-flex>
   </v-layout>
 </template>
+<i18n>
+{
+  "en": {
+    "message": "Personal blog to archive development tutorials, snippets, etc"
+  },
+  "es": {
+    "message": "Blog personal para archivar tutoriales de desarrollo, código reutilizable, etc"
+  }
+}
+</i18n>
 
 <script>
 export default {}

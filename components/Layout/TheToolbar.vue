@@ -9,7 +9,7 @@
     class="the-app-bar"
   >
     <v-app-bar-nav-icon @click="$store.commit('layout/toggleDrawer')" />
-    <v-toolbar-title>
+    <v-toolbar-title class="d-flex align-center">
       {{ $store.state.layout.appBarTitle }}
     </v-toolbar-title>
     <v-spacer />

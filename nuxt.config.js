@@ -53,12 +53,22 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'nuxt-i18n'
   ],
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
   content: {},
+
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    vueI18nLoader: true,
+    vueI18n: {
+      fallbackLocale: 'en'
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
