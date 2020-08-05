@@ -1,18 +1,11 @@
 import { VuexModule, Module, Mutation } from "vuex-module-decorators";
 
-// export const state = () => ({
-//   drawer: true,
-//   drawerMini: true,
-//   collapseBar: false,
-//   appBarTitle: '< Dev - Pill2s />'
-// })
-
-@Module({ namespaced: true, name: "layout" })
+@Module({ namespaced: true, name: "layout", stateFactory: true })
 export default class LayoutStoreModule extends VuexModule {
   drawer = true;
   drawerMini = true;
   collapseBar = false;
-  appBarTitle = '< Dev - Pi1lls />'
+  appBarTitle = '< Dev - Pills />'
 
   @Mutation
   toggleDrawer() {

@@ -14,6 +14,7 @@
           $store.state.layout.collapseBar ? 'pr-3' : null
         }`"
       >
+        <nuxt />
       </v-container>
     </v-main>
     <the-footer />
