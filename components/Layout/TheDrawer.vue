@@ -11,50 +11,72 @@
     app
     @input="(val) => $store.commit('layout/setDrawer', val)"
   >
-    <v-list
-      v-if="$store.state.layout.collapseBar && !$store.state.layout.drawerMini"
-    >
-      <v-list-item class="text-center headline">
-        <span>
-          {{ $store.state.layout.appBarTitle }}
-        </span>
-      </v-list-item>
-    </v-list>
-    <v-list>
-      <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-        :to="item.to"
-        router
-        exact
+    <v-layout column justify-space-between fill-height>
+      <v-list
+        v-if="
+          $store.state.layout.collapseBar && !$store.state.layout.drawerMini
+        "
       >
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title>
-            {{ item.title }}
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-    <v-list class="mt-auto">
-      <v-list-item>
-        <v-btn
-          outlined
-          tile
-          color="primary"
-          :block="!$store.state.layout.drawerMini"
-          @click.stop="$store.commit('layout/toggleDrawerMini')"
+        <v-list-item class="text-center headline">
+          <span>
+            {{ $store.state.layout.appBarTitle }}
+          </span>
+        </v-list-item>
+      </v-list>
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          :style="{
+            transition: 'margin .18s linear',
+            marginRight: $store.state.layout.drawerMini ? null : '8px',
+          }"
+          :title="item.title"
+          router
+          exact
         >
-          <v-icon>
-            mdi-{{
-              `chevron-${$store.state.layout.drawerMini ? 'right' : 'left'}`
-            }}
-          </v-icon>
-        </v-btn>
-      </v-list-item>
-    </v-list>
+          <v-list-item-icon class="ml-3 mr-auto">
+            <v-icon>
+              {{ item.icon }}
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="ml-4">
+            <v-list-item-title>
+              <span>
+                {{ item.title }}
+              </span>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-spacer />
+      <transition name="flip-x" mode="out-in">
+        <div
+          :key="$store.state.layout.drawerMini"
+          :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} mb-3`"
+        >
+          <v-btn
+            :block="!$store.state.layout.drawerMini"
+            outlined
+            tile
+            color="primary"
+            :title="
+              $store.state.layout.drawerMini
+                ? 'Expand drawer'
+                : 'Collapse drawer'
+            "
+            @click.stop="$store.commit('layout/toggleDrawerMini')"
+          >
+            <v-icon>
+              mdi-{{
+                `chevron-${$store.state.layout.drawerMini ? 'right' : 'left'}`
+              }}
+            </v-icon>
+          </v-btn>
+        </div>
+      </transition>
+    </v-layout>
   </v-navigation-drawer>
 </template>
 
