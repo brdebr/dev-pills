@@ -1,12 +1,12 @@
 <template>
   <v-layout justify-center>
-    <v-flex xs12 sm10>
+    <v-flex xs12 md10 lg11 xl10>
       <v-card outlined tile>
         <v-card-title class="headline">
           Welcome to DevPills
         </v-card-title>
         <v-card-text>
-          <p v-t="'message'"></p>
+          <p v-t="'message'" />
           <div id="lipsum">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at
