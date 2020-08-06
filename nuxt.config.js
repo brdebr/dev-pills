@@ -90,7 +90,7 @@ export default {
           success: colors.lightGreen.base
         },
         dark: {
-          primary: colors.teal.base,
+          primary: colors.teal.lighten1,
           'toolbar-color': '#002922',
           'bg-color': '#0D0D13',
           secondary: colors.pink.base,
