@@ -1,13 +1,5 @@
 <template>
-  <v-app-bar
-    clipped-left
-    color="toolbar-color"
-    app
-    flat
-    :collapse="$store.state.layout.collapseBar"
-    collapse-on-scroll
-    class="the-app-bar"
-  >
+  <v-app-bar clipped-left color="toolbar-color" app flat class="the-app-bar">
     <v-app-bar-nav-icon @click="$store.commit('layout/toggleDrawer')" />
     <v-toolbar-title class="d-flex align-center">
       {{ $store.state.layout.appBarTitle }}
@@ -26,9 +18,9 @@ export default Vue.extend({
 <style lang="scss">
 .the-app-bar {
   margin-left: auto;
-  &.v-toolbar--collapsed {
-    border-bottom-right-radius: 0px !important;
-    border-bottom-left-radius: 24px !important;
-  }
+  // &.v-toolbar--collapsed {
+  //   border-bottom-right-radius: 0px !important;
+  //   border-bottom-left-radius: 24px !important;
+  // }
 }
 </style>
