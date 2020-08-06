@@ -23,5 +23,12 @@ export default Vue.extend({
   data: () => ({}),
 })
 </script>
-
-<style scoped></style>
+<style lang="scss">
+.the-app-bar {
+  margin-left: auto;
+  &.v-toolbar--collapsed {
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 24px !important;
+  }
+}
+</style>

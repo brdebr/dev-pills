@@ -33,23 +33,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.the-drawer {
-  &--collapsed {
-    top: 0 !important;
-    max-height: calc(100% - 36px) !important;
-  }
-  .v-navigation-drawer__content {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.the-app-bar {
-  margin-left: auto;
-  &.v-toolbar--collapsed {
-    border-bottom-right-radius: 0px !important;
-    border-bottom-left-radius: 24px !important;
-  }
-}
-</style>
