@@ -4,12 +4,13 @@
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
       style="border: 1px solid;"
+      title="Toggle navigation"
       @click="$store.commit('layout/toggleDrawer')"
     />
     <v-toolbar-title class="d-flex align-center">
       {{ $store.state.layout.appBarTitle }}
     </v-toolbar-title>
-    <v-spacer />
+    <global-search class="ml-auto" />
   </v-app-bar>
 </template>
 
