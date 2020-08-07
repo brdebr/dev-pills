@@ -1,27 +1,62 @@
 <template>
   <v-container class="align-self-start">
-    <v-card outlined tile class="pa-5">
-      <h1 v-if="error.statusCode === 404" class="mb-3">
-        {{ pageNotFound }}
-      </h1>
-      <h1 v-else>
-        <div>
-          {{ otherError }}
-        </div>
-        <div>
-          {{ error.message }}
-        </div>
-      </h1>
-      <NuxtLink to="/">
-        Home page
-      </NuxtLink>
-    </v-card>
+    <v-layout justify-center>
+      <v-flex xs9>
+        <v-card outlined tile>
+          <template v-if="error.statusCode === 404">
+            <v-card-title style="background-color: #f6bebe;">
+              <span>
+                Sorry couldn't find that page 😢
+              </span>
+              <span class="font-italic ml-auto text--secondary">
+                "{{ $router.history.current.fullPath }}"
+              </span>
+            </v-card-title>
+            <v-divider />
+            <v-card-text>
+              <p>
+                This may be because one of this reasons:
+              </p>
+              <ul>
+                <li>
+                  This page is not done yet.
+                </li>
+                <li>
+                  Some unknown error happened.
+                </li>
+                <li>
+                  Something went wrong :/
+                </li>
+                <li>
+                  The page was done but my dog ate it, sad history.
+                </li>
+              </ul>
+            </v-card-text>
+          </template>
+          <template v-else>
+            <div class="pa-5">
+              <h1>
+                <div>
+                  {{ otherError }}
+                </div>
+                <div>
+                  {{ error.message }}
+                </div>
+              </h1>
+              <NuxtLink to="/">
+                Home page
+              </NuxtLink>
+            </div>
+          </template>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  layout: 'default',
   props: {
     error: {
       type: Object,
@@ -29,6 +64,7 @@ export default {
     },
   },
   data() {
+    console.log(this.$router)
     return {
       pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
