@@ -1,7 +1,7 @@
 <template>
   <div class="global-search">
     <v-text-field
-      label="Search..."
+      :label="$t('search')"
       dense
       solo
       solo-inverted
@@ -14,6 +14,16 @@
     />
   </div>
 </template>
+<i18n>
+{
+  "en": {
+    "search": "Search..."
+  },
+  "es": {
+    "search": "Búsqueda..."
+  }
+}
+</i18n>
 
 <style lang="scss">
 .global-search {
