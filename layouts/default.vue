@@ -19,6 +19,8 @@ import Component from 'vue-class-component'
 export default class DefaultLayout extends Vue {
   items = []
   async mounted() {
+    // @ts-ignore
+    this.$vuetify.lang.current = this.$i18n.locale
     const itemsResp: { items: [] } = await this.$content('drawer', 'items')
       .only('items')
       .fetch()

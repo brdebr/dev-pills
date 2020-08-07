@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import en from 'vuetify/src/locale/en'
+import es from 'vuetify/src/locale/es'
 
 export default {
   /*
@@ -64,10 +66,15 @@ export default {
    */
   content: {},
 
+  router: {
+    middleware: ["syncVuetifyLocale"]
+  },
+
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
     vueI18nLoader: true,
+    strategy: 'prefix',
     vueI18n: {
       fallbackLocale: 'en'
     }
@@ -105,6 +112,10 @@ export default {
         }
       },
     },
+    lang: {
+      locales: { en , es },
+      current: 'en',
+    }
   },
   /*
    ** Build configuration
