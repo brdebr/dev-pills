@@ -97,7 +97,7 @@ export default {
           'toolbar-color': '#002922',
           'bg-color': '#0D0D13',
           secondary: colors.pink.base,
-          accent: colors.indigo.base,
+          accent: colors.indigo.lighten2,
           error: colors.red.base,
           warning: colors.amber.base,
           info: colors.lightBlue.base,

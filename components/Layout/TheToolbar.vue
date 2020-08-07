@@ -3,7 +3,7 @@
     <v-app-bar-nav-icon
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
-      style="border: 1px solid;"
+      style="border: 1px solid; margin-left: 1px;"
       title="Toggle navigation"
       @click="$store.commit('layout/toggleDrawer')"
     />
