@@ -9,6 +9,7 @@
       outlined
       full-width
       hide-details
+      color="indigo accent-2"
       append-icon="mdi-magnify"
       class="rounded-0 flex-grow-1"
     />
@@ -31,6 +32,11 @@
   transition: min-width 0.25s ease-out;
   &:focus-within {
     min-width: 400px;
+  }
+  > .v-text-field.v-input--is-focused {
+    fieldset {
+      border-width: 3px !important;
+    }
   }
 }
 </style>

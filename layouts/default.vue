@@ -3,7 +3,7 @@
     <the-drawer :items="items" />
     <the-toolbar />
     <v-main style="padding-bottom: 120px;" class="bg-color">
-      <v-container class="fill-height">
+      <v-container class="fill-height pt-5">
         <nuxt />
       </v-container>
     </v-main>
