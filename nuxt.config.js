@@ -32,7 +32,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/transitions.scss'],
+  css: [
+    '@/assets/css/transitions.scss',
+    '@/assets/css/main.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -53,12 +56,22 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'nuxt-i18n'
   ],
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
   content: {},
+
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    vueI18nLoader: true,
+    vueI18n: {
+      fallbackLocale: 'en'
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -70,6 +83,19 @@ export default {
       themes: {
         light: {
           primary: colors.teal.base,
+          'toolbar-color': '#D0EBE4',
+          'bg-color': '#FEFCF9',
+          secondary: colors.pink.base,
+          accent: colors.indigo.base,
+          error: colors.red.base,
+          warning: colors.amber.base,
+          info: colors.lightBlue.base,
+          success: colors.lightGreen.base
+        },
+        dark: {
+          primary: colors.teal.lighten1,
+          'toolbar-color': '#002922',
+          'bg-color': '#0D0D13',
           secondary: colors.pink.base,
           accent: colors.indigo.base,
           error: colors.red.base,
