@@ -218,5 +218,7 @@
 </i18n>
 
 <script>
-export default {}
+export default {
+  name: 'IndexPage',
+}
 </script>

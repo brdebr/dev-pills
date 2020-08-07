@@ -11,18 +11,18 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [],
-    }
-  },
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({})
+export default class DefaultLayout extends Vue {
+  items = []
   async mounted() {
-    const itemsResp = await this.$content('drawer', 'items')
+    const itemsResp: { items: [] } = await this.$content('drawer', 'items')
       .only('items')
       .fetch()
     this.items = itemsResp.items
-  },
+  }
 }
 </script>
