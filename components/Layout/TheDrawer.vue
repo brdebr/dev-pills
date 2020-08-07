@@ -40,7 +40,7 @@
           </v-list-item-icon>
           <v-list-item-content class="ml-4">
             <v-list-item-title>
-              <span>
+              <span :class="$vuetify.theme.dark ? 'white--text' : null">
                 {{ item.title }}
               </span>
             </v-list-item-title>

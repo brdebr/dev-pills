@@ -64,7 +64,6 @@ export default {
     },
   },
   data() {
-    console.log(this.$router)
     return {
       pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
