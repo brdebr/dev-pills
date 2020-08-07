@@ -8,7 +8,14 @@
       @click="$store.commit('layout/toggleDrawer')"
     />
     <v-toolbar-title class="d-flex align-center">
-      {{ $store.state.layout.appBarTitle }}
+      <nuxt-link
+        to="/"
+        tag="div"
+        class="d-flex align-center"
+        style="cursor: pointer;"
+      >
+        {{ $store.state.layout.appBarTitle }}
+      </nuxt-link>
     </v-toolbar-title>
     <global-search class="ml-auto" />
   </v-app-bar>
