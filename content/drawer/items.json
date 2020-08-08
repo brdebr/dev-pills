@@ -1,34 +1,76 @@
 {
-  "items": [
-    {
-      "title": "Main page",
-      "to": "/",
-      "icon": "mdi-apps"
-    },
-    {
-      "title": "Articles",
-      "to": "/Articles",
-      "icon": "mdi-newspaper-variant-multiple"
-    },
-    {
-      "title": "Categories",
-      "to": "/Categories",
-      "icon": "mdi-book-multiple"
-    },
-    {
-      "title": "Snippets",
-      "to": "/Snippets",
-      "icon": "mdi-code-json"
-    },
-    {
-      "title": "Utils",
-      "to": "/Utils",
-      "icon": "mdi-iframe-variable-outline"
-    },
-    {
-      "title": "About",
-      "to": "/about",
-      "icon": "mdi-information-outline"
-    }
-  ]
+  "list": {
+    "en": [
+      {
+        "title": "Main page",
+        "to": "/",
+        "icon": "mdi-apps"
+      },
+      {
+        "title": "Articles",
+        "to": "/Articles",
+        "disable": true,
+        "icon": "mdi-newspaper-variant-multiple"
+      },
+      {
+        "title": "Categories",
+        "to": "/Categories",
+        "disable": true,
+        "icon": "mdi-book-multiple"
+      },
+      {
+        "title": "Snippets",
+        "to": "/Snippets",
+        "disable": true,
+        "icon": "mdi-code-json"
+      },
+      {
+        "title": "Utils",
+        "to": "/Utils",
+        "disable": true,
+        "icon": "mdi-iframe-variable-outline"
+      },
+      {
+        "title": "About",
+        "to": "/about",
+        "icon": "mdi-information-outline"
+      }
+    ],
+    "es": [
+      {
+        "title": "Principal",
+        "to": "/",
+        "icon": "mdi-apps"
+      },
+      {
+        "title": "Artículos",
+        "to": "/Articles",
+        "disable": true,
+        "icon": "mdi-newspaper-variant-multiple"
+      },
+      {
+        "title": "Categorías",
+        "to": "/Categories",
+        "disable": true,
+        "icon": "mdi-book-multiple"
+      },
+      {
+        "title": "Notas/código",
+        "to": "/Snippets",
+        "disable": true,
+        "icon": "mdi-code-json"
+      },
+      {
+        "title": "Útiles",
+        "to": "/Utils",
+        "disable": true,
+        "icon": "mdi-iframe-variable-outline"
+      },
+      {
+        "title": "Acerca de",
+        "to": "/about",
+        "icon": "mdi-information-outline"
+      }
+    ]
+  }
 }

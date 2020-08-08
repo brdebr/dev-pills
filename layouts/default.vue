@@ -15,6 +15,9 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
+// @ts-ignore
+let unwatcher
+
 @Component({
   head() {
     return {
@@ -26,13 +29,33 @@ import Component from 'vue-class-component'
 })
 export default class DefaultLayout extends Vue {
   items = []
-  async mounted() {
+
+  async fetchItems() {
     // @ts-ignore
     this.$vuetify.lang.current = this.$i18n.locale
-    const itemsResp: { items: [] } = await this.$content('drawer', 'items')
-      .only('items')
-      .fetch()
-    this.items = itemsResp.items
+    const itemsResp: { list: { en: []; es: [] } } = await this.$content(
+      'drawer',
+      'items'
+    ).fetch()
+    // @ts-ignore
+    this.items = itemsResp.list[this.$i18n.locale]
+  }
+
+  async mounted() {
+    unwatcher = this.$watch(
+      () => {
+        return this.$i18n.locale
+      },
+      () => {
+        this.fetchItems()
+      }
+    )
+    await this.fetchItems()
+  }
+
+  beforeDestroy() {
+    // @ts-ignore
+    unwatcher()
   }
 }
 </script>
