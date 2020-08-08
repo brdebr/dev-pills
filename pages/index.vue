@@ -198,7 +198,13 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt :to="localePath('/about')" tile depressed>
+          <v-btn
+            color="primary darken-1"
+            nuxt
+            :to="localePath('/about')"
+            tile
+            depressed
+          >
             About page
           </v-btn>
         </v-card-actions>
