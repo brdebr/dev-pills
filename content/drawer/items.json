@@ -9,25 +9,25 @@
       {
         "title": "Articles",
         "to": "/Articles",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-newspaper-variant-multiple"
       },
       {
         "title": "Categories",
         "to": "/Categories",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-book-multiple"
       },
       {
         "title": "Snippets",
         "to": "/Snippets",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-code-json"
       },
       {
         "title": "Utils",
         "to": "/Utils",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-iframe-variable-outline"
       },
       {
@@ -45,25 +45,25 @@
       {
         "title": "Artículos",
         "to": "/Articles",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-newspaper-variant-multiple"
       },
       {
         "title": "Categorías",
         "to": "/Categories",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-book-multiple"
       },
       {
         "title": "Notas/código",
         "to": "/Snippets",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-code-json"
       },
       {
         "title": "Útiles",
         "to": "/Utils",
-        "disable": true,
+        "disabled": true,
         "icon": "mdi-iframe-variable-outline"
       },
       {

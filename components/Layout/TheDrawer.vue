@@ -30,6 +30,7 @@
           :to="localePath(item.to)"
           active-class="accent--text text--darken-1"
           :title="item.title"
+          :disabled="item.disabled"
           router
           exact
         >
@@ -103,6 +104,22 @@ export default Vue.extend({
   .v-navigation-drawer__content {
     display: flex;
     flex-direction: column;
+    .v-list {
+      .v-list-item.v-list-item--disabled {
+        .v-list-item__icon {
+          .v-icon {
+            color: rgba(0, 0, 0, 0.3);
+          }
+        }
+        .v-list-item__content {
+          .v-list-item__title {
+            > span {
+              filter: contrast(0.2);
+            }
+          }
+        }
+      }
+    }
   }
   .drawer-item-title {
     font-size: 16px;

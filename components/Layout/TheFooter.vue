@@ -2,8 +2,8 @@
   <div class="fixed-footer">
     <div class="fixed-footer__content" :style="containerStyles">
       <v-footer
-        class="px-6 pb-4 pt-5 mx-auto rounded-t-xl toolbar-color footer-bar"
-        max-width="70%"
+        class="px-6 pb-5 pt-7 mx-auto rounded-t-xl toolbar-color footer-bar"
+        max-width="75%"
         absolute
       >
         <div class="d-flex align-center py-1">
@@ -92,8 +92,16 @@ export default class TheFooter extends Vue {
     transition: margin-left 0.15s linear;
   }
   .footer-bar {
-    bottom: -50px !important;
+    bottom: -55px !important;
     transition: bottom 0.15s ease-in-out;
+    border: 2px solid;
+    border-bottom: 0;
+    &.theme--light {
+      border-color: #002922 !important;
+    }
+    &.theme--dark {
+      border-color: #d0ebe4 !important;
+    }
     &:hover {
       bottom: 0px !important;
     }
