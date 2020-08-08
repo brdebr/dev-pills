@@ -203,6 +203,7 @@
             nuxt
             :to="localePath('/about')"
             tile
+            class="rbt-font"
             depressed
           >
             About page

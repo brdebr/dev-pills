@@ -42,7 +42,7 @@
             <v-list-item-title>
               <span
                 :class="
-                  'drawer-item-title ' +
+                  'drawer-item-title rbt-font ' +
                   ($vuetify.theme.dark ? 'white--text' : null)
                 "
               >
@@ -105,7 +105,6 @@ export default Vue.extend({
     flex-direction: column;
   }
   .drawer-item-title {
-    font-family: Merriweather;
     font-size: 16px;
     letter-spacing: 0.7px;
   }
