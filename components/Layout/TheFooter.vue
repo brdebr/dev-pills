@@ -12,7 +12,7 @@
               x-small
               tile
               outlined
-              class="mr-2"
+              class="mr-2 rbt-font"
               title="Change language to English"
               @click="$i18n.setLocale('en')"
             >
@@ -22,6 +22,7 @@
               x-small
               tile
               outlined
+              class="rbt-font"
               title="Change language to Spanish"
               @click="$i18n.setLocale('es')"
             >

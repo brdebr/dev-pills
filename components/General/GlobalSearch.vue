@@ -55,8 +55,9 @@ export default class GlobalSearch extends Vue {
     .v-select__slot {
       > label {
         margin-left: 5px;
-        font-weight: 500 !important;
+        font-weight: 400 !important;
         letter-spacing: 0.9px;
+        font-family: 'Roboto', serif !important;
       }
     }
   }
