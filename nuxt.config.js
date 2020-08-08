@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 import en from 'vuetify/src/locale/en'
 import es from 'vuetify/src/locale/es'
+const appName = 'Dev-Pills'
 
 export default {
   /*
@@ -18,8 +19,8 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ' + appName,
+    title: appName || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
