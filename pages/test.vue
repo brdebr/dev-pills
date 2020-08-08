@@ -12,6 +12,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import Prism from 'prismjs'
+import 'prismjs/plugins/autoloader/prism-autoloader.js'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
@@ -38,6 +39,7 @@ export default class TestPage extends Vue {
   }
 
   mounted() {
+    Prism.plugins.autoloader.languages_path = '/prism/components/'
     this.refreshPrism()
     this.$nuxt.$on('content:update', this.refreshPrism)
   }
