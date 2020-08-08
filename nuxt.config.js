@@ -59,8 +59,18 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    'nuxt-webfontloader'
   ],
+
+  webfontloader: {
+    google: {
+      families: [
+        'Merriweather:100,300,400,500,700,900',
+        'IBM Plex Sans:100,300,400,500,700,900',
+      ]
+    }
+  },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
@@ -92,6 +102,13 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: {
+        family: 'IBM Plex Sans'
+      },
+      icons: 'mdi'
+    },
+    treeShake: true,
     theme: {
       dark: false,
       themes: {

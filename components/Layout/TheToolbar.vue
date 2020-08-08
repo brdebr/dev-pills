@@ -14,7 +14,12 @@
         class="d-flex align-center"
         style="cursor: pointer;"
       >
-        {{ $store.state.layout.appBarTitle }}
+        <span
+          class="headline font-weight-black"
+          style="letter-spacing: 0.5px !important;"
+        >
+          {{ $store.state.layout.appBarTitle }}
+        </span>
       </nuxt-link>
     </v-toolbar-title>
     <global-search class="ml-auto" />

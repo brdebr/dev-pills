@@ -62,6 +62,7 @@ export default class TestPage extends Vue {
       border-radius: unset !important;
       margin: unset !important;
       box-sizing: unset !important;
+      letter-spacing: unset !important;
     }
     .filename {
       position: absolute;
