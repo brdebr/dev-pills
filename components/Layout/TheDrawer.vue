@@ -23,15 +23,12 @@
           </span>
         </v-list-item>
       </v-list>
-      <v-list>
+      <v-list nav>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
-          :style="{
-            transition: 'margin .18s linear',
-            marginRight: $store.state.layout.drawerMini ? null : '8px',
-          }"
+          :to="localePath(item.to)"
+          active-class="accent--text text--darken-1"
           :title="item.title"
           router
           exact
@@ -43,7 +40,7 @@
           </v-list-item-icon>
           <v-list-item-content class="ml-4">
             <v-list-item-title>
-              <span>
+              <span :class="$vuetify.theme.dark ? 'white--text' : null">
                 {{ item.title }}
               </span>
             </v-list-item-title>

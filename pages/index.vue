@@ -198,7 +198,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/about" tile depressed>
+          <v-btn color="primary" nuxt :to="localePath('/about')" tile depressed>
             About page
           </v-btn>
         </v-card-actions>
@@ -218,5 +218,12 @@
 </i18n>
 
 <script>
-export default {}
+export default {
+  name: 'IndexPage',
+  head() {
+    return {
+      title: 'Home',
+    }
+  },
+}
 </script>

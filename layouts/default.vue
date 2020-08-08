@@ -3,7 +3,7 @@
     <the-drawer :items="items" />
     <the-toolbar />
     <v-main style="padding-bottom: 120px;" class="bg-color">
-      <v-container class="fill-height">
+      <v-container class="fill-height pt-5">
         <nuxt />
       </v-container>
     </v-main>
@@ -11,18 +11,20 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [],
-    }
-  },
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({})
+export default class DefaultLayout extends Vue {
+  items = []
   async mounted() {
-    const itemsResp = await this.$content('drawer', 'items')
+    // @ts-ignore
+    this.$vuetify.lang.current = this.$i18n.locale
+    const itemsResp: { items: [] } = await this.$content('drawer', 'items')
       .only('items')
       .fetch()
     this.items = itemsResp.items
-  },
+  }
 }
 </script>

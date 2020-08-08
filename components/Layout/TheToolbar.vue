@@ -3,12 +3,19 @@
     <v-app-bar-nav-icon
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
-      style="border: 1px solid;"
+      style="border: 1px solid; margin-left: 1px;"
       title="Toggle navigation"
       @click="$store.commit('layout/toggleDrawer')"
     />
     <v-toolbar-title class="d-flex align-center">
-      {{ $store.state.layout.appBarTitle }}
+      <nuxt-link
+        :to="localePath('/')"
+        tag="div"
+        class="d-flex align-center"
+        style="cursor: pointer;"
+      >
+        {{ $store.state.layout.appBarTitle }}
+      </nuxt-link>
     </v-toolbar-title>
     <global-search class="ml-auto" />
   </v-app-bar>

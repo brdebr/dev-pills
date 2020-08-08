@@ -1,34 +1,34 @@
 {
   "items": [
     {
-      "title": "Home",
+      "title": "Main page",
       "to": "/",
       "icon": "mdi-apps"
     },
     {
       "title": "Articles",
       "to": "/Articles",
-      "icon": "mdi-apps"
+      "icon": "mdi-newspaper-variant-multiple"
     },
     {
       "title": "Categories",
       "to": "/Categories",
-      "icon": "mdi-apps"
+      "icon": "mdi-book-multiple"
     },
     {
       "title": "Snippets",
       "to": "/Snippets",
-      "icon": "mdi-apps"
+      "icon": "mdi-code-json"
     },
     {
       "title": "Utils",
       "to": "/Utils",
-      "icon": "mdi-apps"
+      "icon": "mdi-iframe-variable-outline"
     },
     {
       "title": "About",
       "to": "/about",
-      "icon": "mdi-chart-bubble"
+      "icon": "mdi-information-outline"
     }
   ]
 }

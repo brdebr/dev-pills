@@ -1,4 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
+import en from 'vuetify/src/locale/en'
+import es from 'vuetify/src/locale/es'
+const appName = 'Dev-Pills'
 
 export default {
   /*
@@ -16,8 +19,8 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - ' + appName,
+    title: appName || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -27,7 +30,7 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   },
   /*
    ** Global CSS
@@ -62,12 +65,23 @@ export default {
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css'
+      }
+    }
+  },
+
+  router: {
+    middleware: ["syncVuetifyLocale"]
+  },
 
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
     vueI18nLoader: true,
+    strategy: 'prefix',
     vueI18n: {
       fallbackLocale: 'en'
     }
@@ -97,7 +111,7 @@ export default {
           'toolbar-color': '#002922',
           'bg-color': '#0D0D13',
           secondary: colors.pink.base,
-          accent: colors.indigo.base,
+          accent: colors.indigo.lighten2,
           error: colors.red.base,
           warning: colors.amber.base,
           info: colors.lightBlue.base,
@@ -105,6 +119,10 @@ export default {
         }
       },
     },
+    lang: {
+      locales: { en , es },
+      current: 'en',
+    }
   },
   /*
    ** Build configuration
