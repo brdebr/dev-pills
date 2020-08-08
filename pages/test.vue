@@ -13,7 +13,7 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import Prism from 'prismjs'
 import 'prismjs/plugins/autoloader/prism-autoloader.js'
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js'
+// import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js' // Copy to clipboard loaded before Toolbar
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.js'
