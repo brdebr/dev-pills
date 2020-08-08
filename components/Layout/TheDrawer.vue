@@ -27,7 +27,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="localePath(item.to)"
           active-class="accent--text text--darken-1"
           :title="item.title"
           router

@@ -9,7 +9,7 @@
     />
     <v-toolbar-title class="d-flex align-center">
       <nuxt-link
-        to="/"
+        :to="localePath('/')"
         tag="div"
         class="d-flex align-center"
         style="cursor: pointer;"

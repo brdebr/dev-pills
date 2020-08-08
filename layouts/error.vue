@@ -43,7 +43,7 @@
                   {{ error.message }}
                 </div>
               </h1>
-              <NuxtLink to="/">
+              <NuxtLink :to="localePath('/')">
                 Home page
               </NuxtLink>
             </div>
