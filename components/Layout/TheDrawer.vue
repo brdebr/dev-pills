@@ -38,9 +38,14 @@
               {{ item.icon }}
             </v-icon>
           </v-list-item-icon>
-          <v-list-item-content class="ml-4">
+          <v-list-item-content class="ml-5">
             <v-list-item-title>
-              <span :class="$vuetify.theme.dark ? 'white--text' : null">
+              <span
+                :class="
+                  'drawer-item-title ' +
+                  ($vuetify.theme.dark ? 'white--text' : null)
+                "
+              >
                 {{ item.title }}
               </span>
             </v-list-item-title>
@@ -98,6 +103,11 @@ export default Vue.extend({
   .v-navigation-drawer__content {
     display: flex;
     flex-direction: column;
+  }
+  .drawer-item-title {
+    font-family: Merriweather;
+    font-size: 16px;
+    letter-spacing: 0.7px;
   }
 }
 </style>
