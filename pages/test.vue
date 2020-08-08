@@ -31,12 +31,19 @@ export default class TestPage extends Vue {
   pageMd = null
 
   refreshPrism() {
-    // @ts-ignore
-    Prism.highlightAllUnder(this.$refs.tesPage)
+    setTimeout(() => {
+      // @ts-ignore
+      Prism.highlightAllUnder(this.$refs.tesPage)
+    }, 10)
   }
 
   mounted() {
     this.refreshPrism()
+    this.$nuxt.$on('content:update', this.refreshPrism)
+  }
+
+  beforeDestroy() {
+    this.$nuxt.$off('content:update', this.refreshPrism)
   }
 }
 </script>
