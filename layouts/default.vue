@@ -15,7 +15,15 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-@Component({})
+@Component({
+  head() {
+    return {
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+    }
+  },
+})
 export default class DefaultLayout extends Vue {
   items = []
   async mounted() {
