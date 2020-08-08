@@ -56,6 +56,7 @@
             depressed
             title="Github repository"
             href="https://github.com/brdebr/dev-pills"
+            rel="noreferrer"
             target="_blank"
           >
             <v-icon size="28">
