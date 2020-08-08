@@ -35,7 +35,7 @@ export default class TestPage extends Vue {
     setTimeout(() => {
       // @ts-ignore
       Prism.highlightAllUnder(this.$refs.tesPage)
-    }, 10)
+    }, 50)
   }
 
   mounted() {
@@ -52,6 +52,7 @@ export default class TestPage extends Vue {
 <style lang="scss">
 .ttt {
   .nuxt-content-highlight {
+    position: relative;
     code {
       background-color: unset !important;
       color: unset !important;
@@ -61,6 +62,42 @@ export default class TestPage extends Vue {
       border-radius: unset !important;
       margin: unset !important;
       box-sizing: unset !important;
+    }
+    .filename {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      color: #fff;
+      margin-top: 11px;
+      margin-right: 9px;
+      background-color: #171e35;
+      padding: 5px 16px;
+      padding-right: 30px;
+      letter-spacing: 0.7px;
+    }
+    pre[class*='language-'] {
+      &::before {
+        position: absolute;
+        right: 15px;
+        top: 16px;
+        z-index: 1;
+        font-family: 'Material Design Icons';
+        content: '\F0214';
+        color: #fff;
+      }
+      &.language-js {
+        &::before {
+          content: '\F031E';
+          color: #ffca28;
+        }
+      }
+      &.language-ts {
+        &::before {
+          content: '\F06E6';
+          color: #0288d1;
+        }
+      }
     }
   }
 }
