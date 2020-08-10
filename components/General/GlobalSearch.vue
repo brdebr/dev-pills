@@ -10,12 +10,10 @@
       outlined
       full-width
       :hide-no-data="!searchVal"
-      clearable
       hide-details
       color="indigo accent-2"
-      append-icon="mdi-magnify icon-no-rotate"
+      append-icon="mdi-magnify v-autocomplete--icon-no-rotate"
       class="rounded-0 flex-grow-1"
-      menu-props=""
     />
   </div>
 </template>
@@ -60,10 +58,6 @@ export default class GlobalSearch extends Vue {
         font-family: 'Roboto', serif !important;
       }
     }
-  }
-
-  .icon-no-rotate {
-    transform: rotate(0deg) !important;
   }
 }
 </style>
