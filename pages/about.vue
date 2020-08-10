@@ -5,7 +5,7 @@
         <v-card-title>
           About Page
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="px-5">
           <p v-t="'message01'" />
           <p v-t="'message02'" />
           <nuxt-content :document="techs" />

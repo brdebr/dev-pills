@@ -56,7 +56,7 @@ export default class DefaultLayout extends Vue {
     await this.fetchItems()
   }
 
-  beforeDestroy() {
+  destroyed() {
     // @ts-ignore
     unwatcher()
   }
