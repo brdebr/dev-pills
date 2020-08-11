@@ -25,9 +25,8 @@
         "icon": "mdi-code-json"
       },
       {
-        "title": "Utils",
-        "to": "/Utils",
-        "disabled": true,
+        "title": "Toolbox",
+        "to": "/toolbox",
         "icon": "mdi-iframe-variable-outline"
       },
       {
