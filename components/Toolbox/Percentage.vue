@@ -1,60 +1,50 @@
 <template>
-  <v-col style="max-width: 500px;">
-    <v-card tile outlined>
-      <v-radio-group v-model="mode" hide-details class="mt-0">
-        <v-row no-gutters justify="space-around" class="py-3">
-          <v-col cols="4" class="d-flex flex-column align-center">
-            <v-radio
-              value="%1"
-              class="mb-1"
-              :label="mode === '%1' ? '%' : ''"
-            />
-            <v-text-field
-              v-model="x"
-              dense
-              solo
-              flat
-              outlined
-              full-width
-              hide-details
-              class="rounded-0"
-            />
-          </v-col>
-          <v-col cols="4" class="d-flex flex-column align-center">
-            <v-radio
-              value="%2"
-              class="mb-1"
-              :label="mode === '%2' ? '%' : ''"
-            />
-            <v-text-field
-              v-model="y"
-              dense
-              solo
-              flat
-              outlined
-              full-width
-              hide-details
-              class="rounded-0"
-            />
-          </v-col>
-          <v-col cols="3" class="d-flex">
-            <v-text-field
-              dense
-              solo
-              flat
-              label="Result"
-              outlined
-              full-width
-              disabled
-              :value="result"
-              hide-details
-              class="rounded-0 mt-auto"
-            />
-          </v-col>
-        </v-row>
-      </v-radio-group>
-    </v-card>
-  </v-col>
+  <v-card tile flat style="background-color: #fdfdfd;" width="100%">
+    <v-radio-group v-model="mode" hide-details class="mt-0">
+      <v-row no-gutters justify="space-around" class="py-3">
+        <v-col cols="4" class="d-flex flex-column align-center">
+          <v-radio value="%1" class="mb-1" :label="mode === '%1' ? '%' : ''" />
+          <v-text-field
+            v-model="x"
+            dense
+            solo
+            flat
+            outlined
+            full-width
+            hide-details
+            class="rounded-0"
+          />
+        </v-col>
+        <v-col cols="4" class="d-flex flex-column align-center">
+          <v-radio value="%2" class="mb-1" :label="mode === '%2' ? '%' : ''" />
+          <v-text-field
+            v-model="y"
+            dense
+            solo
+            flat
+            outlined
+            full-width
+            hide-details
+            class="rounded-0"
+          />
+        </v-col>
+        <v-col cols="3" class="d-flex">
+          <v-text-field
+            dense
+            solo
+            flat
+            label="Result"
+            outlined
+            full-width
+            disabled
+            :value="result"
+            hide-details
+            class="rounded-0 mt-auto"
+          />
+        </v-col>
+      </v-row>
+    </v-radio-group>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -66,7 +56,7 @@ import Component from 'vue-class-component'
 export default class Percentage extends Vue {
   x = 0
   y = 0
-  mode = '%1'
+  mode = '%2'
 
   get result() {
     if (this.mode === '%2') {

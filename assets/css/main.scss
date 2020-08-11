@@ -21,6 +21,27 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111c24",endColorstr="#111111",GradientType=1);
 }
 
+.no-bt{
+  border-top: 0 !important;
+}
+.no-bb{
+  border-bottom: 0 !important;
+}
+.no-br{
+  border-right: 0 !important;
+}
+.no-bl{
+  border-left: 0 !important;
+}
+.no-bx{
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+.no-by{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
 
 .v-autocomplete{
   &--icon-no-rotate{

@@ -1,12 +1,11 @@
 <template>
   <v-layout justify-center>
-    <v-flex xs12 md10 lg11 xl10>
+    <v-flex xs12 md11 lg11 xl11>
       <v-card outlined tile>
         <v-card-title class="headline">
           Toolbox
         </v-card-title>
-        <v-divider />
-        <v-card-text>
+        <v-card-text class="pa-0">
           <v-row no-gutters>
             <v-col>
               <v-tabs
@@ -49,7 +48,7 @@
           </v-row>
           <v-row no-gutters class="tool-search-values">
             <v-col>
-              <v-card tile outlined>
+              <v-card tile outlined class="no-bx">
                 <v-row wrap class="px-4">
                   <v-col v-for="tool in tools" :key="tool.name" cols="2">
                     <v-card
@@ -68,19 +67,21 @@
               </v-card>
             </v-col>
           </v-row>
-          <v-row class="tools-container">
-            <v-col
-              v-for="(selectedT, i) in selectedTools"
-              :key="`${selectedT.name} ${i}`"
-            >
-              <p>
-                {{ selectedT.name }}
-              </p>
-              <v-row class="flex-wrap">
-                <component :is="selectedT.component" />
-              </v-row>
-            </v-col>
-          </v-row>
+          <v-card v-if="selectedTools.length" tile flat class="d-flex">
+            <v-row class="tools-container flex-wrap pa-4" no-gutters>
+              <tool-card
+                v-for="(selectedT, i) in selectedTools"
+                :key="`${selectedT.name} ${selectedT.id}`"
+                :tool-item="selectedT"
+                @remove-click="() => removeTool(i)"
+              />
+            </v-row>
+          </v-card>
+          <v-card v-else tile flat class="d-flex" min-height="300px">
+            <div class="ma-auto">
+              Add tools and they will show and stack here!
+            </div>
+          </v-card>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -102,17 +103,14 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Watch } from 'vue-property-decorator'
 
-interface ToolBoxItemI {
+export interface ToolBoxItemI {
   name: string
   category: string
   component: string
+  id?: number
 }
 
-@Component({
-  components: {
-    't-percentage': () => import('@/components/Toolbox/Percentage.vue'),
-  },
-})
+@Component({})
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
   toolSearchTab: number | null = 1
@@ -132,8 +130,14 @@ export default class UtilsPage extends Vue {
   }
 
   addTool(tool: Object) {
-    console.log({ tool })
-    this.selectedTools.push({ ...tool } as ToolBoxItemI)
+    this.selectedTools.push({
+      ...tool,
+      id: new Date().getTime(),
+    } as ToolBoxItemI)
+  }
+
+  removeTool(index: number) {
+    this.selectedTools.splice(index, 1)
   }
 
   tools: Array<ToolBoxItemI> = [
