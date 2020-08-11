@@ -50,7 +50,14 @@
             <v-col>
               <v-card tile outlined class="no-bx">
                 <v-row wrap class="px-4">
-                  <v-col v-for="tool in tools" :key="tool.name" cols="2">
+                  <v-col
+                    v-for="tool in tools"
+                    :key="tool.name"
+                    lg="2"
+                    md="3"
+                    sm="4"
+                    cols="12"
+                  >
                     <v-card
                       tile
                       outlined
@@ -79,7 +86,14 @@
           </v-card>
           <v-card v-else tile flat class="d-flex" min-height="300px">
             <div class="ma-auto">
-              Add tools and they will show and stack here!
+              <v-alert
+                color="primary"
+                prominent
+                :dark="!$vuetify.theme.dark"
+                border="top"
+              >
+                Add tools and they will show and stack here!
+              </v-alert>
             </div>
           </v-card>
         </v-card-text>
@@ -144,7 +158,7 @@ export default class UtilsPage extends Vue {
     {
       name: 'Date format',
       category: 'date',
-      component: '',
+      component: 't-date-format',
     },
     {
       name: 'Date diff',
@@ -174,6 +188,11 @@ export default class UtilsPage extends Vue {
     {
       name: 'JSON',
       category: 'data',
+      component: '',
+    },
+    {
+      name: 'SUM',
+      category: 'numbers',
       component: '',
     },
   ]

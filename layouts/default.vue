@@ -6,7 +6,7 @@
       style="padding-bottom: 120px;"
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
     >
-      <v-container class="fill-height pt-5">
+      <v-container class="fill-height pt-5" fluid>
         <nuxt />
       </v-container>
     </v-main>
