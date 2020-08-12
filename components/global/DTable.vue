@@ -17,14 +17,19 @@
           <td class="text-center">
             <v-btn
               tile
-              outlined
+              depressed
               small
-              color="grey"
+              color="#fafafa"
               target="_blank"
               rel="noreferrer"
               :href="item.link"
             >
-              <v-icon>
+              <img
+                v-if="item.icon.startsWith('image---')"
+                style="height: 20px;"
+                :src="getImage(item)"
+              />
+              <v-icon v-else>
                 {{ item.icon }}
               </v-icon>
             </v-btn>
@@ -45,6 +50,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
+const vueSvg = require('@/assets/images/icons/vue-icon.svg')
+const netlifySvg = require('@/assets/images/icons/netlify-icon.svg')
 
 interface TechI {
   name: string
@@ -57,5 +64,32 @@ interface TechI {
 export default class DTable extends Vue {
   @Prop()
   items!: [TechI]
+
+  getImage(item: TechI) {
+    switch (item.name) {
+      case 'Vue':
+        return vueSvg
+      case 'Netlify':
+        return netlifySvg
+      default:
+        return ''
+    }
+  }
 }
 </script>
+
+<style lang="scss">
+.theme--light.v-data-table {
+  > .v-data-table__wrapper {
+    > table {
+      > tbody {
+        > tr {
+          &:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+            background: #f0f9f6 !important;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
