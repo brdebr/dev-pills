@@ -2,6 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 import en from 'vuetify/src/locale/en'
 import es from 'vuetify/src/locale/es'
 const appName = 'Dev-Pills'
+const description = 'Personal blog to archive development tutorials, snippets, etc'
 
 export default {
   /*
@@ -27,7 +28,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: description,
       },
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],

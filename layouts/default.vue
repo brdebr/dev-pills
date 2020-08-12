@@ -2,8 +2,11 @@
   <v-app>
     <the-drawer :items="items" />
     <the-toolbar />
-    <v-main style="padding-bottom: 120px;" class="bg-color">
-      <v-container class="fill-height pt-5">
+    <v-main
+      style="padding-bottom: 120px;"
+      :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
+    >
+      <v-container class="fill-height pt-5" fluid>
         <nuxt />
       </v-container>
     </v-main>
@@ -53,7 +56,7 @@ export default class DefaultLayout extends Vue {
     await this.fetchItems()
   }
 
-  beforeDestroy() {
+  destroyed() {
     // @ts-ignore
     unwatcher()
   }

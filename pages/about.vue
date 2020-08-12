@@ -5,20 +5,36 @@
         <v-card-title>
           About Page
         </v-card-title>
-        <v-card-text>
-          This is the about page about the project and about what is all about
+        <v-card-text class="px-5">
+          <p v-text="techs['message01']" />
+          <p v-text="techs['message02']" />
+          <nuxt-content :document="techs" />
         </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
-<script>
-export default {
-  name: 'AboutPage',
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({
   head() {
     return {
       title: 'About',
     }
   },
+  async asyncData(ctx) {
+    const techs = await ctx
+      .$content('about', ctx.app.i18n.locale, 'technologies')
+      .fetch()
+
+    return {
+      techs,
+    }
+  },
+})
+export default class AboutPage extends Vue {
+  techs!: Object
 }
 </script>

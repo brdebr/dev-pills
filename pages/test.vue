@@ -44,7 +44,7 @@ export default class TestPage extends Vue {
     this.$nuxt.$on('content:update', this.refreshPrism)
   }
 
-  beforeDestroy() {
+  destroyed() {
     this.$nuxt.$off('content:update', this.refreshPrism)
   }
 }

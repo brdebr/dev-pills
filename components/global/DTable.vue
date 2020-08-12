@@ -1,0 +1,95 @@
+<template>
+  <v-simple-table :dark="$vuetify.theme.dark">
+    <template #default>
+      <thead>
+        <tr>
+          <th class="text-center">
+            <v-icon title="Link to technology">
+              mdi-open-in-new
+            </v-icon>
+          </th>
+          <th class="text-left">Technology</th>
+          <th class="text-left">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in items" :key="item.name">
+          <td class="text-center">
+            <v-btn
+              tile
+              depressed
+              small
+              color="#fafafa"
+              target="_blank"
+              rel="noreferrer"
+              :href="item.link"
+            >
+              <img
+                v-if="item.icon.startsWith('image---')"
+                style="height: 20px;"
+                :src="getImage(item)"
+              />
+              <v-icon v-else>
+                {{ item.icon }}
+              </v-icon>
+            </v-btn>
+          </td>
+          <td>
+            {{ item.name }}
+          </td>
+          <td>
+            {{ item.description }}
+          </td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
+const vueSvg = require('@/assets/images/icons/vue-icon.svg')
+const netlifySvg = require('@/assets/images/icons/netlify-icon.svg')
+
+interface TechI {
+  name: string
+  description: string
+  icon: string
+  link: string
+}
+
+@Component({})
+export default class DTable extends Vue {
+  @Prop()
+  items!: [TechI]
+
+  getImage(item: TechI) {
+    switch (item.name) {
+      case 'Vue':
+        return vueSvg
+      case 'Netlify':
+        return netlifySvg
+      default:
+        return ''
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.theme--light.v-data-table {
+  > .v-data-table__wrapper {
+    > table {
+      > tbody {
+        > tr {
+          &:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+            background: #f0f9f6 !important;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
