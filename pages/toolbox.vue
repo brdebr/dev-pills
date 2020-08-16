@@ -195,6 +195,11 @@ export default class UtilsPage extends Vue {
       category: 'numbers',
       component: '',
     },
+    {
+      name: 'Cross Multiply',
+      category: 'numbers',
+      component: 't-cross-multiply',
+    },
   ]
 }
 </script>
