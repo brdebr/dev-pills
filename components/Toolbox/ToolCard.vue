@@ -1,5 +1,5 @@
 <template>
-  <v-col :cols="colWidth" class="px-1">
+  <v-col :cols="colWidth" class="px-1 my-2">
     <v-card tile flat color="#f9f9f9" class="fill-height">
       <v-card-title class="pr-1 d-flex align-center">
         <v-btn

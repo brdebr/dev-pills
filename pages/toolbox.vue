@@ -14,6 +14,9 @@
                 optional
               >
                 <v-tab :disabled="toolSearchTab === null">
+                  All
+                </v-tab>
+                <v-tab :disabled="toolSearchTab === null">
                   Dates
                 </v-tab>
                 <v-tab :disabled="toolSearchTab === null">
@@ -84,7 +87,7 @@
               />
             </v-row>
           </v-card>
-          <v-card v-else tile flat class="d-flex" min-height="300px">
+          <v-card v-else tile flat class="d-flex mx-4" min-height="300px">
             <div class="ma-auto">
               <v-alert
                 color="primary"
@@ -127,7 +130,7 @@ export interface ToolBoxItemI {
 @Component({})
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
-  toolSearchTab: number | null = 1
+  toolSearchTab: number | null = 0
 
   selectedTools: Array<ToolBoxItemI> = []
 
