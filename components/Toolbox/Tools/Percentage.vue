@@ -3,7 +3,11 @@
     <v-radio-group v-model="mode" hide-details class="mt-0">
       <v-row no-gutters justify="space-around" class="py-3">
         <v-col cols="4" class="d-flex flex-column align-center">
-          <v-radio value="%1" class="mb-1" :label="mode === '%1' ? '%' : ''" />
+          <v-radio
+            value="%1"
+            class="mb-1"
+            :label="mode === '%1' ? '%' : 'Uts'"
+          />
           <v-text-field
             v-model="x"
             dense
@@ -16,7 +20,11 @@
           />
         </v-col>
         <v-col cols="4" class="d-flex flex-column align-center">
-          <v-radio value="%2" class="mb-1" :label="mode === '%2' ? '%' : ''" />
+          <v-radio
+            value="%2"
+            class="mb-1"
+            :label="mode === '%2' ? '%' : 'Uts'"
+          />
           <v-text-field
             v-model="y"
             dense
@@ -50,7 +58,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-// import { Watch } from 'vue-property-decorator'
 
 @Component({})
 export default class Percentage extends Vue {

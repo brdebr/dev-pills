@@ -1,5 +1,8 @@
 <template>
-  <v-simple-table :dark="$vuetify.theme.dark">
+  <v-simple-table
+    v-if="!$vuetify.breakpoint.xsOnly"
+    :dark="$vuetify.theme.dark"
+  >
     <template #default>
       <thead>
         <tr>
@@ -44,6 +47,40 @@
       </tbody>
     </template>
   </v-simple-table>
+  <v-row v-else class="flex-wrap">
+    <v-col v-for="item in items" :key="item.name" cols="12">
+      <v-card tile outlined>
+        <div class="d-flex align-center pt-3">
+          <div class="ml-4 mr-6">
+            <v-btn
+              tile
+              depressed
+              small
+              color="#fafafa"
+              target="_blank"
+              rel="noreferrer"
+              :href="item.link"
+            >
+              <img
+                v-if="item.icon.startsWith('image---')"
+                style="height: 20px;"
+                :src="getImage(item)"
+              />
+              <v-icon v-else>
+                {{ item.icon }}
+              </v-icon>
+            </v-btn>
+          </div>
+          <div>
+            {{ item.name }}
+          </div>
+        </div>
+        <v-card-text>
+          {{ item.description }}
+        </v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">

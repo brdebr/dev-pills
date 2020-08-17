@@ -3,8 +3,9 @@ import en from 'vuetify/src/locale/en'
 import es from 'vuetify/src/locale/es'
 const appName = 'Dev-Pills'
 const description = 'Personal blog to archive development tutorials, snippets, etc'
+let isDev = process.env.NODE_ENV !== 'production'
 
-export default {
+const nuxtConfigs = {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
@@ -25,6 +26,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: '#02796D' },
       {
         hid: 'description',
         name: 'description',
@@ -171,3 +173,12 @@ export default {
     fallback: true
   }
 }
+
+if(isDev){
+  nuxtConfigs.server = {
+    port: 3003, // default: 3000
+    host: '0.0.0.0', // default: localhost
+  }
+}
+
+export default nuxtConfigs;

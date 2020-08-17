@@ -7,7 +7,12 @@
       title="Toggle navigation"
       @click="$store.commit('layout/toggleDrawer')"
     />
-    <v-toolbar-title class="d-flex align-center">
+    <v-toolbar-title
+      :class="
+        'd-flex align-center ' +
+        ($vuetify.breakpoint.xsOnly ? 'mx-auto px-1' : '')
+      "
+    >
       <nuxt-link
         :to="localePath('/')"
         tag="div"
@@ -22,7 +27,7 @@
         </span>
       </nuxt-link>
     </v-toolbar-title>
-    <global-search class="ml-auto" />
+    <global-search v-if="!$vuetify.breakpoint.xsOnly" class="ml-auto" />
   </v-app-bar>
 </template>
 

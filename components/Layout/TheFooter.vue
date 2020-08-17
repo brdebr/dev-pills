@@ -2,12 +2,21 @@
   <div class="fixed-footer">
     <div class="fixed-footer__content" :style="containerStyles">
       <v-footer
-        class="px-6 pb-5 pt-7 mx-auto rounded-t-xl toolbar-color footer-bar"
+        :class="
+          'px-6 pb-5 pt-7 mx-auto rounded-t-xl toolbar-color footer-bar ' +
+          ($vuetify.breakpoint.xsOnly ? 'footer-bar--mobile' : '')
+        "
         max-width="75%"
         absolute
       >
-        <div class="d-flex align-center py-1">
-          <div class="px-3">
+        <div
+          :class="
+            'd-flex align-center py-1 ' +
+            ($vuetify.breakpoint.xsOnly ? 'justify-space-between' : '')
+          "
+          style="width: 100%;"
+        >
+          <div class="pr-4">
             <v-btn
               x-small
               tile
@@ -93,6 +102,9 @@ export default class TheFooter extends Vue {
   }
   .footer-bar {
     bottom: -55px !important;
+    &--mobile {
+      bottom: -110px !important;
+    }
     transition: bottom 0.15s ease-in-out;
     border: 2px solid;
     border-bottom: 0;

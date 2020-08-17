@@ -13,16 +13,19 @@
                 background-color="#fbfbfb"
                 optional
               >
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
+                  All
+                </v-tab>
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Dates
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Colors
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Numbers
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Data
                 </v-tab>
                 <div class="ml-auto search-tab">
@@ -84,7 +87,7 @@
               />
             </v-row>
           </v-card>
-          <v-card v-else tile flat class="d-flex" min-height="300px">
+          <v-card v-else tile flat class="d-flex mx-4" min-height="300px">
             <div class="ma-auto">
               <v-alert
                 color="primary"
@@ -127,7 +130,7 @@ export interface ToolBoxItemI {
 @Component({})
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
-  toolSearchTab: number | null = 1
+  toolSearchTab: number | null = 0
 
   selectedTools: Array<ToolBoxItemI> = []
 
@@ -194,6 +197,11 @@ export default class UtilsPage extends Vue {
       name: 'SUM',
       category: 'numbers',
       component: '',
+    },
+    {
+      name: 'Cross Multiply',
+      category: 'numbers',
+      component: 't-cross-multiply',
     },
   ]
 }

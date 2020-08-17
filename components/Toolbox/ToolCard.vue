@@ -1,5 +1,5 @@
 <template>
-  <v-col :cols="colWidth" class="px-1">
+  <v-col :cols="colWidth" class="px-1 my-2">
     <v-card tile flat color="#f9f9f9" class="fill-height">
       <v-card-title class="pr-1 d-flex align-center">
         <v-btn
@@ -50,8 +50,10 @@ import { ToolBoxItemI } from '@/pages/toolbox.vue'
 
 @Component({
   components: {
-    't-percentage': () => import('@/components/Toolbox/Percentage.vue'),
-    't-date-format': () => import('@/components/Toolbox/DateFormat.vue'),
+    't-percentage': () => import('@/components/Toolbox/Tools/Percentage.vue'),
+    't-date-format': () => import('@/components/Toolbox/Tools/DateFormat.vue'),
+    't-cross-multiply': () =>
+      import('@/components/Toolbox/Tools/CrossMultiply.vue'),
   },
 })
 export default class ToolCard extends Vue {
@@ -61,6 +63,10 @@ export default class ToolCard extends Vue {
   toolItem!: ToolBoxItemI
 
   get colWidth() {
+    // @ts-ignore
+    if (this.$vuetify.breakpoint.xsOnly) {
+      return 12
+    }
     const aux = this.colWidthVal * 3
     if (aux >= 12) return 12
     if (aux <= 3) return 3
