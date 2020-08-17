@@ -62,6 +62,9 @@ export default class ToolCard extends Vue {
   toolItem!: ToolBoxItemI
 
   get colWidth() {
+    if (this.$vuetify.breakpoint.xsOnly) {
+      return 12
+    }
     const aux = this.colWidthVal * 3
     if (aux >= 12) return 12
     if (aux <= 3) return 3
