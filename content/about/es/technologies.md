@@ -30,5 +30,5 @@ items:
 
 ---
 
-<d-table :items="items">
-</d-table>
+<d-about-techs :items="items">
+</d-about-techs>

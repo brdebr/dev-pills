@@ -26,6 +26,7 @@ const nuxtConfigs = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: '#02796D' },
       {
         hid: 'description',
         name: 'description',

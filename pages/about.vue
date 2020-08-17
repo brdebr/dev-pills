@@ -5,7 +5,7 @@
         <v-card-title>
           About Page
         </v-card-title>
-        <v-card-text class="px-5">
+        <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
           <p v-text="techs['message01']" />
           <p v-text="techs['message02']" />
           <nuxt-content :document="techs" />
