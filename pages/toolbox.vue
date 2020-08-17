@@ -13,19 +13,19 @@
                 background-color="#fbfbfb"
                 optional
               >
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   All
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Dates
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Colors
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Numbers
                 </v-tab>
-                <v-tab :disabled="toolSearchTab === null">
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   Data
                 </v-tab>
                 <div class="ml-auto search-tab">

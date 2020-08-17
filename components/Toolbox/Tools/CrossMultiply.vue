@@ -115,10 +115,10 @@ import { Watch } from 'vue-property-decorator'
 @Component({})
 export default class CrossMultiply extends Vue {
   // Top-lef, Top-Right, Bottom-left...
-  tl = 0
-  tr = 0
-  bl = 0
-  br = 0
+  tl = ''
+  tr = ''
+  bl = ''
+  br = ''
 
   tlV = '0'
   trV = '0'
@@ -133,16 +133,28 @@ export default class CrossMultiply extends Vue {
   setCalculated(newVal: string) {
     switch (this.getOnlyVal(newVal)) {
       case 'tl':
-        this.tlV = ((this.bl * this.tr) / this.br).toFixed(2)
+        this.tlV = (
+          (parseFloat(this.bl) * parseFloat(this.tr)) /
+          parseFloat(this.br)
+        ).toFixed(2)
         break
       case 'tr':
-        this.trV = ((this.tl * this.br) / this.bl).toFixed(2)
+        this.trV = (
+          (parseFloat(this.tl) * parseFloat(this.br)) /
+          parseFloat(this.bl)
+        ).toFixed(2)
         break
       case 'bl':
-        this.blV = ((this.tl * this.br) / this.tr).toFixed(2)
+        this.blV = (
+          (parseFloat(this.tl) * parseFloat(this.br)) /
+          parseFloat(this.tr)
+        ).toFixed(2)
         break
       case 'br':
-        this.brV = ((this.bl * this.tr) / this.tl).toFixed(2)
+        this.brV = (
+          (parseFloat(this.bl) * parseFloat(this.tr)) /
+          parseFloat(this.tl)
+        ).toFixed(2)
         break
       default:
         break

@@ -50,9 +50,10 @@ import { ToolBoxItemI } from '@/pages/toolbox.vue'
 
 @Component({
   components: {
-    't-percentage': () => import('@/components/Toolbox/Percentage.vue'),
-    't-date-format': () => import('@/components/Toolbox/DateFormat.vue'),
-    't-cross-multiply': () => import('@/components/Toolbox/CrossMultiply.vue'),
+    't-percentage': () => import('@/components/Toolbox/Tools/Percentage.vue'),
+    't-date-format': () => import('@/components/Toolbox/Tools/DateFormat.vue'),
+    't-cross-multiply': () =>
+      import('@/components/Toolbox/Tools/CrossMultiply.vue'),
   },
 })
 export default class ToolCard extends Vue {
