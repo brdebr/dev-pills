@@ -1,0 +1,55 @@
+{
+  "item-list": [
+    {
+      "title": {
+        "en": "Main page",
+        "es": "Principal"
+      },
+      "to": "/",
+      "icon": "mdi-apps"
+    },
+    {
+      "title": {
+        "en": "Articles",
+        "es": "Artículos"
+      },
+      "to": "/Articles",
+      "disabled": true,
+      "icon": "mdi-newspaper-variant-multiple"
+    },
+    {
+      "title": {
+        "en": "Categories",
+        "es": "Categorías"
+      },
+      "to": "/Categories",
+      "disabled": true,
+      "icon": "mdi-book-multiple"
+    },
+    {
+      "title": {
+        "en": "Snippets",
+        "es": "Notas/código"
+      },
+      "to": "/Snippets",
+      "disabled": true,
+      "icon": "mdi-code-json"
+    },
+    {
+      "title": {
+        "en": "Toolbox",
+        "es": "Caja herramientas"
+      },
+      "to": "/toolbox",
+      "icon": "mdi-iframe-variable-outline"
+    },
+    {
+      "title": {
+        "en": "About",
+        "es": "Acerca de"
+      },
+      "to": "/about",
+      "icon": "mdi-information-outline"
+    }
+  ]
+}

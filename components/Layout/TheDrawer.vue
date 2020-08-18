@@ -25,11 +25,11 @@
       </v-list>
       <v-list nav>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in $store.state.layout.items"
           :key="i"
           :to="localePath(item.to)"
           active-class="accent--text text--darken-1"
-          :title="item.title"
+          :title="item.title[$i18n.locale]"
           :disabled="item.disabled"
           router
           exact
@@ -47,7 +47,7 @@
                   ($vuetify.theme.dark ? 'white--text' : null)
                 "
               >
-                {{ item.title }}
+                {{ item.title[$i18n.locale] }}
               </span>
             </v-list-item-title>
           </v-list-item-content>
@@ -88,21 +88,10 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-})
+export default Vue.extend({})
 </script>
 <style lang="scss">
 .the-drawer {
-  // &--collapsed {
-  //   top: 0 !important;
-  //   max-height: calc(100% - 36px) !important;
-  // }
   .v-navigation-drawer__content {
     display: flex;
     flex-direction: column;
