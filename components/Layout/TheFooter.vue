@@ -14,7 +14,7 @@
             'd-flex align-center py-1 ' +
             ($vuetify.breakpoint.xsOnly ? 'justify-space-between' : '')
           "
-          style="width: 100%;"
+          :style="$vuetify.breakpoint.xsOnly ? 'width: 100%;' : ''"
         >
           <div class="pr-4">
             <v-btn
