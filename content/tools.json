@@ -1,0 +1,76 @@
+{
+    "list" : [
+        {
+          "name": {
+              "en" : "Date format",
+              "es" : "Convertir fecha"
+          },
+          "category": "date",
+          "component": "t-date-format"
+        },
+        {
+          "name": {
+              "en" : "Date diff",
+              "es" : "Diferencia fechas"
+          },
+          "category": "date",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Color picker",
+              "es" : "Selector de color"
+          },
+          "category": "color",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Color palette",
+              "es" : "Paleta de colores"
+          },
+          "category": "color",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Percentage",
+              "es" : "Porcentaje"
+          },
+          "category": "numbers",
+          "component": "t-percentage"
+        },
+        {
+          "name": {
+              "en" : "Timer",
+              "es" : "Temporizador"
+          },
+          "category": "dates",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "JSON",
+              "es" : "JSON"
+          },
+          "category": "data",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "SUM",
+              "es" : "Sumatorio"
+          },
+          "category": "numbers",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Cross Multiply",
+              "es" : "Regla de tres"
+          },
+          "category": "numbers",
+          "component": "t-cross-multiply"
+        }
+      ]
+}
