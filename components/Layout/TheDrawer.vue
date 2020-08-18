@@ -57,7 +57,9 @@
       <transition name="flip-x" mode="out-in">
         <div
           :key="$store.state.layout.drawerMini"
-          :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} mb-3`"
+          :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} ${
+            $vuetify.breakpoint.xsOnly ? 'mt-3 order-first mb-1' : 'mb-3'
+          }`"
         >
           <v-btn
             :block="!$store.state.layout.drawerMini"

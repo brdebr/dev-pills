@@ -2,9 +2,7 @@
   <v-layout justify-center>
     <v-flex xs12 md10 lg11 xl10>
       <v-card outlined tile>
-        <v-card-title class="headline">
-          Welcome to DevPills
-        </v-card-title>
+        <v-card-title v-t="'headline'" class="headline" />
         <v-card-text>
           <p v-t="'message'" />
           <div id="lipsum">
@@ -216,9 +214,11 @@
 <i18n>
 {
   "en": {
+    "headline": "Welcome to Dev-Pills",
     "message": "Personal blog to archive development tutorials, snippets, etc"
   },
   "es": {
+    "headline": "Bienvenido a Dev-Pills",
     "message": "Blog personal para archivar tutoriales de desarrollo, código reutilizable, etc"
   }
 }
