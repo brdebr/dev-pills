@@ -32,7 +32,7 @@
               tile
               outlined
               class="rbt-font"
-              title="Change language to Spanish"
+              title="Cambiar idioma a Castellano"
               @click="$i18n.setLocale('es')"
             >
               ES
@@ -43,7 +43,7 @@
               icon
               small
               outlined
-              title="Toggle dark mode"
+              :title="$t('dark-mode')"
               @click="$vuetify.theme.dark = !$vuetify.theme.dark"
             >
               <v-icon small>
@@ -78,7 +78,16 @@
     </div>
   </div>
 </template>
-
+<i18n>
+{
+  "en" : {
+    "dark-mode": "Toggle dark/light mode"
+  },
+  "es" : {
+    "dark-mode": "Cambiar entre modo noche/día"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'

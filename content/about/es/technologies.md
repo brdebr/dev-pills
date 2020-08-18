@@ -19,15 +19,15 @@ items:
         icon: 'mdi-nuxt green--text text--darken-2'
         link: 'https://nuxtjs.org/'
     -
-        name: 'Nuxt Content'
-        description: 'Módulo de Nuxt para escribir en el directorio "content/" y luego poder recuperar esa información usando una interfaz similar a MongoDB, actuando como CMS basado en Git.'
-        icon: 'mdi-post-outline green--text text--darken-2'
-        link: 'https://content.nuxtjs.org/'
-    -
         name: 'Vuetify'
         description: 'Framework de componentes que implementa la especificación Material Design 2 de Google usando componentes Vue además de ofrecer varias utilidades de css y javascript.'
         icon: 'mdi-vuetify light-blue--text text--darken-1'
         link: 'https://vuetifyjs.com/en/'
+    -
+        name: 'Nuxt Content'
+        description: 'Módulo de Nuxt para escribir en el directorio "content/" y luego poder recuperar esa información usando una interfaz similar a MongoDB, actuando como CMS basado en Git.'
+        icon: 'mdi-post-outline green--text text--darken-2'
+        link: 'https://content.nuxtjs.org/'
 
 ---
 

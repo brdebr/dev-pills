@@ -7,12 +7,16 @@
       <thead>
         <tr>
           <th class="text-center">
-            <v-icon title="Link to technology">
+            <v-icon :title="$t('title')">
               mdi-open-in-new
             </v-icon>
           </th>
-          <th class="text-left">Technology</th>
-          <th class="text-left">Description</th>
+          <th class="text-left">
+            {{ $t('tech') }}
+          </th>
+          <th class="text-left">
+            {{ $t('desc') }}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -82,7 +86,20 @@
     </v-col>
   </v-row>
 </template>
-
+<i18n>
+{
+  "en" : {
+    "title": "Link to technology page",
+    "tech": "Technology",
+    "desc": "Description"
+  },
+  "es" : {
+    "title": "Enlace a su página",
+    "tech": "Tecnología",
+    "desc": "Descripción"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'

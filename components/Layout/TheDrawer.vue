@@ -67,9 +67,7 @@
             tile
             color="primary"
             :title="
-              $store.state.layout.drawerMini
-                ? 'Expand drawer'
-                : 'Collapse drawer'
+              $store.state.layout.drawerMini ? $t('expand') : $t('collapse')
             "
             @click.stop="$store.commit('layout/toggleDrawerMini')"
           >
@@ -84,7 +82,18 @@
     </v-layout>
   </v-navigation-drawer>
 </template>
-
+<i18n>
+{
+  "en" : {
+    "expand": "Expand drawer",
+    "collapse": "Collapse drawer"
+  },
+  "es" : {
+    "expand": "Expandir navegación",
+    "collapse": "Colapsar navegación"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 

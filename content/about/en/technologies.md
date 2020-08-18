@@ -19,15 +19,15 @@ items:
         icon: 'mdi-nuxt green--text text--darken-2'
         link: 'https://nuxtjs.org/'
     -
-        name: 'Nuxt Content'
-        description: 'Nuxt module to write in a "content/" directory and fetch your files content through a MongoDB like API, acting as a Git-based Headless CMS.'
-        icon: 'mdi-post-outline green--text text--darken-2'
-        link: 'https://content.nuxtjs.org/'
-    -
         name: 'Vuetify'
         description: 'Components framework that implements the Material Design 2 specification from Google using Vue components also with various css and javascript helpers.'
         icon: 'mdi-vuetify light-blue--text text--darken-1'
         link: 'https://vuetifyjs.com/en/'
+    -
+        name: 'Nuxt Content'
+        description: 'Nuxt module to write in a "content/" directory and fetch your files content through a MongoDB like API, acting as a Git-based Headless CMS.'
+        icon: 'mdi-post-outline green--text text--darken-2'
+        link: 'https://content.nuxtjs.org/'
 ---
 
 <d-about-techs :items="items">

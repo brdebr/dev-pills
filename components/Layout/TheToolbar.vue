@@ -4,7 +4,7 @@
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
       style="border: 1px solid; margin-left: 1px;"
-      title="Toggle navigation"
+      :title="$t('toggle-nav')"
       @click="$store.commit('layout/toggleDrawer')"
     />
     <v-toolbar-title
@@ -30,7 +30,16 @@
     <global-search v-if="!$vuetify.breakpoint.xsOnly" class="ml-auto" />
   </v-app-bar>
 </template>
-
+<i18n>
+{
+  "en": {
+    "toggle-nav": "Toggle drawer"
+  },
+  "es": {
+    "toggle-nav": "Mostrar/ocultar navegación"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 
