@@ -28,6 +28,11 @@ items:
         description: 'Módulo de Nuxt para escribir en el directorio "content/" y luego poder recuperar esa información usando una interfaz similar a MongoDB, actuando como CMS basado en Git.'
         icon: 'mdi-post-outline green--text text--darken-2'
         link: 'https://content.nuxtjs.org/'
+    -
+        name: 'Nuxt i18n'
+        description: 'Módulo de Nuxt para proveer internacionalización implementando vue-i18n, añadir idiomas a la generación de rutas, detectar el idioma del navegador, entre otros.'
+        icon: 'mdi-web-box green--text text--darken-2'
+        link: 'https://i18n.nuxtjs.org/'
 
 ---
 

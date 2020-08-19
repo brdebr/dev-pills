@@ -129,7 +129,7 @@
   },
   "es": {
     "headline": "Caja de herramientas",
-    "no-tools" : "Haz click en las cartas de la parte superior para que se muestren y apilen aquí!",
+    "no-tools" : "Haz click en las cartas de la parte superior para añadir herramientas y se apilen aquí!",
     "tab-all": "Todas",
     "tab-dates": "Fechas",
     "tab-colors": "Colores",

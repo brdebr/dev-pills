@@ -28,6 +28,11 @@ items:
         description: 'Nuxt module to write in a "content/" directory and fetch your files content through a MongoDB like API, acting as a Git-based Headless CMS.'
         icon: 'mdi-post-outline green--text text--darken-2'
         link: 'https://content.nuxtjs.org/'
+    -
+        name: 'Nuxt i18n'
+        description: 'Nuxt module that provides i18n features implementing vue-i18n, adding route generation with locales, detect browser language, and more'
+        icon: 'mdi-web-box green--text text--darken-2'
+        link: 'https://i18n.nuxtjs.org/'
 ---
 
 <d-about-techs :items="items">
