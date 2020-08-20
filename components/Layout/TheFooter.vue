@@ -3,10 +3,12 @@
     <div class="fixed-footer__content" :style="containerStyles">
       <v-footer
         :class="
-          'px-6 pb-5 pt-7 mx-auto rounded-t-xl toolbar-color footer-bar ' +
+          'px-6 pb-5 pt-7 mx-auto rounded-t-xl footer-bar cut-shape ' +
           ($vuetify.breakpoint.xsOnly ? 'footer-bar--mobile' : '')
         "
         max-width="75%"
+        :dark="!$vuetify.theme.dark"
+        :light="$vuetify.theme.dark"
         absolute
       >
         <div
@@ -14,7 +16,7 @@
             'd-flex align-center py-1 ' +
             ($vuetify.breakpoint.xsOnly ? 'justify-space-between' : '')
           "
-          style="width: 100%;"
+          :style="$vuetify.breakpoint.xsOnly ? 'width: 100%;' : ''"
         >
           <div class="pr-4">
             <v-btn
@@ -32,7 +34,7 @@
               tile
               outlined
               class="rbt-font"
-              title="Change language to Spanish"
+              title="Cambiar idioma a Castellano"
               @click="$i18n.setLocale('es')"
             >
               ES
@@ -43,7 +45,7 @@
               icon
               small
               outlined
-              title="Toggle dark mode"
+              :title="$t('dark-mode')"
               @click="$vuetify.theme.dark = !$vuetify.theme.dark"
             >
               <v-icon small>
@@ -78,7 +80,16 @@
     </div>
   </div>
 </template>
-
+<i18n>
+{
+  "en" : {
+    "dark-mode": "Toggle dark/light mode"
+  },
+  "es" : {
+    "dark-mode": "Cambiar entre modo noche/día"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
@@ -106,17 +117,29 @@ export default class TheFooter extends Vue {
       bottom: -110px !important;
     }
     transition: bottom 0.15s ease-in-out;
-    border: 2px solid;
-    border-bottom: 0;
-    &.theme--light {
-      border-color: #002922 !important;
-    }
-    &.theme--dark {
-      border-color: #d0ebe4 !important;
-    }
     &:hover {
       bottom: 0px !important;
     }
+    &.theme--dark {
+      background-color: #029789 !important;
+    }
+    &.theme--light {
+      background-color: #d0ebe4 !important;
+    }
   }
+}
+
+.cut-shape {
+  --topXDiffSize: 25px;
+  --topYDiffSize: 20px;
+
+  clip-path: polygon(
+    var(--topXDiffSize) 0%,
+    calc(100% - var(--topXDiffSize)) 0%,
+    100% var(--topYDiffSize),
+    100% 100%,
+    0 100%,
+    0% var(--topYDiffSize)
+  );
 }
 </style>

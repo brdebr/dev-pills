@@ -1,5 +1,12 @@
 <template>
-  <v-card tile flat style="background-color: #fdfdfd;" width="100%">
+  <v-card
+    tile
+    flat
+    style="background-color: #fdfdfd;"
+    width="100%"
+    min-height="124px"
+    class="d-flex align-center"
+  >
     <v-radio-group v-model="mode" hide-details class="mt-0">
       <v-row no-gutters justify="space-around" class="py-3">
         <v-col cols="4" class="d-flex flex-column align-center">

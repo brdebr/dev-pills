@@ -25,11 +25,11 @@
       </v-list>
       <v-list nav>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in $store.state.layout.items"
           :key="i"
           :to="localePath(item.to)"
           active-class="accent--text text--darken-1"
-          :title="item.title"
+          :title="item.title[$i18n.locale]"
           :disabled="item.disabled"
           router
           exact
@@ -47,7 +47,7 @@
                   ($vuetify.theme.dark ? 'white--text' : null)
                 "
               >
-                {{ item.title }}
+                {{ item.title[$i18n.locale] }}
               </span>
             </v-list-item-title>
           </v-list-item-content>
@@ -57,7 +57,9 @@
       <transition name="flip-x" mode="out-in">
         <div
           :key="$store.state.layout.drawerMini"
-          :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} mb-3`"
+          :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} ${
+            $vuetify.breakpoint.xsOnly ? 'mt-3 order-first mb-1' : 'mb-3'
+          }`"
         >
           <v-btn
             :block="!$store.state.layout.drawerMini"
@@ -65,9 +67,7 @@
             tile
             color="primary"
             :title="
-              $store.state.layout.drawerMini
-                ? 'Expand drawer'
-                : 'Collapse drawer'
+              $store.state.layout.drawerMini ? $t('expand') : $t('collapse')
             "
             @click.stop="$store.commit('layout/toggleDrawerMini')"
           >
@@ -82,25 +82,25 @@
     </v-layout>
   </v-navigation-drawer>
 </template>
-
+<i18n>
+{
+  "en" : {
+    "expand": "Expand drawer",
+    "collapse": "Collapse drawer"
+  },
+  "es" : {
+    "expand": "Expandir navegación",
+    "collapse": "Colapsar navegación"
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-})
+export default Vue.extend({})
 </script>
 <style lang="scss">
 .the-drawer {
-  // &--collapsed {
-  //   top: 0 !important;
-  //   max-height: calc(100% - 36px) !important;
-  // }
   .v-navigation-drawer__content {
     display: flex;
     flex-direction: column;

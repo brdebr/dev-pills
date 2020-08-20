@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <the-drawer :items="items" />
+    <the-drawer />
     <the-toolbar />
     <v-main
       style="padding-bottom: 120px;"
@@ -21,9 +21,6 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-// @ts-ignore
-let unwatcher
-
 @Component({
   head() {
     return {
@@ -32,36 +29,14 @@ let unwatcher
       },
     }
   },
+  async middleware(ctx) {
+    if (ctx.store.state.layout.items.length) {
+      return
+    }
+    const itemsResp = await ctx.$content('drawer').fetch()
+    // @ts-ignore
+    ctx.store.commit('layout/setItems', itemsResp['item-list'])
+  },
 })
-export default class DefaultLayout extends Vue {
-  items = []
-
-  async fetchItems() {
-    // @ts-ignore
-    this.$vuetify.lang.current = this.$i18n.locale
-    const itemsResp: { list: { en: []; es: [] } } = await this.$content(
-      'drawer',
-      'items'
-    ).fetch()
-    // @ts-ignore
-    this.items = itemsResp.list[this.$i18n.locale]
-  }
-
-  async mounted() {
-    unwatcher = this.$watch(
-      () => {
-        return this.$i18n.locale
-      },
-      () => {
-        this.fetchItems()
-      }
-    )
-    await this.fetchItems()
-  }
-
-  destroyed() {
-    // @ts-ignore
-    unwatcher()
-  }
-}
+export default class DefaultLayout extends Vue {}
 </script>

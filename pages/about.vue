@@ -3,7 +3,7 @@
     <v-flex xs12 sm10>
       <v-card outlined tile>
         <v-card-title>
-          About Page
+          {{ techs['heading'] }}
         </v-card-title>
         <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
           <p v-text="techs['message01']" />

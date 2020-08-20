@@ -1,32 +1,38 @@
 ---
-message01: "This website's central primary is to archive various development guides and tutorials for my self in the future, carefully explain them with images, code blocks, and repositories."
-message02: "It's build using the following technologies:"
+heading: "Acerca de"
+message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, trozos de código y repositorios para luego consultarlos con rapidez"
+message02: "Está desarrollado utilizando las siguientes tecnologías:"
 items:
     -
+        name: 'Netlify'
+        description: 'Hosting para sitios estáticos con beneficios como recolectar datos de formularios, despliegues automáticos a partir de cambios en el repositorio, entre otros.'
+        icon: 'image---/assets/images/icons/netlify-icon.svg'
+        link: 'https://www.netlify.com/'
+    -
         name: 'Vue'
-        description: 'The base UI library that is used to display reactive variables, manage events, styles and more.'
+        description: 'La librería de UI base que se usa para mostrar y gestionar variables reactivas, eventos, estilos, transiciones entre otras cosas.'
         icon: 'image---/assets/images/icons/vue-icon.svg'
         link: 'https://vuejs.org/'
     -
         name: 'Nuxt'
-        description: 'Framework wrapping Vue that manages: SSR, file path based routing, automatic vuex store, Webpack and much more.'
+        description: 'Framework que alrededor de Vue que se encarga de añadirle: SSR, direcciones basadas en rutas de directorios, gestión de estado con vuex automático, Webpack y mucho más a traves de módulos.'
         icon: 'mdi-nuxt green--text text--darken-2'
         link: 'https://nuxtjs.org/'
     -
-        name: 'Nuxt Content'
-        description: 'Nuxt module to write in a "content/" directory and fetch your files content through a MongoDB like API, acting as a Git-based Headless CMS.'
-        icon: 'mdi-post-outline green--text text--darken-2'
-        link: 'https://content.nuxtjs.org/'
-    -
         name: 'Vuetify'
-        description: 'Components framework that implements the Material Design 2 specification from Google using Vue components also with various css and js helpers.'
+        description: 'Framework de componentes que implementa la especificación Material Design 2 de Google usando componentes Vue además de ofrecer varias utilidades de css y javascript.'
         icon: 'mdi-vuetify light-blue--text text--darken-1'
         link: 'https://vuetifyjs.com/en/'
     -
-        name: 'Netlify'
-        description: 'Hosting for static sites with benefits like collect form data, automatic deployment from repository pushes and more.'
-        icon: 'image---/assets/images/icons/netlify-icon.svg'
-        link: 'https://www.netlify.com/'
+        name: 'Nuxt Content'
+        description: 'Módulo de Nuxt para escribir en el directorio "content/" y luego poder recuperar esa información usando una interfaz similar a MongoDB, actuando como CMS basado en Git.'
+        icon: 'mdi-post-outline green--text text--darken-2'
+        link: 'https://content.nuxtjs.org/'
+    -
+        name: 'Nuxt i18n'
+        description: 'Módulo de Nuxt para proveer internacionalización implementando vue-i18n, añadir idiomas a la generación de rutas, detectar el idioma del navegador, entre otros.'
+        icon: 'mdi-web-box green--text text--darken-2'
+        link: 'https://i18n.nuxtjs.org/'
 
 ---
 

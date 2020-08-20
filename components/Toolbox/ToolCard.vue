@@ -1,6 +1,6 @@
 <template>
-  <v-col :cols="colWidth" class="px-1 my-2">
-    <v-card tile flat color="#f9f9f9" class="fill-height">
+  <v-col :cols="colWidth">
+    <v-card tile flat color="#f9f9f9" class="fill-height d-flex flex-column">
       <v-card-title class="pr-1 d-flex align-center">
         <v-btn
           text
@@ -16,7 +16,7 @@
           </v-icon>
         </v-btn>
         <span>
-          {{ toolItem.name }}
+          {{ toolItem.name[$i18n.locale] }}
         </span>
         <v-btn
           text
@@ -35,7 +35,7 @@
           </v-icon>
         </v-btn>
       </v-card-title>
-      <v-row no-gutters>
+      <v-row no-gutters class="d-flex">
         <component :is="toolItem.component" />
       </v-row>
     </v-card>
@@ -46,7 +46,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
-import { ToolBoxItemI } from '@/pages/toolbox.vue'
+import { ToolItemI } from '@/pages/toolbox.vue'
 
 @Component({
   components: {
@@ -60,7 +60,7 @@ export default class ToolCard extends Vue {
   colWidthVal = 1
 
   @Prop()
-  toolItem!: ToolBoxItemI
+  toolItem!: ToolItemI
 
   get colWidth() {
     // @ts-ignore
