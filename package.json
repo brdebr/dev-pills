@@ -1,6 +1,11 @@
 {
   "name": "dev-pills",
   "version": "1.0.0",
+  "description": "Personal blog to archive development tutorials, snippets, etc",
+  "author": {
+    "name": "Bryan de Oliveira Brettas",
+    "email": "brdebr.93@gmail.com"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
