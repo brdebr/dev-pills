@@ -63,7 +63,8 @@ const nuxtConfigs = {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     'nuxt-i18n',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/pwa'
   ],
 
   webfontloader: {

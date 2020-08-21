@@ -5,7 +5,7 @@
               "en" : "Date format",
               "es" : "Convertir fecha"
           },
-          "category": "date",
+          "category": "dates",
           "component": "t-date-format"
         },
         {
@@ -13,7 +13,7 @@
               "en" : "Date diff",
               "es" : "Diferencia fechas"
           },
-          "category": "date",
+          "category": "dates",
           "component": ""
         },
         {
@@ -21,7 +21,7 @@
               "en" : "Color picker",
               "es" : "Selector de color"
           },
-          "category": "color",
+          "category": "colors",
           "component": ""
         },
         {
@@ -29,7 +29,7 @@
               "en" : "Color palette",
               "es" : "Paleta de colores"
           },
-          "category": "color",
+          "category": "colors",
           "component": ""
         },
         {
