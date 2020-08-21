@@ -51,25 +51,42 @@
             <v-col>
               <v-card tile outlined class="no-bx py-2 no-bb">
                 <v-row wrap class="px-4">
-                  <v-col
-                    v-for="tool in tools"
-                    :key="tool.name.en"
-                    lg="2"
-                    md="3"
-                    sm="4"
-                    cols="12"
-                  >
-                    <v-card
-                      tile
-                      outlined
-                      class="text-center"
-                      :disabled="!tool.component"
-                      @click="addTool(tool)"
+                  <template v-if="filteredTools.length > 0">
+                    <v-col
+                      v-for="tool in filteredTools"
+                      :key="tool.name.en"
+                      lg="2"
+                      md="3"
+                      sm="4"
+                      cols="12"
                     >
-                      <v-card-text>
-                        {{ tool.name[$i18n.locale] }}
-                      </v-card-text>
-                    </v-card>
+                      <v-card
+                        tile
+                        outlined
+                        class="text-center"
+                        :disabled="!tool.component"
+                        @click="addTool(tool)"
+                      >
+                        <v-card-text>
+                          {{ tool.name[$i18n.locale] }}
+                        </v-card-text>
+                      </v-card>
+                    </v-col>
+                  </template>
+                  <v-col v-else cols="11" class="d-flex mx-auto">
+                    <v-alert
+                      class="ma-auto"
+                      text
+                      color="warning"
+                      border="bottom"
+                      icon="mdi-alert-box-outline"
+                    >
+                      <span
+                        v-t="'not-found'"
+                        class="px-4 warning--text text--darken-3"
+                      >
+                      </span>
+                    </v-alert>
                   </v-col>
                 </v-row>
               </v-card>
@@ -125,7 +142,8 @@
     "tab-colors": "Colors",
     "tab-numbers": "Numbers",
     "tab-data": "Data",
-    "search-tool": "Search tool..."
+    "search-tool": "Search tool...",
+    "not-found": "Couldn't find any tool matching the filter"
   },
   "es": {
     "headline": "Caja de herramientas",
@@ -135,7 +153,8 @@
     "tab-colors": "Colores",
     "tab-numbers": "Números",
     "tab-data": "Datos",
-    "search-tool": "Buscar herramienta..."
+    "search-tool": "Buscar herramienta...",
+    "not-found": "No se ha podido encontrar ninguna herramienta que coincida con el filtro"
   }
 }
 </i18n>
@@ -153,6 +172,21 @@ export interface ToolItemI {
   category: string
   component: string
   id?: number
+}
+
+const mapTabValues = (val: number) => {
+  switch (val) {
+    case 1:
+      return 'dates'
+    case 2:
+      return 'colors'
+    case 3:
+      return 'numbers'
+    case 4:
+      return 'data'
+    default:
+      return ''
+  }
 }
 
 @Component({
@@ -179,6 +213,25 @@ export default class UtilsPage extends Vue {
     if (this.toolSearchTab != null) {
       this.toolSearchTab = null
     }
+  }
+
+  get filteredTools() {
+    if (!this.toolSearchVal && this.toolSearchTab === 0) {
+      return this.tools
+    }
+    if (this.toolSearchVal) {
+      return this.tools.filter((el) =>
+        el.name[this.$i18n.locale as 'en' | 'es'].includes(this.toolSearchVal)
+      )
+    }
+    if (this.toolSearchTab && this.toolSearchTab > 0) {
+      return this.tools.filter(
+        (el) =>
+          // @ts-ignore // Y U do this to me Ts ?? - Here 'this.toolSearchTab' is definitely not null
+          el.category === mapTabValues(this.toolSearchTab)
+      )
+    }
+    return []
   }
 
   addTool(tool: Object) {
