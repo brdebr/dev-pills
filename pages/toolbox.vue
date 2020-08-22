@@ -78,7 +78,7 @@
                       class="ma-auto"
                       text
                       color="warning"
-                      border="bottom"
+                      border="right"
                       icon="mdi-alert-box-outline"
                     >
                       <span
@@ -193,7 +193,11 @@ const mapTabValues = (val: number) => {
   async asyncData(ctx) {
     const tools: { list: [ToolItemI] } = await ctx.$content('tools').fetch()
     return {
-      tools: tools.list,
+      tools: tools.list.sort((a, b) =>
+        a.name[ctx.app.i18n.locale as 'en' | 'es'].localeCompare(
+          b.name[ctx.app.i18n.locale as 'en' | 'es']
+        )
+      ),
     }
   },
 })
