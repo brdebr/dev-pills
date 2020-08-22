@@ -11,7 +11,7 @@ export interface DrawerItemI {
 
 @Module({ namespaced: true, name: "layout", stateFactory: true })
 export default class LayoutStoreModule extends VuexModule {
-  drawer = true;
+  drawer = false;
   drawerMini = true;
   collapseBar = false;
   appBarTitle = '< Dev - Pills />'
