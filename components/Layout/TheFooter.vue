@@ -121,7 +121,7 @@ export default class TheFooter extends Vue {
       bottom: 0px !important;
     }
     &.theme--dark {
-      background-color: #029789 !important;
+      background-color: #058074 !important;
     }
     &.theme--light {
       background-color: #d0ebe4 !important;
