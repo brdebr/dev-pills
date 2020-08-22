@@ -1,76 +1,92 @@
 <template>
-  <v-col :cols="colWidth">
-    <v-card tile flat color="#f9f9f9" class="fill-height d-flex flex-column">
-      <v-card-title class="pr-1 d-flex align-center">
-        <v-btn
-          text
-          icon
-          small
-          outlined
-          color="red"
-          class="mr-2"
-          @click="$emit('remove-click')"
-        >
-          <v-icon size="20">
-            mdi-delete-forever
-          </v-icon>
-        </v-btn>
-        <span>
-          {{ toolItem.name[$i18n.locale] }}
-        </span>
-        <v-btn
-          text
-          class="ml-auto mr-1"
-          small
-          :disabled="colWidth <= 3"
-          @click="colWidthVal--"
-        >
-          <v-icon>
-            mdi-arrow-collapse-horizontal
-          </v-icon>
-        </v-btn>
-        <v-btn text small :disabled="colWidth >= 12" @click="colWidthVal++">
-          <v-icon>
-            mdi-arrow-expand-horizontal
-          </v-icon>
-        </v-btn>
-      </v-card-title>
-      <v-row no-gutters class="d-flex">
-        <component :is="toolItem.component" />
-      </v-row>
-    </v-card>
+  <v-col lg="2" md="3" sm="4" cols="12" class="with-category-icon">
+    <v-tooltip v-if="!tool.component" top>
+      <template #activator="{on, attrs}">
+        <div v-bind="attrs" v-on="on">
+          <v-card tile outlined class="text-center" :disabled="!tool.component">
+            <v-card-text>
+              {{ tool.name[$i18n.locale] }}
+            </v-card-text>
+          </v-card>
+          <div class="category-icon mr-3 mt-2">
+            <v-icon size="14">
+              {{ mapCategoryIcons(tool.category) }}
+            </v-icon>
+          </div>
+        </div>
+      </template>
+      <div>
+        {{ $t('in-progress') }}
+      </div>
+    </v-tooltip>
+    <template v-else>
+      <v-card
+        tile
+        outlined
+        class="text-center"
+        :disabled="!tool.component"
+        @click="$emit('add-tool', tool)"
+      >
+        <v-card-text>
+          {{ tool.name[$i18n.locale] }}
+        </v-card-text>
+      </v-card>
+      <div class="category-icon mr-3 mt-2">
+        <v-icon size="14">
+          {{ mapCategoryIcons(tool.category) }}
+        </v-icon>
+      </div>
+    </template>
   </v-col>
 </template>
+<i18n>
+{
+  "en": {
+    "in-progress": "Work in progress... 📦"
+  },
+  "es": {
+    "in-progress": "En construcción... 📦"
+  }
+}
+</i18n>
 
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { Prop } from 'vue-property-decorator'
 import { ToolItemI } from '@/pages/toolbox.vue'
+import { Prop } from 'vue-property-decorator'
 
-@Component({
-  components: {
-    't-percentage': () => import('@/components/Toolbox/Tools/Percentage.vue'),
-    't-date-format': () => import('@/components/Toolbox/Tools/DateFormat.vue'),
-    't-cross-multiply': () =>
-      import('@/components/Toolbox/Tools/CrossMultiply.vue'),
-  },
-})
+@Component({})
 export default class ToolCard extends Vue {
-  colWidthVal = 1
-
   @Prop()
-  toolItem!: ToolItemI
+  tool!: ToolItemI
 
-  get colWidth() {
-    // @ts-ignore
-    if (this.$vuetify.breakpoint.xsOnly) {
-      return 12
+  mapCategoryIcons(val: string) {
+    switch (val) {
+      case 'dates':
+        return 'mdi-calendar-blank-outline'
+      case 'colors':
+        return 'mdi-palette-outline'
+      case 'numbers':
+        return 'mdi-variable'
+      case 'data':
+        return 'mdi-code-braces'
+      default:
+        return ''
     }
-    const aux = this.colWidthVal * 3
-    if (aux >= 12) return 12
-    if (aux <= 3) return 3
-    return aux
   }
 }
 </script>
+
+<style lang="scss">
+.with-category-icon {
+  position: relative;
+  .category-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 2px;
+    padding-right: 3px;
+  }
+}
+</style>

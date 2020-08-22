@@ -52,33 +52,20 @@
               <v-card tile outlined class="no-bx py-2 no-bb">
                 <v-row wrap class="px-4">
                   <template v-if="filteredTools.length > 0">
-                    <v-col
+                    <tool-card
                       v-for="tool in filteredTools"
                       :key="tool.name.en"
-                      lg="2"
-                      md="3"
-                      sm="4"
-                      cols="12"
+                      :tool="tool"
+                      @add-tool="(v) => addTool(v)"
                     >
-                      <v-card
-                        tile
-                        outlined
-                        class="text-center"
-                        :disabled="!tool.component"
-                        @click="addTool(tool)"
-                      >
-                        <v-card-text>
-                          {{ tool.name[$i18n.locale] }}
-                        </v-card-text>
-                      </v-card>
-                    </v-col>
+                    </tool-card>
                   </template>
                   <v-col v-else cols="11" class="d-flex mx-auto">
                     <v-alert
                       class="ma-auto"
                       text
                       color="warning"
-                      border="bottom"
+                      border="right"
                       icon="mdi-alert-box-outline"
                     >
                       <span
@@ -100,7 +87,7 @@
             class="d-flex mx-4 pt-2 no-bx no-bb"
           >
             <v-row class="tools-container flex-wrap">
-              <tool-card
+              <tool-selected-card
                 v-for="(selectedT, i) in selectedTools"
                 :key="`${selectedT.name.en} ${selectedT.id}`"
                 :tool-item="selectedT"
@@ -193,7 +180,11 @@ const mapTabValues = (val: number) => {
   async asyncData(ctx) {
     const tools: { list: [ToolItemI] } = await ctx.$content('tools').fetch()
     return {
-      tools: tools.list,
+      tools: tools.list.sort((a, b) =>
+        a.name[ctx.app.i18n.locale as 'en' | 'es'].localeCompare(
+          b.name[ctx.app.i18n.locale as 'en' | 'es']
+        )
+      ),
     }
   },
 })

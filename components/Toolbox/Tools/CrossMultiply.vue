@@ -17,6 +17,7 @@
         <v-text-field
           v-else
           v-model="tl"
+          v-no-autoc
           dense
           solo
           flat
@@ -42,6 +43,7 @@
         <v-text-field
           v-else
           v-model="tr"
+          v-no-autoc
           dense
           solo
           flat
@@ -69,6 +71,7 @@
         <v-text-field
           v-else
           v-model="bl"
+          v-no-autoc
           dense
           solo
           flat
@@ -94,6 +97,7 @@
         <v-text-field
           v-else
           v-model="br"
+          v-no-autoc
           dense
           solo
           flat
