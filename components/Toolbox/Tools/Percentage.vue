@@ -17,6 +17,7 @@
           />
           <v-text-field
             v-model="x"
+            v-no-autoc
             dense
             solo
             flat
@@ -34,6 +35,7 @@
           />
           <v-text-field
             v-model="y"
+            v-no-autoc
             dense
             solo
             flat

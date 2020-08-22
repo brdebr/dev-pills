@@ -7,6 +7,7 @@
             <template #activator="{ on, attrs }">
               <v-text-field
                 v-model="dateString"
+                v-no-autoc
                 dense
                 solo
                 flat
@@ -39,6 +40,7 @@
             <template #activator="{ on, attrs }">
               <v-text-field
                 v-model="formatString"
+                v-no-autoc
                 dense
                 solo
                 flat
@@ -71,6 +73,7 @@
             <template #activator="{ on, attrs }">
               <v-text-field
                 v-model="outputFormatString"
+                v-no-autoc
                 dense
                 solo
                 flat
