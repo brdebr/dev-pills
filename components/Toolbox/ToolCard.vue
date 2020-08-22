@@ -18,22 +18,24 @@
         <span>
           {{ toolItem.name[$i18n.locale] }}
         </span>
-        <v-btn
-          text
-          class="ml-auto mr-1"
-          small
-          :disabled="colWidth <= 3"
-          @click="colWidthVal--"
-        >
-          <v-icon>
-            mdi-arrow-collapse-horizontal
-          </v-icon>
-        </v-btn>
-        <v-btn text small :disabled="colWidth >= 12" @click="colWidthVal++">
-          <v-icon>
-            mdi-arrow-expand-horizontal
-          </v-icon>
-        </v-btn>
+        <template v-if="!this.$vuetify.breakpoint.xsOnly">
+          <v-btn
+            text
+            class="ml-auto mr-1"
+            small
+            :disabled="colWidth <= 3"
+            @click="colWidthVal--"
+          >
+            <v-icon>
+              mdi-arrow-collapse-horizontal
+            </v-icon>
+          </v-btn>
+          <v-btn text small :disabled="colWidth >= 12" @click="colWidthVal++">
+            <v-icon>
+              mdi-arrow-expand-horizontal
+            </v-icon>
+          </v-btn>
+        </template>
       </v-card-title>
       <v-row no-gutters class="d-flex">
         <component :is="toolItem.component" />
