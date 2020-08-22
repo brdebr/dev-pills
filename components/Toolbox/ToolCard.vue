@@ -1,23 +1,54 @@
 <template>
   <v-col lg="2" md="3" sm="4" cols="12" class="with-category-icon">
-    <v-card
-      tile
-      outlined
-      class="text-center"
-      :disabled="!tool.component"
-      @click="$emit('add-tool', tool)"
-    >
-      <v-card-text>
-        {{ tool.name[$i18n.locale] }}
-      </v-card-text>
-    </v-card>
-    <div class="category-icon mr-3 mt-2">
-      <v-icon size="14">
-        {{ mapCategoryIcons(tool.category) }}
-      </v-icon>
-    </div>
+    <v-tooltip v-if="!tool.component" top>
+      <template #activator="{on, attrs}">
+        <div v-bind="attrs" v-on="on">
+          <v-card tile outlined class="text-center" :disabled="!tool.component">
+            <v-card-text>
+              {{ tool.name[$i18n.locale] }}
+            </v-card-text>
+          </v-card>
+          <div class="category-icon mr-3 mt-2">
+            <v-icon size="14">
+              {{ mapCategoryIcons(tool.category) }}
+            </v-icon>
+          </div>
+        </div>
+      </template>
+      <div>
+        {{ $t('in-progress') }}
+      </div>
+    </v-tooltip>
+    <template v-else>
+      <v-card
+        tile
+        outlined
+        class="text-center"
+        :disabled="!tool.component"
+        @click="$emit('add-tool', tool)"
+      >
+        <v-card-text>
+          {{ tool.name[$i18n.locale] }}
+        </v-card-text>
+      </v-card>
+      <div class="category-icon mr-3 mt-2">
+        <v-icon size="14">
+          {{ mapCategoryIcons(tool.category) }}
+        </v-icon>
+      </div>
+    </template>
   </v-col>
 </template>
+<i18n>
+{
+  "en": {
+    "in-progress": "Work in progress... 📦"
+  },
+  "es": {
+    "in-progress": "En construcción... 📦"
+  }
+}
+</i18n>
 
 <script lang="ts">
 import Vue from 'vue'
