@@ -30,7 +30,7 @@
               "es" : "Paleta de colores"
           },
           "category": "colors",
-          "component": ""
+          "component": "t-color-palette"
         },
         {
           "name": {

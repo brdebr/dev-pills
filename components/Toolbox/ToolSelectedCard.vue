@@ -56,6 +56,8 @@ import { ToolItemI } from '@/pages/toolbox.vue'
     't-date-format': () => import('@/components/Toolbox/Tools/DateFormat.vue'),
     't-cross-multiply': () =>
       import('@/components/Toolbox/Tools/CrossMultiply.vue'),
+    't-color-palette': () =>
+      import('@/components/Toolbox/Tools/ColorPalette.vue'),
   },
 })
 export default class ToolSelectedCard extends Vue {
@@ -68,6 +70,9 @@ export default class ToolSelectedCard extends Vue {
     // @ts-ignore
     if (this.$vuetify.breakpoint.xsOnly) {
       return 12
+    }
+    if (this.toolItem.component === 't-color-palette') {
+      return 6
     }
     const aux = this.colWidthVal * 3
     if (aux >= 12) return 12
