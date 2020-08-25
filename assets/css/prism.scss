@@ -1,0 +1,38 @@
+
+#app{
+    &.theme--dark{
+        @import "~prism-themes/themes/prism-material-oceanic";
+        code[class*="language-"], pre[class*="language-"]{
+            text-shadow: unset !important;
+        }
+        .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string{
+            background: none;
+        }
+        .token.comment, .token.prolog, .token.doctype, .token.cdata{
+            color: #f7ab55;
+        }
+    }
+    &.theme--light{
+        @import "~prism-themes/themes/prism-material-light";
+        .token.comment, .token.prolog, .token.doctype, .token.cdata{
+            color: #029789;
+        }
+    }
+    &.theme--light, &.theme--dark{
+        pre[class*="language-"] {
+            overflow: auto;
+            position: relative;
+            margin: 0.5em 0;
+            padding-left: 53px;
+        }
+        .line-highlight{
+            margin-top: 19px;
+        }
+        .line-numbers .line-numbers-rows{
+            top: -1px;
+        }
+    }
+}
+.v-application code, .v-application kbd{
+    font-weight: unset !important;
+}

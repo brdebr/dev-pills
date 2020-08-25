@@ -40,7 +40,8 @@ const nuxtConfigs = {
    */
   css: [
     '@/assets/css/transitions.scss',
-    '@/assets/css/main.scss'
+    '@/assets/css/main.scss',
+    '@/assets/css/prism.scss',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -83,9 +84,7 @@ const nuxtConfigs = {
    */
   content: {
     markdown: {
-      prism: {
-        theme: 'prism-themes/themes/prism-material-oceanic.css'
-      }
+
     }
   },
 
