@@ -83,9 +83,7 @@ const nuxtConfigs = {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {
-    markdown: {
 
-    }
   },
 
   router: {
@@ -99,6 +97,36 @@ const nuxtConfigs = {
     strategy: 'prefix',
     vueI18n: {
       fallbackLocale: 'en'
+    }
+  },
+
+  pwa: {
+    manifest: {
+      name: '< Dev-Pills />',
+      short_name: 'Dev-Pills',
+      theme_color: '#02796D',
+      shortcuts : [
+        {
+          name: "Home",
+          url: "/",
+          description: "Home page"
+        },
+        {
+          name: "Snippets",
+          url: "/snippets",
+          description: "Small pieces of code/info"
+        },
+        {
+          name: "Toolbox",
+          url: "/toolbox",
+          description: "Various small tools for productivity"
+        },
+        {
+          name: "About",
+          url: "/about",
+          description: "Information about the techs used to build this project"
+        }
+      ]
     }
   },
   /*
