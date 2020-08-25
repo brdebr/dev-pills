@@ -1,6 +1,6 @@
 <template>
   <v-col lg="2" md="3" sm="4" cols="12" class="with-category-icon">
-    <v-tooltip v-if="!tool.component" top>
+    <v-tooltip v-if="!tool.component" top transition="fade-transition">
       <template #activator="{on, attrs}">
         <div v-bind="attrs" v-on="on">
           <v-card tile outlined class="text-center" :disabled="!tool.component">

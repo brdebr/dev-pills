@@ -13,7 +13,7 @@
         "en": "Articles",
         "es": "Artículos"
       },
-      "to": "/Articles",
+      "to": "/articles",
       "disabled": true,
       "icon": "mdi-newspaper-variant-multiple"
     },
@@ -22,7 +22,7 @@
         "en": "Categories",
         "es": "Categorías"
       },
-      "to": "/Categories",
+      "to": "/categories",
       "disabled": true,
       "icon": "mdi-book-multiple"
     },
@@ -31,8 +31,7 @@
         "en": "Snippets",
         "es": "Notas/código"
       },
-      "to": "/Snippets",
-      "disabled": true,
+      "to": "/snippets",
       "icon": "mdi-code-json"
     },
     {
