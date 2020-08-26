@@ -14,6 +14,7 @@
                 outlined
                 color="primary"
                 text
+                :text-color="$vuetify.theme.dark ? 'white' : null"
                 class="rounded-0 mr-3 mb-3 tag-chip pl-2"
               >
                 <span class="grey--text text--lighten-1 mr-1">
@@ -27,9 +28,23 @@
           </v-row>
           <v-row ref="contents" class="flex-wrap">
             <v-col v-for="snippet in snippets" :key="snippet.slug" cols="12">
-              <v-row no-gutters>
-                <v-col cols="12">
-                  {{ snippet[`title-${$i18n.locale}`] }}
+              <v-row no-gutters class="snippet-container">
+                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
+                  <span class="mr-auto">
+                    {{ snippet[`title-${$i18n.locale}`] }}
+                  </span>
+                  <span>
+                    <span
+                      v-for="tag in snippet.tags"
+                      :key="tag"
+                      class="snippet-container__tag"
+                    >
+                      <span class="hashtag" />
+                      <span>
+                        {{ tag }}
+                      </span>
+                    </span>
+                  </span>
                 </v-col>
                 <v-col cols="12">
                   <nuxt-content :document="snippet" />
@@ -108,5 +123,40 @@ export default class SnippetsPage extends Vue {
 .tag-chip {
   border-left-width: 4px !important;
   min-width: 125px;
+}
+#app.theme--light {
+  .snippet-container {
+    background-color: #edf7f5;
+  }
+}
+#app.theme--dark {
+  .snippet-container {
+    background-color: #206859;
+  }
+}
+.snippet-container {
+  background-color: #edf7f5;
+  &__tag {
+    display: inline-block;
+    opacity: 0.6;
+    border: 1px solid silver;
+    font-size: 13px;
+    margin-right: 10px;
+    padding: 0 6px;
+    &:last-child {
+      margin-right: 0;
+    }
+    .hashtag {
+      &::before {
+        content: '#';
+        font-size: 11px;
+        color: #b3b3b3;
+      }
+    }
+  }
+}
+#app.theme--light pre[class*='language-'],
+#app.theme--dark pre[class*='language-'] {
+  margin-bottom: 0;
 }
 </style>
