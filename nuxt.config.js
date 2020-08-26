@@ -40,8 +40,7 @@ const nuxtConfigs = {
    */
   css: [
     '@/assets/css/transitions.scss',
-    '@/assets/css/main.scss',
-    '@/assets/css/prism.scss',
+    '@/assets/css/main.scss'
   ],
   /*
    ** Plugins to load before mounting the App

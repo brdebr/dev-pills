@@ -26,6 +26,9 @@
                 <v-tab class="rbt-font" :disabled="toolSearchTab === null">
                   {{ $t('tab-data') }}
                 </v-tab>
+                <v-tab class="rbt-font" :disabled="toolSearchTab === null">
+                  {{ $t('tab-audio') }}
+                </v-tab>
                 <div class="ml-auto search-tab">
                   <v-text-field
                     v-model="toolSearchVal"
@@ -129,6 +132,7 @@
     "tab-colors": "Colors",
     "tab-numbers": "Numbers",
     "tab-data": "Data",
+    "tab-audio": "Audio",
     "search-tool": "Search tool...",
     "not-found": "Couldn't find any tool matching the filter"
   },
@@ -140,6 +144,7 @@
     "tab-colors": "Colores",
     "tab-numbers": "Números",
     "tab-data": "Datos",
+    "tab-audio": "Audio",
     "search-tool": "Buscar herramienta...",
     "not-found": "No se ha podido encontrar ninguna herramienta que coincida con el filtro"
   }
@@ -171,6 +176,8 @@ const mapTabValues = (val: number) => {
       return 'numbers'
     case 4:
       return 'data'
+    case 5:
+      return 'audio'
     default:
       return ''
   }

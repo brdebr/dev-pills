@@ -14,7 +14,14 @@
                 outlined
                 color="primary"
                 text
-                class="rounded-0 mr-3 mb-3 tag-chip pl-2"
+                :text-color="$vuetify.theme.dark ? 'white' : null"
+                :class="
+                  'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
+                  (!snippetTagSearch.length || snippetTagSearch.includes(tag)
+                    ? 'tag-chip--active'
+                    : null)
+                "
+                @click="toggleTag(tag)"
               >
                 <span class="grey--text text--lighten-1 mr-1">
                   #
@@ -24,12 +31,46 @@
                 </span>
               </v-chip>
             </v-col>
+            <v-col class="flex-grow-0">
+              <v-text-field
+                v-model="snippetSearch"
+                label="Search..."
+                dense
+                solo
+                solo-inverted
+                flat
+                outlined
+                full-width
+                hide-details
+                color="indigo accent-2"
+                append-icon="mdi-magnify"
+                class="rounded-0 search-snippet"
+              />
+            </v-col>
           </v-row>
           <v-row ref="contents" class="flex-wrap">
-            <v-col v-for="snippet in snippets" :key="snippet.slug" cols="12">
-              <v-row no-gutters>
-                <v-col cols="12">
-                  {{ snippet[`title-${$i18n.locale}`] }}
+            <v-col
+              v-for="snippet in filteredSnippets"
+              :key="snippet.slug"
+              cols="12"
+            >
+              <v-row no-gutters class="snippet-container">
+                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
+                  <span class="mr-auto">
+                    {{ snippet[`title-${$i18n.locale}`] }}
+                  </span>
+                  <span>
+                    <span
+                      v-for="tag in snippet.tags"
+                      :key="tag"
+                      class="snippet-container__tag"
+                    >
+                      <span class="hashtag" />
+                      <span>
+                        {{ tag }}
+                      </span>
+                    </span>
+                  </span>
                 </v-col>
                 <v-col cols="12">
                   <nuxt-content :document="snippet" />
@@ -52,6 +93,14 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.js'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
+import { Watch } from 'vue-property-decorator'
+
+export interface SnippetItemI {
+  title: string
+  'title-es': string
+  'title-en': string
+  tags: Array<string>
+}
 
 @Component({
   head() {
@@ -72,7 +121,10 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
   },
 })
 export default class SnippetsPage extends Vue {
-  snippets!: []
+  snippets!: [SnippetItemI]
+
+  snippetSearch = ''
+  snippetTagSearch: Array<string> = []
 
   get tags() {
     return this.snippets.reduce((acc, el) => {
@@ -85,11 +137,51 @@ export default class SnippetsPage extends Vue {
     }, [])
   }
 
+  @Watch('snippetSearch')
+  emptyTagsFilter(newVal: string) {
+    if (newVal) {
+      this.snippetTagSearch = []
+    }
+  }
+
+  get filteredSnippets() {
+    this.$nextTick(() => {
+      if (this.$refs.contents) {
+        this.refreshPrism()
+      }
+    })
+    if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
+      return this.snippets
+    }
+    if (this.snippetSearch) {
+      return this.snippets.filter((el) => {
+        // @ts-ignore
+        return el[`title-${this.$i18n.locale}`]
+          ?.toLowerCase()
+          ?.includes(this.snippetSearch)
+      })
+    }
+    if (this.snippetTagSearch.length > 0) {
+      return this.snippets.filter((el) => {
+        return el.tags.some((tagEl) => this.snippetTagSearch.includes(tagEl))
+      })
+    }
+  }
+
+  toggleTag(tag: string) {
+    const index = this.snippetTagSearch.findIndex((el) => el === tag)
+    if (index === -1) {
+      this.snippetTagSearch.push(tag)
+    } else {
+      this.snippetTagSearch.splice(index, 1)
+    }
+  }
+
   refreshPrism() {
     setTimeout(() => {
       // @ts-ignore
       Prism.highlightAllUnder(this.$refs.contents)
-    }, 50)
+    }, 10)
   }
 
   mounted() {
@@ -105,8 +197,51 @@ export default class SnippetsPage extends Vue {
 </script>
 
 <style lang="scss">
+@import '@/assets/css/prism';
 .tag-chip {
-  border-left-width: 4px !important;
+  border-left-width: 1px !important;
   min-width: 125px;
+  transition: border-left-width 0.2s linear;
+  &--active {
+    border-left-width: 4.5px !important;
+  }
+}
+.search-snippet {
+  min-width: 320px;
+}
+#app.theme--light {
+  .snippet-container {
+    background-color: #edf7f5;
+  }
+}
+#app.theme--dark {
+  .snippet-container {
+    background-color: #206859;
+  }
+}
+.snippet-container {
+  background-color: #edf7f5;
+  &__tag {
+    display: inline-block;
+    opacity: 0.6;
+    border: 1px solid silver;
+    font-size: 13px;
+    margin-right: 10px;
+    padding: 0 6px;
+    &:last-child {
+      margin-right: 0;
+    }
+    .hashtag {
+      &::before {
+        content: '#';
+        font-size: 11px;
+        color: #b3b3b3;
+      }
+    }
+  }
+}
+#app.theme--light pre[class*='language-'],
+#app.theme--dark pre[class*='language-'] {
+  margin-bottom: 0;
 }
 </style>

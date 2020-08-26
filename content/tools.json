@@ -50,8 +50,8 @@
         },
         {
           "name": {
-              "en" : "JSON",
-              "es" : "JSON"
+              "en" : "JSON Creator",
+              "es" : "Crear JSON"
           },
           "category": "data",
           "component": ""
@@ -71,6 +71,54 @@
           },
           "category": "numbers",
           "component": "t-cross-multiply"
+        },
+        {
+          "name": {
+              "en" : "Bill splitter",
+              "es" : "Repartir cuenta"
+          },
+          "category": "numbers",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "BPM Finder",
+              "es" : "Averiguar BPM"
+          },
+          "category": "audio",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Metronome",
+              "es" : "Metrónomo"
+          },
+          "category": "audio",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Audio check",
+              "es" : "Comprobar audio"
+          },
+          "category": "audio",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Text diff",
+              "es" : "Diferencia texto"
+          },
+          "category": "data",
+          "component": ""
+        },
+        {
+          "name": {
+              "en" : "Fake user",
+              "es" : "Generar usuario"
+          },
+          "category": "data",
+          "component": ""
         }
-      ]
+    ]
 }
