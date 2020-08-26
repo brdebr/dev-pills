@@ -71,6 +71,8 @@ export default class ToolCard extends Vue {
         return 'mdi-variable'
       case 'data':
         return 'mdi-code-braces'
+      case 'audio':
+        return 'mdi-volume-high'
       default:
         return ''
     }
