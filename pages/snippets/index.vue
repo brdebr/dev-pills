@@ -15,7 +15,13 @@
                 color="primary"
                 text
                 :text-color="$vuetify.theme.dark ? 'white' : null"
-                class="rounded-0 mr-3 mb-3 tag-chip pl-2"
+                :class="
+                  'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
+                  (!snippetTagSearch.length || snippetTagSearch.includes(tag)
+                    ? 'tag-chip--active'
+                    : null)
+                "
+                @click="toggleTag(tag)"
               >
                 <span class="grey--text text--lighten-1 mr-1">
                   #
@@ -25,9 +31,29 @@
                 </span>
               </v-chip>
             </v-col>
+            <v-col class="flex-grow-0">
+              <v-text-field
+                v-model="snippetSearch"
+                label="Search..."
+                dense
+                solo
+                solo-inverted
+                flat
+                outlined
+                full-width
+                hide-details
+                color="indigo accent-2"
+                append-icon="mdi-magnify"
+                class="rounded-0 search-snippet"
+              />
+            </v-col>
           </v-row>
           <v-row ref="contents" class="flex-wrap">
-            <v-col v-for="snippet in snippets" :key="snippet.slug" cols="12">
+            <v-col
+              v-for="snippet in filteredSnippets"
+              :key="snippet.slug"
+              cols="12"
+            >
               <v-row no-gutters class="snippet-container">
                 <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
                   <span class="mr-auto">
@@ -67,6 +93,14 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.js'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
+import { Watch } from 'vue-property-decorator'
+
+export interface SnippetItemI {
+  title: string
+  'title-es': string
+  'title-en': string
+  tags: Array<string>
+}
 
 @Component({
   head() {
@@ -87,7 +121,10 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
   },
 })
 export default class SnippetsPage extends Vue {
-  snippets!: []
+  snippets!: [SnippetItemI]
+
+  snippetSearch = ''
+  snippetTagSearch: Array<string> = []
 
   get tags() {
     return this.snippets.reduce((acc, el) => {
@@ -98,6 +135,41 @@ export default class SnippetsPage extends Vue {
       })
       return acc
     }, [])
+  }
+
+  @Watch('snippetSearch')
+  emptyTagsFilter(newVal: string) {
+    if (newVal) {
+      this.snippetTagSearch = []
+    }
+  }
+
+  get filteredSnippets() {
+    if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
+      return this.snippets
+    }
+    if (this.snippetSearch) {
+      return this.snippets.filter((el) => {
+        // @ts-ignore
+        return el[`title-${this.$i18n.locale}`]
+          ?.toLowerCase()
+          ?.includes(this.snippetSearch)
+      })
+    }
+    if (this.snippetTagSearch.length > 0) {
+      return this.snippets.filter((el) => {
+        return el.tags.some((tagEl) => this.snippetTagSearch.includes(tagEl))
+      })
+    }
+  }
+
+  toggleTag(tag: string) {
+    const index = this.snippetTagSearch.findIndex((el) => el === tag)
+    if (index === -1) {
+      this.snippetTagSearch.push(tag)
+    } else {
+      this.snippetTagSearch.splice(index, 1)
+    }
   }
 
   refreshPrism() {
@@ -121,8 +193,15 @@ export default class SnippetsPage extends Vue {
 
 <style lang="scss">
 .tag-chip {
-  border-left-width: 4px !important;
+  border-left-width: 1px !important;
   min-width: 125px;
+  transition: border-left-width 0.2s linear;
+  &--active {
+    border-left-width: 4.5px !important;
+  }
+}
+.search-snippet {
+  min-width: 320px;
 }
 #app.theme--light {
   .snippet-container {
