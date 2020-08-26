@@ -145,6 +145,11 @@ export default class SnippetsPage extends Vue {
   }
 
   get filteredSnippets() {
+    this.$nextTick(() => {
+      if (this.$refs.contents) {
+        this.refreshPrism()
+      }
+    })
     if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
       return this.snippets
     }
@@ -176,7 +181,7 @@ export default class SnippetsPage extends Vue {
     setTimeout(() => {
       // @ts-ignore
       Prism.highlightAllUnder(this.$refs.contents)
-    }, 50)
+    }, 10)
   }
 
   mounted() {
@@ -192,6 +197,7 @@ export default class SnippetsPage extends Vue {
 </script>
 
 <style lang="scss">
+@import '@/assets/css/prism';
 .tag-chip {
   border-left-width: 1px !important;
   min-width: 125px;
