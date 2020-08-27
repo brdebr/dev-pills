@@ -14,7 +14,7 @@
                 outlined
                 color="primary"
                 text
-                :text-color="$vuetify.theme.dark ? 'white' : null"
+                :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
                 :class="
                   'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
                   (!snippetTagSearch.length || snippetTagSearch.includes(tag)
@@ -116,7 +116,12 @@ export interface SnippetItemI {
         .map((el) => {
           el['title-en'] = el.title
           return el
-        }),
+        })
+        .sort(
+          // @ts-ignore
+          (a, b) =>
+            new Date(a.updatedAt).getTime() > new Date(b.updatedAt).getTime()
+        ),
     }
   },
 })

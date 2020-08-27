@@ -6,6 +6,7 @@
     :class="`the-drawer ${
       $store.state.layout.collapseBar ? 'the-drawer--collapsed' : null
     }`"
+    overlay-color="#fff"
     clipped
     floating
     app
