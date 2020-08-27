@@ -14,7 +14,7 @@
                 outlined
                 color="primary"
                 text
-                :text-color="$vuetify.theme.dark ? 'white' : null"
+                :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
                 :class="
                   'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
                   (!snippetTagSearch.length || snippetTagSearch.includes(tag)
@@ -71,6 +71,30 @@
                       </span>
                     </span>
                   </span>
+                  <v-tooltip top>
+                    <template #activator="{on, attrs}">
+                      <span
+                        class="ml-2 my-auto"
+                        style="line-height: 10px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <v-btn tile x-small outlined class="date-details-icon">
+                          <v-icon
+                            small
+                            :color="
+                              $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
+                            "
+                          >
+                            mdi-calendar-today
+                          </v-icon>
+                        </v-btn>
+                      </span>
+                    </template>
+                    <span class="date-tooltip-text">
+                      {{ getDateFormatted(snippet.updatedAt) }}
+                    </span>
+                  </v-tooltip>
                 </v-col>
                 <v-col cols="12">
                   <nuxt-content :document="snippet" />
@@ -94,12 +118,14 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.js'
 import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 import { Watch } from 'vue-property-decorator'
+import moment from 'moment'
 
 export interface SnippetItemI {
   title: string
   'title-es': string
   'title-en': string
   tags: Array<string>
+  updatedAt: string
 }
 
 @Component({
@@ -116,7 +142,12 @@ export interface SnippetItemI {
         .map((el) => {
           el['title-en'] = el.title
           return el
-        }),
+        })
+        .sort(
+          // @ts-ignore
+          (a, b) =>
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+        ),
     }
   },
 })
@@ -177,6 +208,12 @@ export default class SnippetsPage extends Vue {
     }
   }
 
+  getDateFormatted(isoDate: string) {
+    return moment(isoDate)
+      .locale(this.$i18n.locale)
+      .format('dddd DD/MM/YYYY · HH:mm')
+  }
+
   refreshPrism() {
     setTimeout(() => {
       // @ts-ignore
@@ -206,8 +243,14 @@ export default class SnippetsPage extends Vue {
     border-left-width: 4.5px !important;
   }
 }
-.search-snippet {
+.search-snippet.v-text-field {
   min-width: 320px;
+  label {
+    margin-left: 5px;
+    font-weight: 400 !important;
+    letter-spacing: 0.9px;
+    font-family: 'Roboto', serif !important;
+  }
 }
 #app.theme--light {
   .snippet-container {
@@ -243,5 +286,16 @@ export default class SnippetsPage extends Vue {
 #app.theme--light pre[class*='language-'],
 #app.theme--dark pre[class*='language-'] {
   margin-bottom: 0;
+}
+.date-details-icon {
+  min-width: 10px !important;
+  width: 10px !important;
+  border-color: #85b1a6 !important;
+}
+.date-tooltip-text {
+  display: inline-block;
+  &::first-letter {
+    text-transform: uppercase !important;
+  }
 }
 </style>
