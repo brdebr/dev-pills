@@ -50,6 +50,12 @@
             color: #0288d1;
           }
         }
+        &.language-css {
+          &::before {
+            content: '\F031C';
+            color: #026DBA;
+          }
+        }
       }
     }
   }
