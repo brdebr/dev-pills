@@ -18,6 +18,7 @@
           v-else
           v-model="tl"
           v-no-autoc
+          inputmode="numeric"
           dense
           solo
           flat
@@ -44,6 +45,7 @@
           v-else
           v-model="tr"
           v-no-autoc
+          inputmode="numeric"
           dense
           solo
           flat
@@ -72,6 +74,7 @@
           v-else
           v-model="bl"
           v-no-autoc
+          inputmode="numeric"
           dense
           solo
           flat
@@ -98,6 +101,7 @@
           v-else
           v-model="br"
           v-no-autoc
+          inputmode="numeric"
           dense
           solo
           flat
