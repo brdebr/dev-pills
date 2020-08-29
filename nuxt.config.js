@@ -101,7 +101,7 @@ const nuxtConfigs = {
 
   pwa: {
     manifest: {
-      name: '< Dev-Pills />',
+      name: 'Dev-Pills',
       short_name: 'Dev-Pills',
       theme_color: '#02796D',
       shortcuts : [

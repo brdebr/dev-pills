@@ -35,6 +35,8 @@
               <v-text-field
                 v-model="snippetSearch"
                 label="Search..."
+                clearable
+                clear-icon="mdi-close-box mr-4"
                 dense
                 solo
                 solo-inverted

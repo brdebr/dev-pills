@@ -34,6 +34,8 @@
                     v-model="toolSearchVal"
                     :placeholder="$t('search-tool')"
                     dense
+                    clearable
+                    clear-icon="mdi-arrow-left-bold-box-outline mr-4"
                     solo
                     solo-inverted
                     flat
@@ -194,6 +196,11 @@ const mapTabValues = (val: number) => {
       ),
     }
   },
+  head() {
+    return {
+      title: 'Toolbox',
+    }
+  }
 })
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
