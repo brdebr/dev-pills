@@ -33,6 +33,11 @@ items:
         description: 'Módulo de Nuxt para proveer internacionalización implementando vue-i18n, añadir idiomas a la generación de rutas, detectar el idioma del navegador, entre otros.'
         icon: 'mdi-web-box green--text text--darken-2'
         link: 'https://i18n.nuxtjs.org/'
+    -
+        name: 'Nuxt PWA'
+        description: 'Módulo de Nuxt que simplifica mucho la configuración necesaria para convertir el proyecto en una PWA, configurado con valores por defecto para que funcione sin configuración'
+        icon: 'image---/assets/images/icons/pwa-icon.svg'
+        link: 'https://pwa.nuxtjs.org/'
 
 ---
 
