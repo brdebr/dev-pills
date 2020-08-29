@@ -119,6 +119,14 @@
           },
           "category": "data",
           "component": ""
+        },
+        {
+          "name": {
+              "en" : "Text length",
+              "es" : "Longitud texto"
+          },
+          "category": "data",
+          "component": ""
         }
     ]
 }

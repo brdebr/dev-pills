@@ -16,7 +16,7 @@
                 text
                 :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
                 :class="
-                  'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
+                  'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
                   (!snippetTagSearch.length || snippetTagSearch.includes(tag)
                     ? 'tag-chip--active'
                     : null)
@@ -31,10 +31,12 @@
                 </span>
               </v-chip>
             </v-col>
-            <v-col class="flex-grow-0">
+            <v-col class="flex-grow-0 d-flex align-center">
               <v-text-field
                 v-model="snippetSearch"
                 label="Search..."
+                clearable
+                clear-icon="mdi-close-box-outline mr-4"
                 dense
                 solo
                 solo-inverted
@@ -44,7 +46,7 @@
                 hide-details
                 color="indigo accent-2"
                 append-icon="mdi-magnify"
-                class="rounded-0 search-snippet"
+                class="ml-2 rounded-0 search-snippet"
               />
             </v-col>
           </v-row>
@@ -56,7 +58,7 @@
             >
               <v-row no-gutters class="snippet-container">
                 <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
-                  <span class="mr-auto">
+                  <span class="mr-auto" @click="copyDates(snippet)">
                     {{ snippet[`title-${$i18n.locale}`] }}
                   </span>
                   <span>
@@ -125,6 +127,7 @@ export interface SnippetItemI {
   'title-es': string
   'title-en': string
   tags: Array<string>
+  createdAt: string
   updatedAt: string
 }
 
@@ -147,12 +150,29 @@ export interface SnippetItemI {
           // @ts-ignore
           (a, b) =>
             new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          // a.slug.localeCompare(b.slug)
         ),
+      isDev: ctx.isDev,
     }
   },
 })
 export default class SnippetsPage extends Vue {
   snippets!: [SnippetItemI]
+  isDev!: boolean
+
+  async copyDates(item: SnippetItemI) {
+    if (!this.isDev) {
+      return
+    }
+    const textVar = `createdAt: ${item.createdAt}
+updatedAt: ${item.updatedAt}`
+    console.log('Copied to clipboard: \n' + textVar)
+    if (!navigator.clipboard) {
+      console.error('Clipboard feature not supported in this browser :c')
+      return
+    }
+    await navigator.clipboard.writeText(textVar)
+  }
 
   snippetSearch = ''
   snippetTagSearch: Array<string> = []

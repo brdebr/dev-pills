@@ -34,6 +34,8 @@
                     v-model="toolSearchVal"
                     :placeholder="$t('search-tool')"
                     dense
+                    clearable
+                    clear-icon="mdi-close-box-outline mr-4"
                     solo
                     solo-inverted
                     flat
@@ -192,6 +194,11 @@ const mapTabValues = (val: number) => {
           b.name[ctx.app.i18n.locale as 'en' | 'es']
         )
       ),
+    }
+  },
+  head() {
+    return {
+      title: 'Toolbox',
     }
   },
 })
