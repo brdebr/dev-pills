@@ -58,7 +58,7 @@
             >
               <v-row no-gutters class="snippet-container">
                 <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
-                  <span class="mr-auto">
+                  <span class="mr-auto" @click="copyDates(snippet)">
                     {{ snippet[`title-${$i18n.locale}`] }}
                   </span>
                   <span>
@@ -127,6 +127,7 @@ export interface SnippetItemI {
   'title-es': string
   'title-en': string
   tags: Array<string>
+  createdAt: string
   updatedAt: string
 }
 
@@ -148,13 +149,30 @@ export interface SnippetItemI {
         .sort(
           // @ts-ignore
           (a, b) =>
-            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+            // new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+            a.slug.localeCompare(b.slug)
         ),
+      isDev: ctx.isDev,
     }
   },
 })
 export default class SnippetsPage extends Vue {
   snippets!: [SnippetItemI]
+  isDev!: boolean
+
+  async copyDates(item: SnippetItemI) {
+    if (!this.isDev) {
+      return
+    }
+    const textVar = `createdAt: ${item.createdAt}
+updatedAt: ${item.updatedAt}`
+    console.log('Copied to clipboard: \n' + textVar)
+    if (!navigator.clipboard) {
+      console.error('Clipboard feature not supported in this browser :c')
+      return
+    }
+    await navigator.clipboard.writeText(textVar)
+  }
 
   snippetSearch = ''
   snippetTagSearch: Array<string> = []

@@ -200,7 +200,7 @@ const mapTabValues = (val: number) => {
     return {
       title: 'Toolbox',
     }
-  }
+  },
 })
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
