@@ -84,6 +84,7 @@
               </v-card>
             </v-col>
           </v-row>
+          <v-progress-linear v-if="isDev" :value="percentDone" />
           <v-card
             v-if="selectedTools.length"
             tile
@@ -157,6 +158,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Watch } from 'vue-property-decorator'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export interface ToolItemI {
   name: {
@@ -205,6 +207,13 @@ const mapTabValues = (val: number) => {
 export default class UtilsPage extends Vue {
   toolSearchVal = ''
   toolSearchTab: number | null = 0
+
+  isDev = isDev
+  get percentDone() {
+    const done = this.tools.filter((el) => el.component).length
+    const total = this.tools.length
+    return (100 * done) / total
+  }
 
   selectedTools: Array<ToolItemI> = []
 
