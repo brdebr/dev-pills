@@ -149,8 +149,8 @@ export interface SnippetItemI {
         .sort(
           // @ts-ignore
           (a, b) =>
-            // new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-            a.slug.localeCompare(b.slug)
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          // a.slug.localeCompare(b.slug)
         ),
       isDev: ctx.isDev,
     }
