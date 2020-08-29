@@ -58,6 +58,7 @@ import { ToolItemI } from '@/pages/toolbox.vue'
       import('@/components/Toolbox/Tools/CrossMultiply.vue'),
     't-color-palette': () =>
       import('@/components/Toolbox/Tools/ColorPalette.vue'),
+    't-sum': () => import('@/components/Toolbox/Tools/Sum.vue'),
   },
 })
 export default class ToolSelectedCard extends Vue {
