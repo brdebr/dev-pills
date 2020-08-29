@@ -16,7 +16,7 @@
                 text
                 :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
                 :class="
-                  'rounded-0 mr-3 mb-3 tag-chip pl-2 ' +
+                  'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
                   (!snippetTagSearch.length || snippetTagSearch.includes(tag)
                     ? 'tag-chip--active'
                     : null)
@@ -31,12 +31,12 @@
                 </span>
               </v-chip>
             </v-col>
-            <v-col class="flex-grow-0">
+            <v-col class="flex-grow-0 d-flex align-center">
               <v-text-field
                 v-model="snippetSearch"
                 label="Search..."
                 clearable
-                clear-icon="mdi-close-box mr-4"
+                clear-icon="mdi-close-box-outline mr-4"
                 dense
                 solo
                 solo-inverted
@@ -46,7 +46,7 @@
                 hide-details
                 color="indigo accent-2"
                 append-icon="mdi-magnify"
-                class="rounded-0 search-snippet"
+                class="ml-2 rounded-0 search-snippet"
               />
             </v-col>
           </v-row>

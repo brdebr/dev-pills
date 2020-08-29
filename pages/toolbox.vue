@@ -35,7 +35,7 @@
                     :placeholder="$t('search-tool')"
                     dense
                     clearable
-                    clear-icon="mdi-arrow-left-bold-box-outline mr-4"
+                    clear-icon="mdi-close-box-outline mr-4"
                     solo
                     solo-inverted
                     flat
