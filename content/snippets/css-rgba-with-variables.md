@@ -3,6 +3,8 @@ title: Color RGBA with variables
 title-es: Color RGBA con variables
 tags:
     - CSS
+createdAt: 2020-08-27T20:48:26.400Z
+updatedAt: 2020-08-27T20:48:26.400Z
 ---
 
 ```css

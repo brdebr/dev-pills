@@ -4,6 +4,8 @@ title-es: Añadir hash del commit usando webpack
 tags:
   - Javascript
   - Git
+createdAt: 2020-08-25T19:41:59.700Z
+updatedAt: 2020-08-25T19:41:59.700Z
 ---
 
 ```js
