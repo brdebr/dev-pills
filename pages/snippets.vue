@@ -3,7 +3,7 @@
     <v-flex xs12 sm10>
       <v-card outlined tile>
         <v-card-title>
-          Snippets
+          {{ $t('title') }}
         </v-card-title>
         <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
           <v-row>
@@ -34,7 +34,7 @@
             <v-col class="flex-grow-0 d-flex align-center">
               <v-text-field
                 v-model="snippetSearch"
-                label="Search..."
+                :label="$t('search')"
                 clearable
                 clear-icon="mdi-close-box-outline mr-4"
                 dense
@@ -109,6 +109,18 @@
     </v-flex>
   </v-layout>
 </template>
+<i18n>
+{
+  "en": {
+    "title": "Snippets",
+    "search": "Search snippet..."
+  },
+  "es": {
+    "title": "Notas / Fragmentos de código",
+    "search": "Búsqueda de notas..."
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'

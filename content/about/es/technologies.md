@@ -1,6 +1,6 @@
 ---
 heading: "Acerca de"
-message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, trozos de código y repositorios para luego consultarlos con rapidez"
+message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, fragmentos de código y repositorios para luego consultarlos con rapidez"
 message02: "Está desarrollado utilizando las siguientes tecnologías:"
 items:
     -
