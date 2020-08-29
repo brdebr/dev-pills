@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <the-drawer />
-    <the-toolbar />
+    <the-toolbar :is-dev="isDev" />
     <v-main
       style="padding-bottom: 120px;"
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
@@ -20,6 +20,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+const isDev = process.env.NODE_ENV !== 'production'
 
 @Component({
   head() {
@@ -36,6 +37,11 @@ import Component from 'vue-class-component'
     const itemsResp = await ctx.$content('drawer').fetch()
     // @ts-ignore
     ctx.store.commit('layout/setItems', itemsResp['item-list'])
+  },
+  data() {
+    return {
+      isDev,
+    }
   },
 })
 export default class DefaultLayout extends Vue {}

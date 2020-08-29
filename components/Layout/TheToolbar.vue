@@ -1,5 +1,11 @@
 <template>
-  <v-app-bar clipped-left color="toolbar-color" app flat class="the-app-bar">
+  <v-app-bar
+    clipped-left
+    :color="isDev ? 'yellow lighten-5' : 'toolbar-color'"
+    app
+    flat
+    class="the-app-bar"
+  >
     <v-app-bar-nav-icon
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
@@ -44,6 +50,12 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  props: {
+    isDev: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({}),
 })
 </script>
