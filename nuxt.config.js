@@ -59,7 +59,11 @@ const nuxtConfigs = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment'
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -85,6 +89,12 @@ const nuxtConfigs = {
    */
   content: {
 
+  },
+
+  moment: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    plugin: false
   },
 
   router: {
