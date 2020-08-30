@@ -11,6 +11,7 @@ const nuxtConfigs = {
    ** See https://nuxtjs.org/api/configuration-mode
    */
   mode: 'universal',
+  modern: true,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
