@@ -1,113 +1,109 @@
 <template>
-  <v-layout justify-center>
-    <v-flex xs12 sm10>
-      <v-card outlined tile>
-        <v-card-title>
-          {{ $t('title') }}
-        </v-card-title>
-        <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
-          <v-row>
-            <v-col>
-              <v-chip
-                v-for="tag in tags"
-                :key="tag"
-                outlined
-                color="primary"
-                text
-                :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
-                :class="
-                  'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
-                  (!snippetTagSearch.length || snippetTagSearch.includes(tag)
-                    ? 'tag-chip--active'
-                    : null)
-                "
-                @click="toggleTag(tag)"
-              >
-                <span class="grey--text text--lighten-1 mr-1">
-                  #
+  <page-container cols="12,10">
+    <v-card outlined tile>
+      <v-card-title>
+        {{ $t('title') }}
+      </v-card-title>
+      <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+        <v-row>
+          <v-col>
+            <v-chip
+              v-for="tag in tags"
+              :key="tag"
+              outlined
+              color="primary"
+              text
+              :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
+              :class="
+                'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
+                (!snippetTagSearch.length || snippetTagSearch.includes(tag)
+                  ? 'tag-chip--active'
+                  : null)
+              "
+              @click="toggleTag(tag)"
+            >
+              <span class="grey--text text--lighten-1 mr-1">
+                #
+              </span>
+              <span>
+                {{ tag }}
+              </span>
+            </v-chip>
+          </v-col>
+          <v-col class="flex-grow-0 d-flex align-center">
+            <v-text-field
+              v-model="snippetSearch"
+              :label="$t('search')"
+              clearable
+              clear-icon="mdi-close-box-outline mr-4"
+              dense
+              solo
+              solo-inverted
+              flat
+              outlined
+              full-width
+              hide-details
+              color="indigo accent-2"
+              append-icon="mdi-magnify"
+              class="ml-2 rounded-0 search-snippet"
+            />
+          </v-col>
+        </v-row>
+        <v-row ref="contents" class="flex-wrap">
+          <v-col
+            v-for="snippet in filteredSnippets"
+            :key="snippet.slug"
+            cols="12"
+          >
+            <v-row no-gutters class="snippet-container">
+              <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
+                <span class="mr-auto" @click="copyDates(snippet)">
+                  {{ snippet[`title-${$i18n.locale}`] }}
                 </span>
                 <span>
-                  {{ tag }}
+                  <span
+                    v-for="tag in snippet.tags"
+                    :key="tag"
+                    class="snippet-container__tag"
+                  >
+                    <span class="hashtag" />
+                    <span>
+                      {{ tag }}
+                    </span>
+                  </span>
                 </span>
-              </v-chip>
-            </v-col>
-            <v-col class="flex-grow-0 d-flex align-center">
-              <v-text-field
-                v-model="snippetSearch"
-                :label="$t('search')"
-                clearable
-                clear-icon="mdi-close-box-outline mr-4"
-                dense
-                solo
-                solo-inverted
-                flat
-                outlined
-                full-width
-                hide-details
-                color="indigo accent-2"
-                append-icon="mdi-magnify"
-                class="ml-2 rounded-0 search-snippet"
-              />
-            </v-col>
-          </v-row>
-          <v-row ref="contents" class="flex-wrap">
-            <v-col
-              v-for="snippet in filteredSnippets"
-              :key="snippet.slug"
-              cols="12"
-            >
-              <v-row no-gutters class="snippet-container">
-                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
-                  <span class="mr-auto" @click="copyDates(snippet)">
-                    {{ snippet[`title-${$i18n.locale}`] }}
-                  </span>
-                  <span>
+                <v-tooltip top>
+                  <template #activator="{on, attrs}">
                     <span
-                      v-for="tag in snippet.tags"
-                      :key="tag"
-                      class="snippet-container__tag"
+                      class="ml-2 my-auto"
+                      style="line-height: 10px;"
+                      v-bind="attrs"
+                      v-on="on"
                     >
-                      <span class="hashtag" />
-                      <span>
-                        {{ tag }}
-                      </span>
+                      <v-btn tile x-small outlined class="date-details-icon">
+                        <v-icon
+                          small
+                          :color="$vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'"
+                        >
+                          mdi-calendar-today
+                        </v-icon>
+                      </v-btn>
                     </span>
+                  </template>
+                  <span class="date-tooltip-text">
+                    {{ getDateFormatted(snippet.updatedAt) }}
                   </span>
-                  <v-tooltip top>
-                    <template #activator="{on, attrs}">
-                      <span
-                        class="ml-2 my-auto"
-                        style="line-height: 10px;"
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        <v-btn tile x-small outlined class="date-details-icon">
-                          <v-icon
-                            small
-                            :color="
-                              $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
-                            "
-                          >
-                            mdi-calendar-today
-                          </v-icon>
-                        </v-btn>
-                      </span>
-                    </template>
-                    <span class="date-tooltip-text">
-                      {{ getDateFormatted(snippet.updatedAt) }}
-                    </span>
-                  </v-tooltip>
-                </v-col>
-                <v-col cols="12">
-                  <nuxt-content :document="snippet" />
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+                </v-tooltip>
+              </v-col>
+              <v-col cols="12">
+                <nuxt-content :document="snippet" />
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+  </page-container>
 </template>
 <i18n>
 {
