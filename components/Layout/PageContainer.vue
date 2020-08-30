@@ -65,11 +65,11 @@ export default class PageContainer extends Vue {
   loaderTypeArr = [
     'card-heading',
     'list-item-three-line',
-    'list-item-two-line',
-    'list-item-three-line@2',
+    'list-item-avatar-two-line',
     'article',
-    'list-item-two-line',
     'list-item-three-line',
+    'article',
+    'list-item-two-line@2',
   ]
 
   loaderType() {

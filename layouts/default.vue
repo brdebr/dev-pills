@@ -3,7 +3,7 @@
     <the-drawer />
     <the-toolbar :is-dev="isDev" />
     <v-main
-      style="padding-bottom: 120px;"
+      style="padding-bottom: 90px;"
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
     >
       <v-container
