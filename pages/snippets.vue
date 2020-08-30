@@ -220,9 +220,6 @@ updatedAt: ${item.updatedAt}`
   }
 
   get filteredSnippets() {
-    this.$nextTick(() => {
-      this.refreshPrism()
-    })
     if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
       return this.snippets
     }
@@ -257,18 +254,22 @@ updatedAt: ${item.updatedAt}`
   }
 
   refreshPrism() {
-    setTimeout(() => {
-      if (this.$refs.contents) {
-        // @ts-ignore
-        Prism.highlightAllUnder(this.$refs.contents)
-      }
-    }, 10)
+    if (this.$refs.contents) {
+      // @ts-ignore
+      Prism.highlightAllUnder(this.$refs.contents)
+    } else {
+      setTimeout(() => this.refreshPrism(), 50)
+    }
   }
 
   mounted() {
     Prism.plugins.autoloader.languages_path = '/prism/components/'
-    this.refreshPrism()
     this.$nuxt.$on('content:update', this.refreshPrism)
+    this.refreshPrism()
+  }
+
+  updated() {
+    this.refreshPrism()
   }
 
   destroyed() {
