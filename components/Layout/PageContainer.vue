@@ -68,14 +68,18 @@ export default class PageContainer extends Vue {
   }
 
   loaderType() {
-    const loaderTypeArr = [
-      'card-heading',
-      'list-item-three-line',
+    let randomTypes = [
       'list-item-avatar-two-line',
       'article',
       'list-item-three-line',
       'article',
       'list-item-two-line@2',
+    ].sort(() => Math.random() - 0.5)
+
+    const loaderTypeArr = [
+      'card-heading',
+      'list-item-three-line',
+      ...randomTypes
     ]
     return loaderTypeArr.join(',')
   }
