@@ -68,7 +68,7 @@ export default class PageContainer extends Vue {
   }
 
   loaderType() {
-    let randomTypes = [
+    const randomTypes = [
       'list-item-avatar-two-line',
       'article',
       'list-item-three-line',
@@ -79,7 +79,7 @@ export default class PageContainer extends Vue {
     const loaderTypeArr = [
       'card-heading',
       'list-item-three-line',
-      ...randomTypes
+      ...randomTypes,
     ]
     return loaderTypeArr.join(',')
   }
