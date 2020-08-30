@@ -35,6 +35,7 @@ const nuxtConfigs = {
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   },
+  loading: '@/components/loading.vue',
   /*
    ** Global CSS
    */
