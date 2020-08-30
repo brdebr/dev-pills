@@ -65,7 +65,9 @@
                     <span
                       class="pl-2 d-inline-flex flex-wrap"
                       :style="
-                        $vuetify.breakpoint.xsOnly ? 'width: min-content;' : null
+                        $vuetify.breakpoint.xsOnly
+                          ? 'width: min-content;'
+                          : null
                       "
                     >
                       <span
@@ -73,7 +75,7 @@
                         :key="tag"
                         class="snippet-container__tag my-1 d-inline-flex align-center"
                       >
-                        <span class="hashtag"/>
+                        <span class="hashtag" />
                         <span>{{ tag }}</span>
                       </span>
                     </span>
@@ -85,7 +87,12 @@
                           v-bind="attrs"
                           v-on="on"
                         >
-                          <v-btn tile x-small outlined class="date-details-icon">
+                          <v-btn
+                            tile
+                            x-small
+                            outlined
+                            class="date-details-icon"
+                          >
                             <v-icon
                               small
                               :color="
