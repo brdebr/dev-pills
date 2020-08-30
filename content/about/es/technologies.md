@@ -1,6 +1,6 @@
 ---
 heading: "Acerca de"
-message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, trozos de código y repositorios para luego consultarlos con rapidez"
+message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, fragmentos de código y repositorios para luego consultarlos con rapidez"
 message02: "Está desarrollado utilizando las siguientes tecnologías:"
 items:
     -
@@ -33,6 +33,11 @@ items:
         description: 'Módulo de Nuxt para proveer internacionalización implementando vue-i18n, añadir idiomas a la generación de rutas, detectar el idioma del navegador, entre otros.'
         icon: 'mdi-web-box green--text text--darken-2'
         link: 'https://i18n.nuxtjs.org/'
+    -
+        name: 'Nuxt PWA'
+        description: 'Módulo de Nuxt que simplifica mucho la configuración necesaria para convertir el proyecto en una PWA, configurado con valores por defecto para que funcione sin configuración'
+        icon: 'image---/assets/images/icons/pwa-icon.svg'
+        link: 'https://pwa.nuxtjs.org/'
 
 ---
 

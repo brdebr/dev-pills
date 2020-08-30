@@ -27,6 +27,7 @@
                 tile
                 depressed
                 small
+                class="pa-0"
                 color="#fafafa"
                 target="_blank"
                 rel="noreferrer"
@@ -108,6 +109,7 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 const vueSvg = require('@/assets/images/icons/vue-icon.svg')
 const netlifySvg = require('@/assets/images/icons/netlify-icon.svg')
+const PWASvg = require('@/assets/images/icons/pwa-icon.svg')
 
 interface TechI {
   name: string
@@ -127,6 +129,8 @@ export default class DTable extends Vue {
         return vueSvg
       case 'Netlify':
         return netlifySvg
+      case 'Nuxt PWA':
+        return PWASvg
       default:
         return ''
     }

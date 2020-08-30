@@ -1,76 +1,79 @@
 <template>
-  <v-layout justify-center>
-    <v-flex xs12 sm10>
-      <v-card outlined tile>
-        <v-card-title>
-          Snippets
-        </v-card-title>
-        <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
-          <v-row>
-            <v-col>
-              <v-chip
-                v-for="tag in tags"
-                :key="tag"
-                outlined
-                color="primary"
-                text
-                :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
-                :class="
-                  'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
-                  (!snippetTagSearch.length || snippetTagSearch.includes(tag)
-                    ? 'tag-chip--active'
-                    : null)
-                "
-                @click="toggleTag(tag)"
-              >
-                <span class="grey--text text--lighten-1 mr-1">
-                  #
-                </span>
-                <span>
-                  {{ tag }}
-                </span>
-              </v-chip>
-            </v-col>
-            <v-col class="flex-grow-0 d-flex align-center">
-              <v-text-field
-                v-model="snippetSearch"
-                label="Search..."
-                clearable
-                clear-icon="mdi-close-box-outline mr-4"
-                dense
-                solo
-                solo-inverted
-                flat
-                outlined
-                full-width
-                hide-details
-                color="indigo accent-2"
-                append-icon="mdi-magnify"
-                class="ml-2 rounded-0 search-snippet"
-              />
-            </v-col>
-          </v-row>
-          <v-row ref="contents" class="flex-wrap">
-            <v-col
-              v-for="snippet in filteredSnippets"
-              :key="snippet.slug"
-              cols="12"
+  <page-container cols="12,10">
+    <v-card outlined tile>
+      <v-card-title>
+        {{ $t('title') }}
+      </v-card-title>
+      <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+        <v-row>
+          <v-col>
+            <v-chip
+              v-for="tag in tags"
+              :key="tag"
+              outlined
+              color="primary"
+              text
+              :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
+              :class="
+                'rounded-0 mx-2 my-2 tag-chip pl-2 ' +
+                (!snippetTagSearch.length || snippetTagSearch.includes(tag)
+                  ? 'tag-chip--active'
+                  : null)
+              "
+              @click="toggleTag(tag)"
             >
-              <v-row no-gutters class="snippet-container">
-                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex">
-                  <span class="mr-auto" @click="copyDates(snippet)">
-                    {{ snippet[`title-${$i18n.locale}`] }}
-                  </span>
-                  <span>
+              <span class="grey--text text--lighten-1 mr-1">
+                #
+              </span>
+              <span>
+                {{ tag }}
+              </span>
+            </v-chip>
+          </v-col>
+          <v-col class="flex-grow-0 d-flex align-center">
+            <v-text-field
+              v-model="snippetSearch"
+              :label="$t('search')"
+              clearable
+              clear-icon="mdi-close-box-outline mr-4"
+              dense
+              solo
+              solo-inverted
+              flat
+              outlined
+              full-width
+              hide-details
+              color="indigo accent-2"
+              append-icon="mdi-magnify"
+              class="ml-2 rounded-0 search-snippet"
+            />
+          </v-col>
+        </v-row>
+        <v-row ref="contents" class="flex-wrap">
+          <v-col
+            v-for="snippet in filteredSnippets"
+            :key="snippet.slug"
+            cols="12"
+          >
+            <v-row no-gutters class="snippet-container">
+              <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
+                <span class="mr-auto" @click="copyDates(snippet)">
+                  {{ snippet[`title-${$i18n.locale}`] }}
+                </span>
+                <div class="d-flex">
+                  <span
+                    class="pl-2 d-inline-flex flex-wrap"
+                    :style="
+                      $vuetify.breakpoint.xsOnly ? 'width: min-content;' : null
+                    "
+                  >
                     <span
                       v-for="tag in snippet.tags"
                       :key="tag"
-                      class="snippet-container__tag"
+                      class="snippet-container__tag my-1 d-inline-flex align-center"
                     >
                       <span class="hashtag" />
-                      <span>
-                        {{ tag }}
-                      </span>
+                      <span>{{ tag }}</span>
                     </span>
                   </span>
                   <v-tooltip top>
@@ -97,18 +100,30 @@
                       {{ getDateFormatted(snippet.updatedAt) }}
                     </span>
                   </v-tooltip>
-                </v-col>
-                <v-col cols="12">
-                  <nuxt-content :document="snippet" />
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+                </div>
+              </v-col>
+              <v-col cols="12">
+                <nuxt-content :document="snippet" />
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+  </page-container>
 </template>
+<i18n>
+{
+  "en": {
+    "title": "Snippets",
+    "search": "Search snippet..."
+  },
+  "es": {
+    "title": "Notas / Fragmentos de código",
+    "search": "Búsqueda de notas..."
+  }
+}
+</i18n>
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
@@ -299,6 +314,7 @@ updatedAt: ${item.updatedAt}`
         content: '#';
         font-size: 11px;
         color: #b3b3b3;
+        margin-right: 3px;
       }
     }
   }

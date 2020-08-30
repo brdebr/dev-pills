@@ -33,6 +33,11 @@ items:
         description: 'Nuxt module that provides i18n features implementing vue-i18n, adding route generation with locales, detect browser language, and more'
         icon: 'mdi-web-box green--text text--darken-2'
         link: 'https://i18n.nuxtjs.org/'
+    -
+        name: 'Nuxt PWA'
+        description: 'Nuxt module that makes the PWA configuration easy and has default values to work out-of-the-box'
+        icon: 'image---/assets/images/icons/pwa-icon.svg'
+        link: 'https://pwa.nuxtjs.org/'
 ---
 
 <d-about-techs :items="items">

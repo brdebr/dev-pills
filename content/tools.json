@@ -62,7 +62,7 @@
               "es" : "Sumatorio"
           },
           "category": "numbers",
-          "component": ""
+          "component": "t-sum"
         },
         {
           "name": {

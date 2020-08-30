@@ -14,6 +14,7 @@ export default class LayoutStoreModule extends VuexModule {
   drawer = false;
   drawerMini = true;
   collapseBar = false;
+  loading = false;
   appBarTitle = '< Dev - Pills />'
 
   items:Array<DrawerItemI> = []
@@ -32,6 +33,10 @@ export default class LayoutStoreModule extends VuexModule {
     this.items = [...val]
   }
 
+  @Mutation
+  setLoading(val: boolean) {
+    this.loading = val;
+  }
   @Mutation
   setDrawer(val: boolean) {
     this.drawer = val;

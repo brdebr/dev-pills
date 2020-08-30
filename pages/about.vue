@@ -1,18 +1,16 @@
 <template>
-  <v-layout justify-center>
-    <v-flex xs12 sm10>
-      <v-card outlined tile>
-        <v-card-title>
-          {{ techs['heading'] }}
-        </v-card-title>
-        <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
-          <p v-text="techs['message01']" />
-          <p v-text="techs['message02']" />
-          <nuxt-content :document="techs" />
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <page-container cols="12,10">
+    <v-card outlined tile>
+      <v-card-title>
+        {{ techs['heading'] }}
+      </v-card-title>
+      <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+        <p v-text="techs['message01']" />
+        <p v-text="techs['message02']" />
+        <nuxt-content :document="techs" />
+      </v-card-text>
+    </v-card>
+  </page-container>
 </template>
 <script lang="ts">
 import Vue from 'vue'

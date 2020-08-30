@@ -107,6 +107,7 @@ export default class TheFooter extends Vue {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 1;
   &__content {
     position: relative;
     transition: margin-left 0.15s linear;

@@ -3,11 +3,12 @@
     <the-drawer />
     <the-toolbar :is-dev="isDev" />
     <v-main
-      style="padding-bottom: 120px;"
+      style="padding-bottom: 90px;"
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
     >
       <v-container
-        :class="'fill-height ' + ($vuetify.breakpoint.xsOnly ? 'pa-1' : 'pt-5')"
+        :class="'d-block ' + ($vuetify.breakpoint.xsOnly ? 'pa-1' : 'pt-5')"
+        style="overflow-x: hidden;"
         fluid
       >
         <nuxt />
