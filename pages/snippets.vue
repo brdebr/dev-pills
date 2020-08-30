@@ -49,65 +49,67 @@
             />
           </v-col>
         </v-row>
-        <v-row ref="contents" class="flex-wrap">
-          <v-col
-            v-for="snippet in filteredSnippets"
-            :key="snippet.slug"
-            cols="12"
-          >
-            <v-row no-gutters class="snippet-container">
-              <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
-                <span class="mr-auto" @click="copyDates(snippet)">
-                  {{ snippet[`title-${$i18n.locale}`] }}
-                </span>
-                <div class="d-flex">
-                  <span
-                    class="pl-2 d-inline-flex flex-wrap"
-                    :style="
-                      $vuetify.breakpoint.xsOnly ? 'width: min-content;' : null
-                    "
-                  >
-                    <span
-                      v-for="tag in snippet.tags"
-                      :key="tag"
-                      class="snippet-container__tag my-1 d-inline-flex align-center"
-                    >
-                      <span class="hashtag" />
-                      <span>{{ tag }}</span>
-                    </span>
+        <v-lazy>
+          <v-row ref="contents" class="flex-wrap">
+            <v-col
+              v-for="snippet in filteredSnippets"
+              :key="snippet.slug"
+              cols="12"
+            >
+              <v-row no-gutters class="snippet-container">
+                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
+                  <span class="mr-auto" @click="copyDates(snippet)">
+                    {{ snippet[`title-${$i18n.locale}`] }}
                   </span>
-                  <v-tooltip top>
-                    <template #activator="{on, attrs}">
+                  <div class="d-flex">
+                    <span
+                      class="pl-2 d-inline-flex flex-wrap"
+                      :style="
+                        $vuetify.breakpoint.xsOnly ? 'width: min-content;' : null
+                      "
+                    >
                       <span
-                        class="ml-2 my-auto"
-                        style="line-height: 10px;"
-                        v-bind="attrs"
-                        v-on="on"
+                        v-for="tag in snippet.tags"
+                        :key="tag"
+                        class="snippet-container__tag my-1 d-inline-flex align-center"
                       >
-                        <v-btn tile x-small outlined class="date-details-icon">
-                          <v-icon
-                            small
-                            :color="
-                              $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
-                            "
-                          >
-                            mdi-calendar-today
-                          </v-icon>
-                        </v-btn>
+                        <span class="hashtag"/>
+                        <span>{{ tag }}</span>
                       </span>
-                    </template>
-                    <span class="date-tooltip-text">
-                      {{ getDateFormatted(snippet.updatedAt) }}
                     </span>
-                  </v-tooltip>
-                </div>
-              </v-col>
-              <v-col cols="12">
-                <nuxt-content :document="snippet" />
-              </v-col>
-            </v-row>
-          </v-col>
-        </v-row>
+                    <v-tooltip top>
+                      <template #activator="{on, attrs}">
+                        <span
+                          class="ml-2 my-auto"
+                          style="line-height: 10px;"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          <v-btn tile x-small outlined class="date-details-icon">
+                            <v-icon
+                              small
+                              :color="
+                                $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
+                              "
+                            >
+                              mdi-calendar-today
+                            </v-icon>
+                          </v-btn>
+                        </span>
+                      </template>
+                      <span class="date-tooltip-text">
+                        {{ getDateFormatted(snippet.updatedAt) }}
+                      </span>
+                    </v-tooltip>
+                  </div>
+                </v-col>
+                <v-col cols="12">
+                  <nuxt-content :document="snippet" />
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-lazy>
       </v-card-text>
     </v-card>
   </page-container>
@@ -212,9 +214,7 @@ updatedAt: ${item.updatedAt}`
 
   get filteredSnippets() {
     this.$nextTick(() => {
-      if (this.$refs.contents) {
-        this.refreshPrism()
-      }
+      this.refreshPrism()
     })
     if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
       return this.snippets
@@ -251,8 +251,10 @@ updatedAt: ${item.updatedAt}`
 
   refreshPrism() {
     setTimeout(() => {
-      // @ts-ignore
-      Prism.highlightAllUnder(this.$refs.contents)
+      if (this.$refs.contents) {
+        // @ts-ignore
+        Prism.highlightAllUnder(this.$refs.contents)
+      }
     }, 10)
   }
 
