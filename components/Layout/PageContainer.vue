@@ -1,12 +1,6 @@
 <template>
   <v-row class="justify-center" no-gutters>
-    <v-col
-      :xl="getCols()[4] || undefined"
-      :lg="getCols()[3] || undefined"
-      :md="getCols()[2] || undefined"
-      :sm="getCols()[1] || undefined"
-      :cols="getCols()[0] || 12"
-    >
+    <v-col v-bind="bindings()">
       <slot v-if="!$store.state.layout.loading">
         <v-card outlined tile>
           <v-card-title>
@@ -57,23 +51,33 @@ export default class PageContainer extends Vue {
 
   getCols() {
     if (typeof this.cols === 'string') {
-      return this.cols.replace(/\s/g, '').replace(/_/g, ' ').split(',')
+      return this.cols.replace(/(\s|_)/g, '').split(',')
     }
     return this.cols
   }
 
-  loaderTypeArr = [
-    'card-heading',
-    'list-item-three-line',
-    'list-item-avatar-two-line',
-    'article',
-    'list-item-three-line',
-    'article',
-    'list-item-two-line@2',
-  ]
+  bindings() {
+    const aux = this.getCols()
+    return {
+      xl: aux[4] || undefined,
+      lg: aux[3] || undefined,
+      md: aux[2] || undefined,
+      sm: aux[1] || undefined,
+      cols: aux[0],
+    }
+  }
 
   loaderType() {
-    return this.loaderTypeArr.join(',')
+    const loaderTypeArr = [
+      'card-heading',
+      'list-item-three-line',
+      'list-item-avatar-two-line',
+      'article',
+      'list-item-three-line',
+      'article',
+      'list-item-two-line@2',
+    ]
+    return loaderTypeArr.join(',')
   }
 }
 </script>
