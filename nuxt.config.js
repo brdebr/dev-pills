@@ -110,25 +110,25 @@ const nuxtConfigs = {
           name: "Home",
           url: "/",
           description: "Home page",
-          icons: [{ "src": "/shortcuts/apps.png", "sizes": "96x96" }]
+          icons: [{ "src": "/shortcut-imgs/apps.png", "sizes": "96x96" }]
         },
         {
           name: "Snippets",
           url: "/snippets",
           description: "Small pieces of code/info",
-          icons: [{ "src": "/shortcuts/code-json.png", "sizes": "96x96" }]
+          icons: [{ "src": "/shortcut-imgs/code-json.png", "sizes": "96x96" }]
         },
         {
           name: "Toolbox",
           url: "/toolbox",
           description: "Various small tools for productivity",
-          icons: [{ "src": "/shortcuts/iframe-variable-outline.png", "sizes": "96x96" }]
+          icons: [{ "src": "/shortcut-imgs/iframe-variable-outline.png", "sizes": "96x96" }]
         },
         {
           name: "About",
           url: "/about",
           description: "Information about the techs used to build this project",
-          icons: [{ "src": "/shortcuts/information-outline.png", "sizes": "96x96" }]
+          icons: [{ "src": "/shortcut-imgs/information-outline.png", "sizes": "96x96" }]
         }
       ]
     }
