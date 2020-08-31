@@ -102,10 +102,14 @@ const nuxtConfigs = {
   },
 
   i18n: {
-    locales: ['en', 'es'],
+    locales: [
+      {code:'en', iso:'en-EN'},
+      {code:'es', iso:'es-ES'}
+    ],
     defaultLocale: 'en',
     vueI18nLoader: true,
     strategy: 'prefix',
+    seo: true,
     vueI18n: {
       fallbackLocale: 'en'
     }
