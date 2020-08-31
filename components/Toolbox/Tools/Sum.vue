@@ -25,10 +25,13 @@
           outlined
           full-width
           hide-details
-          class="rounded-0"
+          inputmode="numeric"
+          class="rounded-0 field-pad"
+          prepend-inner-icon="mdi-minus-box-outline red-icon"
           append-icon="mdi-plus-box-outline"
-          @click:append="addNum"
-          @keyup.enter="addNum"
+          @click:prepend-inner="addNum('-')"
+          @click:append="addNum('+')"
+          @keydown="handleKeyboard"
         />
       </v-col>
     </v-row>
@@ -39,7 +42,9 @@
         cols="12"
         class="pl-5 pr-5 d-inline-flex align-center"
       >
-        <span class="text-center flex-grow-1"> + {{ num }} </span>
+        <span class="text-center flex-grow-1">
+          {{ num >= 0 ? '+' : '' }} {{ num }}
+        </span>
         <span class="ml-auto flex-grow-0">
           <v-btn
             x-small
@@ -69,12 +74,27 @@ import Component from 'vue-class-component'
 export default class CrossMultiply extends Vue {
   numbers: Array<number> = []
   newNum: number | null = null
-  addNum() {
+  addNum(sign: '+' | '-') {
     if (!this.newNum) {
       return
     }
-    this.numbers.push(this.newNum)
+    const aux = parseFloat(`${sign === '+' ? this.newNum : this.newNum * -1}`)
+    if (!isNaN(aux)) this.numbers.push(aux)
     this.newNum = null
+  }
+
+  handleKeyboard(e: KeyboardEvent) {
+    const { key } = e
+    if (key.match(/[0-9]/)) {
+      return
+    }
+    if (key === '+' || key.toLowerCase() === 'enter') {
+      this.addNum('+')
+    }
+    if (key === '-') {
+      this.addNum('-')
+    }
+    e.preventDefault()
   }
 
   removeNum(i: number) {
@@ -87,11 +107,27 @@ export default class CrossMultiply extends Vue {
 }
 </script>
 <style lang="scss">
+.field-pad {
+  .v-input__prepend-inner {
+    padding-right: 16px !important;
+  }
+  .v-input__append-inner {
+    padding-left: 16px !important;
+  }
+}
 .result-num {
   input {
     text-align: center;
     color: rgba(0, 0, 0, 0.9) !important;
     font-weight: 600 !important;
+  }
+}
+#app_container .v-application .field-pad{
+  &.v-input--is-focused{
+    .red-icon{
+      color: #f44336 !important;
+      caret-color: #f44336 !important;
+    } 
   }
 }
 </style>

@@ -12,12 +12,13 @@
           disabled
           :value="tlV"
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
         <v-text-field
           v-else
           v-model="tl"
           v-no-autoc
+          clearable
           inputmode="numeric"
           dense
           solo
@@ -25,7 +26,7 @@
           outlined
           full-width
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
       </v-col>
       <v-col cols="6">
@@ -39,12 +40,13 @@
           :value="trV"
           hide-details
           disabled
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
         <v-text-field
           v-else
           v-model="tr"
           v-no-autoc
+          clearable
           inputmode="numeric"
           dense
           solo
@@ -52,7 +54,7 @@
           outlined
           full-width
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
       </v-col>
     </v-row>
@@ -68,12 +70,13 @@
           :value="blV"
           disabled
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
         <v-text-field
           v-else
           v-model="bl"
           v-no-autoc
+          clearable
           inputmode="numeric"
           dense
           solo
@@ -81,7 +84,7 @@
           outlined
           full-width
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
       </v-col>
       <v-col cols="6">
@@ -95,12 +98,13 @@
           disabled
           full-width
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
         <v-text-field
           v-else
           v-model="br"
           v-no-autoc
+          clearable
           inputmode="numeric"
           dense
           solo
@@ -108,7 +112,7 @@
           outlined
           full-width
           hide-details
-          class="rounded-0"
+          class="rounded-0 num-field"
         />
       </v-col>
     </v-row>
@@ -186,3 +190,20 @@ export default class CrossMultiply extends Vue {
   }
 }
 </script>
+<style lang="scss">
+.num-field {
+  input {
+    text-align: center;
+    font-weight: 500 !important;
+  }
+  &.v-input--is-disabled {
+    fieldset {
+      border-style: dashed !important;
+    }
+  }
+  .v-input__append-inner {
+    position: absolute !important;
+    right: 12px !important;
+  }
+}
+</style>

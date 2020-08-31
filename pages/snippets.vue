@@ -65,7 +65,9 @@
                     <span
                       class="pl-2 d-inline-flex flex-wrap"
                       :style="
-                        $vuetify.breakpoint.xsOnly ? 'width: min-content;' : null
+                        $vuetify.breakpoint.xsOnly
+                          ? 'width: min-content;'
+                          : null
                       "
                     >
                       <span
@@ -73,7 +75,7 @@
                         :key="tag"
                         class="snippet-container__tag my-1 d-inline-flex align-center"
                       >
-                        <span class="hashtag"/>
+                        <span class="hashtag" />
                         <span>{{ tag }}</span>
                       </span>
                     </span>
@@ -85,7 +87,12 @@
                           v-bind="attrs"
                           v-on="on"
                         >
-                          <v-btn tile x-small outlined class="date-details-icon">
+                          <v-btn
+                            tile
+                            x-small
+                            outlined
+                            class="date-details-icon"
+                          >
                             <v-icon
                               small
                               :color="
@@ -213,9 +220,6 @@ updatedAt: ${item.updatedAt}`
   }
 
   get filteredSnippets() {
-    this.$nextTick(() => {
-      this.refreshPrism()
-    })
     if (!this.snippetSearch && this.snippetTagSearch.length === 0) {
       return this.snippets
     }
@@ -250,18 +254,22 @@ updatedAt: ${item.updatedAt}`
   }
 
   refreshPrism() {
-    setTimeout(() => {
-      if (this.$refs.contents) {
-        // @ts-ignore
-        Prism.highlightAllUnder(this.$refs.contents)
-      }
-    }, 10)
+    if (this.$refs.contents) {
+      // @ts-ignore
+      Prism.highlightAllUnder(this.$refs.contents)
+    } else {
+      setTimeout(() => this.refreshPrism(), 50)
+    }
   }
 
   mounted() {
     Prism.plugins.autoloader.languages_path = '/prism/components/'
-    this.refreshPrism()
     this.$nuxt.$on('content:update', this.refreshPrism)
+    this.refreshPrism()
+  }
+
+  updated() {
+    this.refreshPrism()
   }
 
   destroyed() {
