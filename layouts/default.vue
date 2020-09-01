@@ -14,6 +14,28 @@
         <nuxt />
       </v-container>
     </v-main>
+    <transition name="scale-transition">
+      <v-btn
+        v-show="showScrollTop"
+        :key="showScrollTop"
+        v-scroll="onScroll"
+        :dark="!$vuetify.theme.dark"
+        absolute
+        bottom
+        right
+        fixed
+        min-width="40"
+        class="pa-2"
+        style="z-index: 2;"
+        depressed
+        color="#058074"
+        @click="toTop"
+      >
+        <v-icon>
+          mdi-chevron-up-box-outline
+        </v-icon>
+      </v-btn>
+    </transition>
     <the-footer />
   </v-app>
 </template>
@@ -39,11 +61,25 @@ const isDev = process.env.NODE_ENV !== 'production'
     // @ts-ignore
     ctx.store.commit('layout/setItems', itemsResp['item-list'])
   },
-  data() {
-    return {
-      isDev,
-    }
-  },
 })
-export default class DefaultLayout extends Vue {}
+export default class DefaultLayout extends Vue {
+  offsetTop = 0
+  get showScrollTop() {
+    return this.offsetTop > 500
+  }
+
+  toTop() {
+    this.$vuetify.goTo(0, {
+      duration: 750,
+      easing: 'easeInOutCubic',
+    })
+  }
+
+  isDev = isDev
+
+  // @ts-ignore
+  onScroll(e) {
+    this.offsetTop = e.target.scrollingElement.scrollTop
+  }
+}
 </script>
