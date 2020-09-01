@@ -29,6 +29,21 @@
                 {{ tag }}
               </span>
             </v-chip>
+            <v-chip
+              v-if="snippetTagSearch.length"
+              outlined
+              color="primary"
+              text
+              :title="$t('clear-search')"
+              :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
+              class="rounded-0 mx-2 my-2 px-auto"
+              style="margin-left: 4px !important;"
+              @click="emptyTagsFilter"
+            >
+              <span class="red--text text--darken-1 font-weight-bold">
+                X
+              </span>
+            </v-chip>
           </v-col>
           <v-col class="flex-grow-0 d-flex align-center">
             <v-text-field
@@ -125,11 +140,13 @@
 {
   "en": {
     "title": "Snippets",
-    "search": "Search snippet..."
+    "search": "Search snippet...",
+    "clear-search": "Clear tag filters"
   },
   "es": {
     "title": "Notas / Fragmentos de código",
-    "search": "Búsqueda de notas..."
+    "search": "Búsqueda de notas...",
+    "clear-search": "Quitar filtros"
   }
 }
 </i18n>
