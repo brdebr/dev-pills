@@ -1,7 +1,7 @@
 <template>
   <page-container cols="12,10">
     <v-card outlined tile>
-      <v-card-title>
+      <v-card-title class="headline">
         {{ techs['heading'] }}
       </v-card-title>
       <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
