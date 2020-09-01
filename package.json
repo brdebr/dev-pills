@@ -22,11 +22,6 @@
   "lint-staged": {
     "*.{js,vue}": "eslint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@nuxt/content": "^1.5.0",
