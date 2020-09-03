@@ -69,6 +69,7 @@ export default class DefaultLayout extends Vue {
   }
 
   toTop() {
+    // @ts-ignore
     this.$vuetify.goTo(0, {
       duration: 750,
       easing: 'easeInOutCubic',

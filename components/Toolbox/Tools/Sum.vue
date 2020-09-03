@@ -85,7 +85,7 @@ export default class CrossMultiply extends Vue {
 
   handleKeyboard(e: KeyboardEvent) {
     const { key } = e
-    if (key.match(/[0-9]/)) {
+    if (key.match(/([0-9]|(Backspace|Delete|ArrowLeft|ArrowRight|Control))/)) {
       return
     }
     if (key === '+' || key.toLowerCase() === 'enter') {
