@@ -4,7 +4,7 @@
       <v-card-title class="headline">
         {{ techs['heading'] }}
       </v-card-title>
-      <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+      <v-card-text :class="!$store.state.layout.isMobile ? 'px-5' : 'px-2'">
         <p v-text="techs['message01']" />
         <p v-text="techs['message02']" />
         <nuxt-content :document="techs" />

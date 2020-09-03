@@ -59,7 +59,7 @@
         <div
           :key="$store.state.layout.drawerMini"
           :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} ${
-            $vuetify.breakpoint.xsOnly ? 'mt-3 order-first mb-1' : 'mb-3'
+            $store.state.layout.isMobile ? 'mt-3 order-first mb-1' : 'mb-3'
           }`"
         >
           <v-btn

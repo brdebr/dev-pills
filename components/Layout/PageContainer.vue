@@ -6,7 +6,7 @@
           <v-card-title>
             TITLE
           </v-card-title>
-          <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+          <v-card-text :class="!$store.state.layout.isMobile ? 'px-5' : 'px-2'">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at
               orci id ligula mattis pretium. Donec quam urna, scelerisque
@@ -54,6 +54,13 @@ export default class PageContainer extends Vue {
       return this.cols.replace(/(\s|_)/g, '').split(',')
     }
     return this.cols
+  }
+
+  mounted() {
+    setTimeout(() => {
+      // @ts-ignore
+      this.$store.commit('layout/setIsMobile', this.$vuetify.breakpoint.xsOnly)
+    }, 100)
   }
 
   bindings() {

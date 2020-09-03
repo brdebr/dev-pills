@@ -7,7 +7,7 @@
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
     >
       <v-container
-        :class="'d-block ' + ($vuetify.breakpoint.xsOnly ? 'pa-1' : 'pt-5')"
+        :class="'d-block ' + ($store.state.layout.isMobile ? 'pa-1' : 'pt-5')"
         style="overflow-x: hidden;"
         fluid
       >
