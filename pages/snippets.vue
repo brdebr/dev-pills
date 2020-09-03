@@ -4,7 +4,7 @@
       <v-card-title class="headline">
         {{ $t('title') }}
       </v-card-title>
-      <v-card-text :class="!$vuetify.breakpoint.xsOnly ? 'px-5' : 'px-2'">
+      <v-card-text :class="!$store.state.layout.isMobile ? 'px-5' : 'px-2'">
         <v-row>
           <v-col>
             <v-chip
@@ -64,74 +64,68 @@
             />
           </v-col>
         </v-row>
-        <v-lazy>
-          <v-row ref="contents" class="flex-wrap">
-            <v-col
-              v-for="snippet in filteredSnippets"
-              :key="snippet.slug"
-              cols="12"
-            >
-              <v-row no-gutters class="snippet-container">
-                <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
-                  <span class="mr-auto" @click="copyDates(snippet)">
-                    {{ snippet[`title-${$i18n.locale}`] }}
-                  </span>
-                  <div class="d-flex">
+
+        <v-row ref="contents" class="flex-wrap">
+          <v-col
+            v-for="snippet in filteredSnippets"
+            :key="snippet.slug"
+            cols="12"
+          >
+            <v-row no-gutters class="snippet-container">
+              <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
+                <span class="mr-auto" @click="copyDates(snippet)">
+                  {{ snippet[`title-${$i18n.locale}`] }}
+                </span>
+                <div class="d-flex">
+                  <span
+                    class="pl-2 d-inline-flex flex-wrap"
+                    :style="
+                      $store.state.layout.isMobile
+                        ? 'width: min-content;'
+                        : null
+                    "
+                  >
                     <span
-                      class="pl-2 d-inline-flex flex-wrap"
-                      :style="
-                        $vuetify.breakpoint.xsOnly
-                          ? 'width: min-content;'
-                          : null
-                      "
+                      v-for="tag in snippet.tags"
+                      :key="tag"
+                      class="snippet-container__tag my-1 d-inline-flex align-center"
                     >
-                      <span
-                        v-for="tag in snippet.tags"
-                        :key="tag"
-                        class="snippet-container__tag my-1 d-inline-flex align-center"
-                      >
-                        <span class="hashtag" />
-                        <span>{{ tag }}</span>
-                      </span>
+                      <span class="hashtag" />
+                      <span>{{ tag }}</span>
                     </span>
-                    <v-tooltip top>
-                      <template #activator="{on, attrs}">
-                        <span
-                          class="ml-2 my-auto"
-                          style="line-height: 10px;"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          <v-btn
-                            tile
-                            x-small
-                            outlined
-                            class="date-details-icon"
+                  </span>
+                  <v-tooltip top>
+                    <template #activator="{on, attrs}">
+                      <span
+                        class="ml-2 my-auto"
+                        style="line-height: 10px;"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        <v-btn tile x-small outlined class="date-details-icon">
+                          <v-icon
+                            small
+                            :color="
+                              $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
+                            "
                           >
-                            <v-icon
-                              small
-                              :color="
-                                $vuetify.theme.dark ? '#a3e4d4cc' : '#1e8282'
-                              "
-                            >
-                              mdi-calendar-today
-                            </v-icon>
-                          </v-btn>
-                        </span>
-                      </template>
-                      <span class="date-tooltip-text">
-                        {{ getDateFormatted(snippet.updatedAt) }}
+                            mdi-calendar-today
+                          </v-icon>
+                        </v-btn>
                       </span>
-                    </v-tooltip>
-                  </div>
-                </v-col>
-                <v-col cols="12">
-                  <nuxt-content :document="snippet" />
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-lazy>
+                    </template>
+                    <span class="date-tooltip-text">
+                      {{ getDateFormatted(snippet.updatedAt) }}
+                    </span>
+                  </v-tooltip>
+                </div>
+              </v-col>
+              <v-col cols="12">
+                <nuxt-content :document="snippet" />
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
       </v-card-text>
     </v-card>
   </page-container>

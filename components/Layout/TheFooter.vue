@@ -4,7 +4,7 @@
       <v-footer
         :class="
           'px-6 pb-5 pt-7 mx-auto rounded-t-xl footer-bar cut-shape ' +
-          ($vuetify.breakpoint.xsOnly ? 'footer-bar--mobile' : '')
+          ($store.state.layout.isMobile ? 'footer-bar--mobile' : '')
         "
         max-width="75%"
         :dark="!$vuetify.theme.dark"
@@ -14,9 +14,9 @@
         <div
           :class="
             'd-flex align-center py-1 ' +
-            ($vuetify.breakpoint.xsOnly ? 'justify-space-between' : '')
+            ($store.state.layout.isMobile ? 'justify-space-between' : '')
           "
-          :style="$vuetify.breakpoint.xsOnly ? 'width: 100%;' : ''"
+          :style="$store.state.layout.isMobile ? 'width: 100%;' : ''"
         >
           <div class="pr-4">
             <v-btn

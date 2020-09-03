@@ -18,7 +18,7 @@
         <span>
           {{ toolItem.name[$i18n.locale] }}
         </span>
-        <template v-if="!this.$vuetify.breakpoint.xsOnly">
+        <template v-if="!this.$store.state.layout.isMobile">
           <v-btn
             text
             class="ml-auto mr-1"
@@ -69,7 +69,7 @@ export default class ToolSelectedCard extends Vue {
 
   get colWidth() {
     // @ts-ignore
-    if (this.$vuetify.breakpoint.xsOnly) {
+    if (this.$store.state.layout.isMobile) {
       return 12
     }
     if (this.toolItem.component === 't-color-palette') {

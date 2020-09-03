@@ -6,7 +6,7 @@
           v-model="selected"
           show-swatches
           flat
-          :width="$vuetify.breakpoint.xsOnly ? 300 : 350"
+          :width="$store.state.layout.isMobile ? 300 : 350"
         />
       </v-col>
       <v-col cols="12" sm="3">

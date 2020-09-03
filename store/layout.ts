@@ -17,6 +17,8 @@ export default class LayoutStoreModule extends VuexModule {
   loading = false;
   appBarTitle = '< Dev - Pills />'
 
+  isMobile = true
+
   items:Array<DrawerItemI> = []
 
   @Mutation
@@ -33,6 +35,10 @@ export default class LayoutStoreModule extends VuexModule {
     this.items = [...val]
   }
 
+  @Mutation
+  setIsMobile(val: boolean){
+    this.isMobile = val
+  }
   @Mutation
   setLoading(val: boolean) {
     this.loading = val;

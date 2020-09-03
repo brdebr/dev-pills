@@ -16,7 +16,7 @@
     <v-toolbar-title
       :class="
         'd-flex align-center ' +
-        ($vuetify.breakpoint.xsOnly ? 'mx-auto px-1' : '')
+        ($store.state.layout.isMobile ? 'mx-auto px-1' : '')
       "
     >
       <nuxt-link
@@ -33,7 +33,7 @@
         </span>
       </nuxt-link>
     </v-toolbar-title>
-    <global-search v-if="!$vuetify.breakpoint.xsOnly" class="ml-auto" />
+    <global-search v-if="!$store.state.layout.isMobile" class="ml-auto" />
   </v-app-bar>
 </template>
 <i18n>
