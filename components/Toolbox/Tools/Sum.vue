@@ -85,7 +85,7 @@ export default class CrossMultiply extends Vue {
 
   handleKeyboard(e: KeyboardEvent) {
     const { key } = e
-    if (key.match(/[0-9]/)) {
+    if (key.match(/([0-9]|(Backspace|Delete|ArrowLeft|ArrowRight|Control))/)) {
       return
     }
     if (key === '+' || key.toLowerCase() === 'enter') {
@@ -122,12 +122,12 @@ export default class CrossMultiply extends Vue {
     font-weight: 600 !important;
   }
 }
-#app_container .v-application .field-pad{
-  &.v-input--is-focused{
-    .red-icon{
+#app_container .v-application .field-pad {
+  &.v-input--is-focused {
+    .red-icon {
       color: #f44336 !important;
       caret-color: #f44336 !important;
-    } 
+    }
   }
 }
 </style>

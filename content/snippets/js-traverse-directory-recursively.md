@@ -7,7 +7,7 @@ createdAt: 2020-08-25T19:41:17.100Z
 updatedAt: 2020-08-25T19:41:17.100Z
 ---
 
-```js
+```js{2-3,9}
 function getFiles(dirPath, currentLevel, maxLevel) {
   if (currentLevel > maxLevel) {
     return

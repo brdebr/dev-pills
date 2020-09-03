@@ -8,7 +8,7 @@ createdAt: 2020-08-25T19:41:59.700Z
 updatedAt: 2020-08-25T19:41:59.700Z
 ---
 
-```js
+```js{3,10}
 // Get hash using command-line
 let commitHash = require('child_process')
   .execSync('git rev-parse --short HEAD')
