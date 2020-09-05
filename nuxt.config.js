@@ -80,6 +80,7 @@ const nuxtConfigs = {
       families: [
         'Merriweather:100,300,400,500,700,900',
         'IBM Plex Sans:100,300,400,500,700,900',
+        'Roboto:100,300,400,500,700,900',
       ]
     }
   },
