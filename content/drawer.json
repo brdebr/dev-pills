@@ -36,6 +36,15 @@
     },
     {
       "title": {
+        "en": "Cheatsheets",
+        "es": "Hojas de referencias"
+      },
+      "disabled": true,
+      "to": "/cheatsheets",
+      "icon": "mdi-book-open"
+    },
+    {
+      "title": {
         "en": "Toolbox",
         "es": "Caja herramientas"
       },
