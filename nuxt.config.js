@@ -28,6 +28,7 @@ const nuxtConfigs = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'theme-color', content: '#02796D' },
+      { name: 'google-site-verification', content: 'hFTz91qyhEobab5hFNJPF60Kkq8049WMrT6y-xibgAw' },
       {
         hid: 'description',
         name: 'description',
