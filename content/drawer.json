@@ -13,7 +13,7 @@
         "en": "Articles",
         "es": "Artículos"
       },
-      "to": "/articles",
+      "to": "/",
       "disabled": true,
       "icon": "mdi-newspaper-variant-multiple"
     },
@@ -22,7 +22,7 @@
         "en": "Categories",
         "es": "Categorías"
       },
-      "to": "/categories",
+      "to": "/",
       "disabled": true,
       "icon": "mdi-book-multiple"
     },
@@ -40,7 +40,7 @@
         "es": "Hojas de referencias"
       },
       "disabled": true,
-      "to": "/cheatsheets",
+      "to": "/",
       "icon": "mdi-book-open"
     },
     {
