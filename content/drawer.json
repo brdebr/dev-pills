@@ -13,7 +13,7 @@
         "en": "Articles",
         "es": "Artículos"
       },
-      "to": "/articles",
+      "to": "/",
       "disabled": true,
       "icon": "mdi-newspaper-variant-multiple"
     },
@@ -22,7 +22,7 @@
         "en": "Categories",
         "es": "Categorías"
       },
-      "to": "/categories",
+      "to": "/",
       "disabled": true,
       "icon": "mdi-book-multiple"
     },
@@ -32,7 +32,16 @@
         "es": "Notas/código"
       },
       "to": "/snippets",
-      "icon": "mdi-code-json"
+      "icon": "mdi-iframe-outline"
+    },
+    {
+      "title": {
+        "en": "Cheatsheets",
+        "es": "Hojas de referencias"
+      },
+      "disabled": true,
+      "to": "/",
+      "icon": "mdi-book-open"
     },
     {
       "title": {
@@ -40,7 +49,7 @@
         "es": "Caja herramientas"
       },
       "to": "/toolbox",
-      "icon": "mdi-iframe-variable-outline"
+      "icon": "mdi-hammer-wrench"
     },
     {
       "title": {
