@@ -1,7 +1,4 @@
 ---
-heading: "About"
-message01: "This website's central primary is to archive various development guides and tutorials for my self in the future, carefully explain them with images, code blocks, and repositories."
-message02: "It's build using the following technologies:"
 items:
     -
         name: 'Netlify'

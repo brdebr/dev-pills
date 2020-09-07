@@ -1,7 +1,4 @@
 ---
-heading: "Acerca de"
-message01: "El objetivo principal de esta página es archivar varias guías y tutoriales de desarrollo para mi mismo en el futuro, explicarlas detalladamente con imágenes, fragmentos de código y repositorios para luego consultarlos con rapidez"
-message02: "Está desarrollado utilizando las siguientes tecnologías:"
 items:
     -
         name: 'Netlify'
@@ -38,7 +35,6 @@ items:
         description: 'Módulo de Nuxt que simplifica mucho la configuración necesaria para convertir el proyecto en una PWA, configurado con valores por defecto para que funcione sin configuración'
         icon: 'image---/assets/images/icons/pwa-icon.svg'
         link: 'https://pwa.nuxtjs.org/'
-
 ---
 
 <d-about-techs :items="items">
