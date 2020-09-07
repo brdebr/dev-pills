@@ -275,8 +275,11 @@ updatedAt: ${item.updatedAt}`
 
   mounted() {
     Prism.plugins.autoloader.languages_path = '/prism/components/'
-    this.$nuxt.$on('content:update', this.refreshPrism)
+    if (this.isDev) {
+      this.$nuxt.$on('content:update', this.refreshPrism)
+    }
     this.refreshPrism()
+    setTimeout(() => this.refreshPrism(), 300)
   }
 
   updated() {
