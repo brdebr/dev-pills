@@ -57,6 +57,34 @@
       <v-spacer />
       <transition name="flip-x" mode="out-in">
         <div
+          :key="$store.state.layout.footer"
+          :class="`mx-auto ${
+            $store.state.layout.isMobile ? 'mt-3 mb-1' : 'mb-3'
+          }`"
+        >
+          <v-btn
+            block
+            outlined
+            tile
+            small
+            color="primary"
+            width="40"
+            :title="
+              $store.state.layout.footer ? $t('show-footer') : $t('hide-footer')
+            "
+            @click.stop="$store.commit('layout/toggleFooter')"
+          >
+            <v-icon
+              small
+              :color="$store.state.layout.footer ? 'blue-grey' : 'primary'"
+            >
+              mdi-page-layout-footer
+            </v-icon>
+          </v-btn>
+        </div>
+      </transition>
+      <transition name="flip-x" mode="out-in">
+        <div
           :key="$store.state.layout.drawerMini"
           :class="`${$store.state.layout.drawerMini ? 'mx-auto' : 'mx-3'} ${
             $store.state.layout.isMobile ? 'mt-3 order-first mb-1' : 'mb-3'
@@ -87,11 +115,15 @@
 {
   "en" : {
     "expand": "Expand drawer",
-    "collapse": "Collapse drawer"
+    "collapse": "Collapse drawer",
+    "show-footer": "Show footer",
+    "hide-footer": "Hide footer"
   },
   "es" : {
     "expand": "Expandir navegación",
-    "collapse": "Colapsar navegación"
+    "collapse": "Colapsar navegación",
+    "show-footer": "Mostrar pie de página",
+    "hide-footer": "Ocultar pie de página"
   }
 }
 </i18n>

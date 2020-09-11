@@ -73,7 +73,10 @@
           >
             <v-row no-gutters class="snippet-container">
               <v-col cols="12" class="pt-3 pb-1 px-3 d-flex align-center">
-                <span class="mr-auto" @click="copyDates(snippet)">
+                <span
+                  class="mr-auto snippet-container__title"
+                  @click="copyDates(snippet)"
+                >
                   {{ snippet[`title-${$i18n.locale}`] }}
                 </span>
                 <div class="d-flex">
@@ -120,7 +123,7 @@
                   </v-tooltip>
                 </div>
               </v-col>
-              <v-col cols="12">
+              <v-col cols="12" class="snippet-container__content">
                 <nuxt-content :document="snippet" />
               </v-col>
             </v-row>
@@ -275,8 +278,11 @@ updatedAt: ${item.updatedAt}`
 
   mounted() {
     Prism.plugins.autoloader.languages_path = '/prism/components/'
-    this.$nuxt.$on('content:update', this.refreshPrism)
+    if (this.isDev) {
+      this.$nuxt.$on('content:update', this.refreshPrism)
+    }
     this.refreshPrism()
+    setTimeout(() => this.refreshPrism(), 300)
   }
 
   updated() {
@@ -320,6 +326,11 @@ updatedAt: ${item.updatedAt}`
 }
 .snippet-container {
   background-color: #edf7f5;
+  &__title {
+    font-weight: 500;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
   &__tag {
     display: inline-block;
     opacity: 0.6;
@@ -336,6 +347,21 @@ updatedAt: ${item.updatedAt}`
         font-size: 11px;
         color: #b3b3b3;
         margin-right: 3px;
+      }
+    }
+  }
+  &__content {
+    .nuxt-content {
+      p {
+        padding: 6px 12px;
+        margin: 6px 12px 0px 12px;
+        background-color: rgb(204 204 204 / 40%);
+        &:first-child {
+          margin-top: 12px;
+        }
+        &:last-child {
+          margin-bottom: 12px;
+        }
       }
     }
   }

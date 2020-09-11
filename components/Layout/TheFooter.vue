@@ -6,6 +6,7 @@
           'px-6 pb-5 pt-7 mx-auto rounded-t-xl footer-bar cut-shape ' +
           ($store.state.layout.isMobile ? 'footer-bar--mobile' : '')
         "
+        :style="$store.state.layout.footer ? 'bottom: -200px !important;' : ''"
         max-width="75%"
         :dark="!$vuetify.theme.dark"
         :light="$vuetify.theme.dark"

@@ -13,6 +13,7 @@ export interface DrawerItemI {
 export default class LayoutStoreModule extends VuexModule {
   drawer = false;
   drawerMini = true;
+  footer = true;
   collapseBar = false;
   loading = false;
   appBarTitle = '< Dev - Pills />'
@@ -29,6 +30,10 @@ export default class LayoutStoreModule extends VuexModule {
   toggleDrawerMini() {
     this.drawerMini = !this.drawerMini;
   }
+  @Mutation
+  toggleFooter() {
+    this.footer = !this.footer;
+  }
 
   @Mutation
   setItems(val: Array<DrawerItemI>){
@@ -38,6 +43,10 @@ export default class LayoutStoreModule extends VuexModule {
   @Mutation
   setIsMobile(val: boolean){
     this.isMobile = val
+  }
+  @Mutation
+  setFooter(val: boolean){
+    this.footer = val
   }
   @Mutation
   setLoading(val: boolean) {

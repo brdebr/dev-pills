@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 h1 {
   font-size: 20px;
 }
