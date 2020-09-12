@@ -118,7 +118,7 @@
               "es" : "Generar usuario"
           },
           "category": "data",
-          "component": ""
+          "component": "t-fake-user"
         },
         {
           "name": {

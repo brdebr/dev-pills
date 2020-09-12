@@ -53,6 +53,7 @@ import { ToolItemI } from '@/pages/toolbox.vue'
     't-color-palette': () =>
       import('@/components/Toolbox/Tools/ColorPalette.vue'),
     't-sum': () => import('@/components/Toolbox/Tools/Sum.vue'),
+    't-fake-user': () => import('@/components/Toolbox/Tools/FakeUser.vue'),
   },
 })
 export default class ToolSelectedCard extends Vue {
@@ -67,6 +68,9 @@ export default class ToolSelectedCard extends Vue {
       return 12
     }
     if (this.toolItem.component === 't-color-palette') {
+      return 6
+    }
+    if (this.toolItem.component === 't-fake-user') {
       return 6
     }
     const aux = this.colWidthVal * 3
