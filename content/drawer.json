@@ -13,8 +13,7 @@
         "en": "Articles",
         "es": "Artículos"
       },
-      "to": "/",
-      "disabled": true,
+      "to": "/articles",
       "icon": "mdi-newspaper-variant-multiple"
     },
     {
