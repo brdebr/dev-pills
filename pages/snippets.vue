@@ -348,6 +348,9 @@ updatedAt: ${item.updatedAt}`
   }
   &__content {
     .nuxt-content {
+      .nuxt-content-highlight {
+        margin: 0 6px 6px 6px;
+      }
       p {
         padding: 6px 12px;
         margin: 6px 12px 0px 12px;
