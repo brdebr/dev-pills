@@ -10,7 +10,6 @@ const nuxtConfigs = {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'universal',
   modern: !isDev,
   /*
    ** Nuxt target
