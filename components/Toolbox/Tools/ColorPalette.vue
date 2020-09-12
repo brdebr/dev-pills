@@ -1,5 +1,5 @@
 <template>
-  <v-card tile flat style="background-color: #fdfdfd;" width="100%">
+  <v-card tile flat style="background-color: #fdfdfd" width="100%">
     <v-row class="px-2 flex-wrap">
       <v-col cols="12" sm="9">
         <v-color-picker
@@ -11,9 +11,7 @@
       </v-col>
       <v-col cols="12" sm="3">
         <v-row class="flex-wrap" no-gutters>
-          <v-col cols="12" class="text-center caption">
-            Selected
-          </v-col>
+          <v-col cols="12" class="text-center caption"> Selected </v-col>
           <v-col
             cols="12"
             class="text-center"
@@ -22,9 +20,7 @@
           <v-col cols="12" class="text-center">
             {{ selected }}
           </v-col>
-          <v-col cols="12" class="text-center caption">
-            Inverted
-          </v-col>
+          <v-col cols="12" class="text-center caption"> Inverted </v-col>
           <v-col
             cols="12"
             class="text-center"
@@ -34,9 +30,7 @@
               filter: 'invert(1)',
             }"
           />
-          <v-col cols="12" class="text-center caption">
-            + Rotate
-          </v-col>
+          <v-col cols="12" class="text-center caption"> + Rotate </v-col>
           <v-col
             cols="12"
             class="text-center"

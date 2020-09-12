@@ -3,9 +3,7 @@
     <v-col v-bind="bindings()">
       <slot v-if="!$store.state.layout.loading">
         <v-card outlined tile>
-          <v-card-title>
-            TITLE
-          </v-card-title>
+          <v-card-title> TITLE </v-card-title>
           <v-card-text :class="!$store.state.layout.isMobile ? 'px-5' : 'px-2'">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at

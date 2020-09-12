@@ -7,9 +7,7 @@
       <thead>
         <tr>
           <th class="text-center">
-            <v-icon :title="$t('title')">
-              mdi-open-in-new
-            </v-icon>
+            <v-icon :title="$t('title')"> mdi-open-in-new </v-icon>
           </th>
           <th class="text-left">
             {{ $t('tech') }}
@@ -34,7 +32,7 @@
             >
               <img
                 v-if="item.icon.startsWith('image---')"
-                style="height: 20px;"
+                style="height: 20px"
                 :src="getImage(item)"
               />
               <v-icon v-else>
@@ -68,7 +66,7 @@
             >
               <img
                 v-if="item.icon.startsWith('image---')"
-                style="height: 20px;"
+                style="height: 20px"
                 :src="getImage(item)"
               />
               <v-icon v-else>

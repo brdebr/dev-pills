@@ -60,9 +60,7 @@
           </div>
         </div>
         <div class="d-flex align-center ml-auto">
-          <span class="mr-3">
-            Bryan de Oliveira Brettas
-          </span>
+          <span class="mr-3"> Bryan de Oliveira Brettas </span>
           <v-btn
             x-small
             fab
@@ -72,9 +70,7 @@
             rel="noreferrer"
             target="_blank"
           >
-            <v-icon size="28">
-              mdi-github
-            </v-icon>
+            <v-icon size="28"> mdi-github </v-icon>
           </v-btn>
         </div>
       </v-footer>
