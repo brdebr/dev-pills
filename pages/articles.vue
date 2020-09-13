@@ -1,5 +1,5 @@
 <template>
-  <page-container cols="12,10">
+  <page-container cols="12,11">
     <v-card outlined tile>
       <v-card-title class="headline">
         {{ $t('heading') }}
@@ -25,20 +25,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-
-export interface ArticleI {
-  title: string
-  description: string
-  image: {
-    route: string
-    'alt-text': string
-    mention: string
-  }
-  categories: [string]
-  slug: string
-  createdAt: string
-  updatedAt: string
-}
+import { ArticleI } from '@/types/global'
 
 @Component({
   head() {
