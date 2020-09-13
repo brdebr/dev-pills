@@ -10,7 +10,6 @@ const nuxtConfigs = {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'universal',
   modern: !isDev,
   /*
    ** Nuxt target
@@ -73,7 +72,8 @@ const nuxtConfigs = {
     '@nuxt/content',
     'nuxt-i18n',
     'nuxt-webfontloader',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
 
   webfontloader: {
@@ -114,6 +114,15 @@ const nuxtConfigs = {
     seo: true,
     vueI18n: {
       fallbackLocale: 'en'
+    }
+  },
+
+  sitemap: {
+    hostname: 'https://blog.bryan-web.dev',
+    i18n: true,
+    i18n: {
+      locales: ['en', 'es'],
+      routesNameSeparator: '___'
     }
   },
 

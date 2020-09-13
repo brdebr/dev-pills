@@ -3,12 +3,12 @@
     <the-drawer />
     <the-toolbar :is-dev="isDev" />
     <v-main
-      style="padding-bottom: 90px;"
+      style="padding-bottom: 90px"
       :class="$vuetify.theme.dark ? 'bg-gradient--dark' : 'bg-gradient--light'"
     >
       <v-container
         :class="'d-block ' + ($store.state.layout.isMobile ? 'pa-1' : 'pt-5')"
-        style="overflow-x: hidden;"
+        style="overflow-x: hidden"
         fluid
       >
         <nuxt />
@@ -26,14 +26,12 @@
         fixed
         min-width="40"
         class="pa-2"
-        style="z-index: 2;"
+        style="z-index: 2"
         depressed
         color="#058074"
         @click="toTop"
       >
-        <v-icon>
-          mdi-chevron-up-box-outline
-        </v-icon>
+        <v-icon> mdi-chevron-up-box-outline </v-icon>
       </v-btn>
     </transition>
     <the-footer />

@@ -4,32 +4,20 @@
       <v-flex xs9>
         <v-card outlined tile>
           <template v-if="error.statusCode === 404">
-            <v-card-title style="background-color: #f6bebe;">
-              <span>
-                Sorry couldn't find that page 😢
-              </span>
+            <v-card-title style="background-color: #f6bebe">
+              <span> Sorry couldn't find that page 😢 </span>
               <span class="font-italic ml-auto text--secondary">
                 "{{ $router.history.current.fullPath }}"
               </span>
             </v-card-title>
             <v-divider />
             <v-card-text>
-              <p>
-                This may be because one of this reasons:
-              </p>
+              <p>This may be because one of this reasons:</p>
               <ul>
-                <li>
-                  This page is not done yet.
-                </li>
-                <li>
-                  Some unknown error happened.
-                </li>
-                <li>
-                  Something went wrong :/
-                </li>
-                <li>
-                  The page was done but my dog ate it, sad history.
-                </li>
+                <li>This page is not done yet.</li>
+                <li>Some unknown error happened.</li>
+                <li>Something went wrong :/</li>
+                <li>The page was done but my dog ate it, sad history.</li>
               </ul>
             </v-card-text>
           </template>
@@ -43,9 +31,7 @@
                   {{ error.message }}
                 </div>
               </h1>
-              <NuxtLink :to="localePath('/')">
-                Home page
-              </NuxtLink>
+              <NuxtLink :to="localePath('/')"> Home page </NuxtLink>
             </div>
           </template>
         </v-card>

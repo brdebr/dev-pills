@@ -1,5 +1,5 @@
 <template>
-  <v-card tile flat style="background-color: #fdfdfd;" width="100%">
+  <v-card tile flat style="background-color: #fdfdfd" width="100%">
     <v-row class="px-2">
       <v-col cols="12">
         <v-text-field
@@ -51,13 +51,11 @@
             tile
             outlined
             class="px-1"
-            style="min-width: 15px;"
+            style="min-width: 15px"
             color="red darken-3"
             @click="removeNum(i)"
           >
-            <v-icon small>
-              mdi-close-box-outline
-            </v-icon>
+            <v-icon small> mdi-close-box-outline </v-icon>
           </v-btn>
         </span>
       </v-col>

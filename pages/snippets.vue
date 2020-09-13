@@ -22,9 +22,7 @@
               "
               @click="toggleTag(tag)"
             >
-              <span class="grey--text text--lighten-1 mr-1">
-                #
-              </span>
+              <span class="grey--text text--lighten-1 mr-1"> # </span>
               <span>
                 {{ tag }}
               </span>
@@ -37,12 +35,10 @@
               :title="$t('clear-search')"
               :text-color="$vuetify.theme.dark ? '#ffffffcc' : null"
               class="rounded-0 mx-2 my-2 px-auto"
-              style="margin-left: 4px !important;"
+              style="margin-left: 4px !important"
               @click="emptyTagsFilter"
             >
-              <span class="red--text text--darken-1 font-weight-bold">
-                X
-              </span>
+              <span class="red--text text--darken-1 font-weight-bold"> X </span>
             </v-chip>
           </v-col>
           <v-col class="flex-grow-0 d-flex align-center">
@@ -98,10 +94,10 @@
                     </span>
                   </span>
                   <v-tooltip top>
-                    <template #activator="{on, attrs}">
+                    <template #activator="{ on, attrs }">
                       <span
                         class="ml-2 my-auto"
-                        style="line-height: 10px;"
+                        style="line-height: 10px"
                         v-bind="attrs"
                         v-on="on"
                       >
@@ -352,6 +348,9 @@ updatedAt: ${item.updatedAt}`
   }
   &__content {
     .nuxt-content {
+      .nuxt-content-highlight {
+        margin: 0 6px 6px 6px;
+      }
       p {
         padding: 6px 12px;
         margin: 6px 12px 0px 12px;

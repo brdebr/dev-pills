@@ -9,7 +9,7 @@
     <v-app-bar-nav-icon
       v-ripple="{ center: true, class: 'white--text' }"
       class="rounded-0 ml-0"
-      style="border: 1px solid; margin-left: 1px;"
+      style="border: 1px solid; margin-left: 1px"
       :title="$t('toggle-nav')"
       @click="$store.commit('layout/toggleDrawer')"
     />
@@ -23,13 +23,16 @@
         :to="localePath('/')"
         tag="div"
         class="d-flex align-center"
-        style="cursor: pointer;"
+        style="cursor: pointer"
       >
         <span
           class="headline font-weight-black"
-          style="letter-spacing: 0.5px !important;"
+          style="letter-spacing: 0.5px !important"
         >
           {{ $store.state.layout.appBarTitle }}
+        </span>
+        <span v-if="isDev" class="ml-3 text-uppercase">
+          [| {{ $vuetify.breakpoint.name }} |]
         </span>
       </nuxt-link>
     </v-toolbar-title>

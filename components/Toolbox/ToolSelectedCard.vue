@@ -11,9 +11,7 @@
           class="mr-2"
           @click="$emit('remove-click')"
         >
-          <v-icon size="20">
-            mdi-delete-forever
-          </v-icon>
+          <v-icon size="20"> mdi-delete-forever </v-icon>
         </v-btn>
         <span>
           {{ toolItem.name[$i18n.locale] }}
@@ -26,14 +24,10 @@
             :disabled="colWidth <= 3"
             @click="colWidthVal--"
           >
-            <v-icon>
-              mdi-arrow-collapse-horizontal
-            </v-icon>
+            <v-icon> mdi-arrow-collapse-horizontal </v-icon>
           </v-btn>
           <v-btn text small :disabled="colWidth >= 12" @click="colWidthVal++">
-            <v-icon>
-              mdi-arrow-expand-horizontal
-            </v-icon>
+            <v-icon> mdi-arrow-expand-horizontal </v-icon>
           </v-btn>
         </template>
       </v-card-title>
@@ -59,6 +53,7 @@ import { ToolItemI } from '@/pages/toolbox.vue'
     't-color-palette': () =>
       import('@/components/Toolbox/Tools/ColorPalette.vue'),
     't-sum': () => import('@/components/Toolbox/Tools/Sum.vue'),
+    't-fake-user': () => import('@/components/Toolbox/Tools/FakeUser.vue'),
   },
 })
 export default class ToolSelectedCard extends Vue {
@@ -73,6 +68,9 @@ export default class ToolSelectedCard extends Vue {
       return 12
     }
     if (this.toolItem.component === 't-color-palette') {
+      return 6
+    }
+    if (this.toolItem.component === 't-fake-user') {
       return 6
     }
     const aux = this.colWidthVal * 3

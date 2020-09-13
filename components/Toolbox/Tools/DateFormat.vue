@@ -1,5 +1,5 @@
 <template>
-  <v-card tile flat style="background-color: #fdfdfd;" width="100%">
+  <v-card tile flat style="background-color: #fdfdfd" width="100%">
     <v-card-text>
       <v-row no-gutters>
         <v-col cols="4" class="px-1">
@@ -21,16 +21,10 @@
               />
             </template>
             <div>
-              <h5 class="rbt-font">
-                Input date examples:
-              </h5>
+              <h5 class="rbt-font">Input date examples:</h5>
               <ul class="pl-3">
-                <li>
-                  10/20/2020
-                </li>
-                <li>
-                  Monday 10:22:01
-                </li>
+                <li>10/20/2020</li>
+                <li>Monday 10:22:01</li>
               </ul>
             </div>
           </v-tooltip>
@@ -54,16 +48,10 @@
               />
             </template>
             <div>
-              <h5 class="rbt-font">
-                Input format examples:
-              </h5>
+              <h5 class="rbt-font">Input format examples:</h5>
               <ul class="pl-3">
-                <li>
-                  dd/MM/YYYY
-                </li>
-                <li>
-                  LL hh:mm:ss
-                </li>
+                <li>dd/MM/YYYY</li>
+                <li>LL hh:mm:ss</li>
               </ul>
             </div>
           </v-tooltip>
@@ -87,16 +75,10 @@
               />
             </template>
             <div>
-              <h5 class="rbt-font">
-                Output format examples:
-              </h5>
+              <h5 class="rbt-font">Output format examples:</h5>
               <ul class="pl-3">
-                <li>
-                  dd/MM/YYYY
-                </li>
-                <li>
-                  LL hh:mm:ss
-                </li>
+                <li>dd/MM/YYYY</li>
+                <li>LL hh:mm:ss</li>
               </ul>
             </div>
           </v-tooltip>

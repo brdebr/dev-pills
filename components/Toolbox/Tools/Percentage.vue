@@ -2,7 +2,7 @@
   <v-card
     tile
     flat
-    style="background-color: #fdfdfd;"
+    style="background-color: #fdfdfd"
     width="100%"
     min-height="124px"
     class="d-flex align-center"
