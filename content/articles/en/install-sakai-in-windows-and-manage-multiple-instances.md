@@ -4,11 +4,13 @@ description: "A tutorial about how starting from scratch, \n Install everything 
 image:
     route: '/article-imgs/bram-naus-n8Qb1ZAkK88-unsplash-blurred-optimized.jpg'
     alt-text: 'table with a notebook a laptop and a phone'
-    mention: '<span>Photo by <a href="https://unsplash.com/@bramnaus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Bram Naus</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>'
+    mention: '<span>Photo by <a href="https://unsplash.com/@bramnaus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Bram Naus</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span><br/><i>· Blurred and optimized after download</i>'
 categories:
     - Sakai
     - LMS
     - Windows
+createdAt: 2020-09-12T20:48:26.676Z
+updatedAt: 2020-09-13T18:36:36.742Z
 ---
 
 ## Objective
