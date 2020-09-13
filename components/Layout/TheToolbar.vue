@@ -31,6 +31,9 @@
         >
           {{ $store.state.layout.appBarTitle }}
         </span>
+        <span v-if="isDev" class="ml-3 text-uppercase">
+          [| {{ $vuetify.breakpoint.name }} |]
+        </span>
       </nuxt-link>
     </v-toolbar-title>
     <global-search v-if="!$store.state.layout.isMobile" class="ml-auto" />
