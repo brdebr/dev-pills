@@ -1,6 +1,7 @@
 <template>
   <v-card
     v-if="article"
+    v-ripple="false"
     tile
     outlined
     max-width="600px"
@@ -14,6 +15,7 @@
         height="320px"
         :alt="article.image['alt-text']"
         :src="article.image.route"
+        :lazy-src="article.image.route"
       >
         <v-fade-transition>
           <v-card-title

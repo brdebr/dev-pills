@@ -8,6 +8,7 @@
         :height="imageHeight($vuetify.breakpoint.name)"
         :alt="article.image['alt-text']"
         :src="article.image.route"
+        :lazy-src="article.image.route"
       >
         <div class="mr-2 mb-2" style="position: absolute; bottom: 0; right: 0">
           <v-tooltip
