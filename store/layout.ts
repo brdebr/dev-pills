@@ -13,7 +13,7 @@ export interface DrawerItemI {
 export default class LayoutStoreModule extends VuexModule {
   drawer = false;
   drawerMini = true;
-  footer = true;
+  footer = false;
   collapseBar = false;
   loading = false;
   appBarTitle = '< Dev - Pills />'
