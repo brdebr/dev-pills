@@ -15,18 +15,21 @@
         :alt="article.image['alt-text']"
         :src="article.image.route"
       >
-        <v-card-title
-          class="bg-above-img py-3 px-5 flex-nowrap"
-          style="word-break: break-word"
-        >
-          <div class="article-card__title">
-            {{ article.title }}
-          </div>
-        </v-card-title>
+        <v-fade-transition>
+          <v-card-title
+            v-if="!hover"
+            class="bg-above-img py-3 px-5 flex-nowrap"
+            style="word-break: break-word"
+          >
+            <div class="article-card__title">
+              {{ article.title }}
+            </div>
+          </v-card-title>
+        </v-fade-transition>
         <div class="mr-2 mb-2" style="position: absolute; bottom: 0; right: 0">
           <v-tooltip
             bottom
-            left
+            nudge-left="94"
             nudge-bottom
             z-index="3"
             transition="fade-transition"
@@ -52,21 +55,24 @@
             </template>
             <div class="article-tooltip">
               <div>
-                <b> Updated: </b>
+                <b> Article updated: </b>
               </div>
               <div>
                 {{ formatDate(article.updatedAt) }}
               </div>
               <div>
-                <b> Mention: </b>
+                <b> Photo attribution: </b>
               </div>
               <div v-html="article.image.mention" />
             </div>
           </v-tooltip>
         </div>
         <v-fade-transition>
-          <div v-if="hover" class="d-flex px-5 py-6 v-card--reveal white--text">
-            {{ article.description }}
+          <div
+            v-if="hover"
+            class="d-flex px-5 pt-1 pb-9 v-card--reveal white--text"
+          >
+            <div v-text="article.description" />
           </div>
         </v-fade-transition>
       </v-img>
@@ -125,12 +131,18 @@ export default class ArticleCard extends Vue {
 .v-card--reveal {
   align-items: center;
   bottom: 0;
-  justify-content: center;
   position: absolute;
   width: 100%;
   height: 100%;
   letter-spacing: 0.8px;
   line-height: 2rem;
-  background-color: transparentize(#006256, 0.1) !important;
+  background-color: transparentize(#006256, 0.05) !important;
+  > div {
+    white-space: pre-line;
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-size: 17px;
+    word-break: break-word;
+  }
 }
 </style>
