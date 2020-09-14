@@ -10,7 +10,7 @@
     <template v-if="!loading">
       <v-row no-gutters class="my-2">
         <v-col>
-          <v-btn tile depressed color="info darken-1" small @click="test()">
+          <v-btn tile depressed color="info darken-1" small disabled>
             Advanced
           </v-btn>
         </v-col>
@@ -130,16 +130,16 @@ export default class FakeUserTool extends Vue {
     }
   }
 
-  async test() {
-    this.copyToClipboard(this.fakerUser.username)
-    console.log(this.fakerUser.username)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    this.copyToClipboard(this.fakerUser.lastname)
-    console.log(this.fakerUser.lastname)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    this.copyToClipboard(this.fakerUser.email)
-    console.log(this.fakerUser.email)
-  }
+  // async test() {
+  //   this.copyToClipboard(this.fakerUser.username)
+  //   console.log(this.fakerUser.username)
+  //   await new Promise((resolve) => setTimeout(resolve, 1000))
+  //   this.copyToClipboard(this.fakerUser.lastname)
+  //   console.log(this.fakerUser.lastname)
+  //   await new Promise((resolve) => setTimeout(resolve, 1000))
+  //   this.copyToClipboard(this.fakerUser.email)
+  //   console.log(this.fakerUser.email)
+  // }
 
   async copyToClipboard(val: string | undefined) {
     if (!navigator.clipboard) {
