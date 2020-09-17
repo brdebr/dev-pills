@@ -27,10 +27,22 @@ It's based on the official Sakai installation guides ([Sakai 12](https://conflue
 Sakai is open-source Collaboration and Learning Environment (CLE) software. The Sakai Community develops and distributes the open-source Sakai CLE, an enterprise-ready collaboration and courseware management platform that provides users with a suite of learning, portfolio, library and project tools.
 (quoted from [the Sakai wiki](https://confluence.sakaiproject.org/))
 
+<div class="mb-5"></div>
+
+## Let's get this party started
+<br>
+
+To begin the installation first it's necessary to install all the dependencies and services necesary to:
+Get the source code,
+Configure a tomcat with the sakai configurations,
+Compile the source code into our tomcat,
+Create a database to store the data and
+Start the server
+
 #### WORK IN PROGRESS...
 <br>
 
----
+<mvn-builder></mvn-builder>
 
 <br>
 Suspendisse nec cursus quam. Sed vel est cursus, tempor sem in, posuere mi. Cras malesuada egestas turpis et condimentum. Praesent dignissim purus luctus risus consectetur, in feugiat nisl convallis. Donec ac euismod ligula. Sed feugiat sollicitudin felis, sed posuere massa molestie at. Donec sit amet finibus leo. Ut sagittis pretium est, et hendrerit enim. Sed et lobortis urna. Maecenas accumsan dui ante, a suscipit nunc aliquet eget.
