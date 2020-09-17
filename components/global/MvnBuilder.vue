@@ -1,6 +1,17 @@
 <template>
   <v-card tile outlined>
-    <v-card-title> Sakai - Maven command builder </v-card-title>
+    <v-card-title class="d-flex align-center">
+      <span> Sakai - Maven command builder </span>
+      <div class="ml-auto">
+        <v-checkbox
+          v-model="logTofile"
+          label="Save buildlogs to file"
+          hide-details
+          class="pa-0 ma-0"
+          title="This will redirect the logs from the console to a file, for debugging purposes, but loses console colors"
+        />
+      </div>
+    </v-card-title>
     <v-divider />
     <v-card-title>
       <v-row no-gutters class="flex-wrap">
@@ -68,6 +79,24 @@
             value="-o"
           />
         </v-col>
+        <v-col v-if="logTofile" cols="12" class="my-3">
+          <v-text-field
+            v-model="logFile"
+            label="Log file path"
+            clearable
+            clear-icon="mdi-close-box-outline mr-4"
+            dense
+            solo
+            solo-inverted
+            flat
+            outlined
+            full-width
+            hide-details
+            color="indigo accent-2"
+            append-icon="mdi-file"
+            class="rounded-0"
+          />
+        </v-col>
         <v-col cols="12" class="my-3">
           <v-text-field
             v-model="tomcatPath"
@@ -82,7 +111,7 @@
             full-width
             hide-details
             color="indigo accent-2"
-            append-icon="mdi-magnify"
+            append-icon="mdi-application-cog"
             class="rounded-0"
           />
         </v-col>
@@ -91,7 +120,7 @@
             <v-card-text class="pa-3 white">
               <v-row no-gutters class="align-center">
                 <v-col class="pr-3" style="word-break: break-word">
-                  {{ command }}
+                  {{ logTofile ? commandPowerShell : commandMvn }}
                 </v-col>
                 <v-col class="flex-grow-0">
                   <v-btn
@@ -99,7 +128,11 @@
                     color="primary"
                     depressed
                     title="Copy command to clipboard"
-                    @click="copyToClipboard(command)"
+                    @click="
+                      copyToClipboard(
+                        logTofile ? commandPowerShell : commandMvn
+                      )
+                    "
                   >
                     <v-icon> mdi-clipboard-text-outline </v-icon>
                   </v-btn>
@@ -119,7 +152,17 @@ import Component from 'vue-class-component'
 
 @Component({})
 export default class MvnBuilder extends Vue {
-  get command() {
+  logFile = ''
+
+  get commandPowerShell() {
+    return `powershell "${this.commandMvn} run 2>&1 | Tee-Object ${
+      this.logFile || '[Introduce a log  filepath]'
+    } -Append"`
+  }
+
+  logTofile = false
+
+  get commandMvn() {
     return `mvn ${this.mvnGoals.join(' ')} ${
       this.deployMode
     } ${this.mvnOptions.join(
