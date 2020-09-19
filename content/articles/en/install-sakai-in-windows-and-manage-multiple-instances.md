@@ -33,11 +33,14 @@ Sakai is open-source Collaboration and Learning Environment (CLE) software. The 
 <br>
 
 To begin the installation first it's necessary to install all the dependencies and services necesary to:
-Get the source code,
-Configure a tomcat with the sakai configurations,
-Compile the source code into our tomcat,
-Create a database to store the data and
-Start the server
+
+- Get the source code,
+- Configure a tomcat with the sakai configurations,
+- Compile the source code into our tomcat,
+- Create a database to store the data and
+- Start the server
+
+<br>
 
 #### WORK IN PROGRESS...
 <br>

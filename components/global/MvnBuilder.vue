@@ -85,6 +85,8 @@
             label="Log file path"
             clearable
             clear-icon="mdi-close-box-outline mr-4"
+            name="tomcat-path"
+            autocomplete="off"
             dense
             solo
             solo-inverted
