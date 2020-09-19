@@ -120,7 +120,9 @@
                 </div>
               </v-col>
               <v-col cols="12" class="snippet-container__content">
-                <nuxt-content :document="snippet" />
+                <v-lazy>
+                  <nuxt-content :document="snippet" />
+                </v-lazy>
               </v-col>
             </v-row>
           </v-col>
