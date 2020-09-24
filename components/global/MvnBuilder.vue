@@ -15,69 +15,85 @@
     <v-divider />
     <v-card-title>
       <v-row no-gutters class="flex-wrap">
-        <v-col
-          cols="12"
-          class="d-flex align-center justify-space-between pb-3 pt-1"
-        >
-          <v-checkbox
-            v-model="mvnGoals"
-            hide-details
-            multiple
-            class="flex-grow-0 mx-2 my-0 py-0"
-            label="Clean"
-            value="clean"
-          />
-          <v-checkbox
-            v-model="mvnGoals"
-            hide-details
-            multiple
-            class="flex-grow-0 mx-2 my-0 py-0"
-            label="Install"
-            value="install"
-          />
-          <v-radio-group
-            v-model="deployMode"
-            hide-details
-            class="ma-0 pa-0"
-            row
+        <v-col cols="12" class="pb-3 pt-1">
+          <v-row
+            no-gutters
+            class="flex-wrap"
+            align="center"
+            justify="space-between"
           >
-            <v-radio
-              hide-details
-              class="flex-grow-0 mx-2 my-0 py-0"
-              label="Deploy"
-              value="sakai:deploy"
-            />
-            <v-radio
-              label="Exploded wars"
-              class="flex-grow-0 mx-2 my-0 py-0"
-              hide-details
-              value="sakai:deploy-exploded"
-            />
-          </v-radio-group>
-          <v-checkbox
-            v-model="mvnOptions"
-            hide-details
-            multiple
-            class="flex-grow-0 mx-2 my-0 py-0"
-            label="Skip tests"
-            value="-Dmaven.test.skip=true"
-          />
-          <v-checkbox
-            v-model="mvnOptions"
-            hide-details
-            multiple
-            class="flex-grow-0 mx-2 my-0 py-0"
-            label="Print debug"
-            value="-X"
-          />
-          <v-checkbox
-            v-model="mvnOptions"
-            hide-details
-            multiple
-            class="flex-grow-0 mx-2 my-0 py-0"
-            label="Maven Offline"
-            value="-o"
-          />
+            <v-col cols="12" sm="auto">
+              <v-checkbox
+                v-model="mvnGoals"
+                hide-details
+                multiple
+                class="flex-grow-0 mx-2 my-0 py-0"
+                label="Clean"
+                value="clean"
+              />
+            </v-col>
+            <v-col cols="12" sm="auto">
+              <v-checkbox
+                v-model="mvnGoals"
+                hide-details
+                multiple
+                class="flex-grow-0 mx-2 my-0 py-0"
+                label="Install"
+                value="install"
+              />
+            </v-col>
+            <v-col cols="12" sm="auto">
+              <v-radio-group
+                v-model="deployMode"
+                hide-details
+                class="ma-0 pa-0"
+                row
+              >
+                <v-radio
+                  hide-details
+                  class="flex-grow-0 mx-2 my-0 py-0"
+                  label="Deploy"
+                  value="sakai:deploy"
+                />
+                <v-radio
+                  label="Exploded wars"
+                  class="flex-grow-0 mx-2 my-0 py-0"
+                  hide-details
+                  value="sakai:deploy-exploded"
+                />
+              </v-radio-group>
+            </v-col>
+            <v-col cols="12" sm="auto">
+              <v-checkbox
+                v-model="mvnOptions"
+                hide-details
+                multiple
+                class="flex-grow-0 mx-2 my-0 py-0"
+                label="Skip tests"
+                value="-Dmaven.test.skip=true"
+              />
+            </v-col>
+            <v-col cols="12" sm="auto">
+              <v-checkbox
+                v-model="mvnOptions"
+                hide-details
+                multiple
+                class="flex-grow-0 mx-2 my-0 py-0"
+                label="Print debug"
+                value="-X"
+              />
+            </v-col>
+            <v-col cols="12" sm="auto">
+              <v-checkbox
+                v-model="mvnOptions"
+                hide-details
+                multiple
+                class="flex-grow-0 mx-2 my-0 py-0"
+                label="Maven Offline"
+                value="-o"
+              />
+            </v-col>
+          </v-row>
         </v-col>
         <v-col v-if="logTofile" cols="12" class="my-3">
           <v-text-field
@@ -118,7 +134,13 @@
           />
         </v-col>
         <v-col>
-          <v-card tile outlined flat color="indigo accent-2">
+          <v-card
+            tile
+            outlined
+            flat
+            color="indigo accent-2"
+            style="margin-top: -1px"
+          >
             <v-card-text class="pa-3 white">
               <v-row no-gutters class="align-center">
                 <v-col class="pr-3" style="word-break: break-word">
