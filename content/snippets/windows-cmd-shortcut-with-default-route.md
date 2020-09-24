@@ -8,6 +8,6 @@ createdAt: 2020-09-05T16:50:08.061Z
 updatedAt: 2020-09-05T16:51:22.622Z
 ---
 
-```
+```text
 C:\WINDOWS\system32\cmd.exe /k "D: & cd D:\Bryan\Git"
 ```

@@ -111,6 +111,7 @@ export default class TheFooter extends Vue {
   }
   .footer-bar {
     bottom: -55px !important;
+    backdrop-filter: blur(5px);
     &--mobile {
       bottom: -110px !important;
     }
@@ -119,10 +120,10 @@ export default class TheFooter extends Vue {
       bottom: 0px !important;
     }
     &.theme--dark {
-      background-color: #058074 !important;
+      background-color: transparentize(#058074, 0.5) !important;
     }
     &.theme--light {
-      background-color: #d0ebe4 !important;
+      background-color: transparentize(#d0ebe4, 0.5) !important;
     }
   }
 }

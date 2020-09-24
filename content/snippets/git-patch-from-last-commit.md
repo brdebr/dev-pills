@@ -7,6 +7,6 @@ createdAt: 2020-08-25T19:41:56.500Z
 updatedAt: 2020-08-25T19:41:56.500Z
 ---
 
-```
+```shell
 $ git format-patch HEAD~1 --stdout > patchfile.patch
 ```

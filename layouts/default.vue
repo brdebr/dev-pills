@@ -34,7 +34,7 @@
         <v-icon> mdi-chevron-up-box-outline </v-icon>
       </v-btn>
     </transition>
-    <the-footer />
+    <the-footer v-resize="onResize" />
   </v-app>
 </template>
 
@@ -72,6 +72,11 @@ export default class DefaultLayout extends Vue {
       duration: 750,
       easing: 'easeInOutCubic',
     })
+  }
+
+  onResize() {
+    // @ts-ignore
+    this.$store.commit('layout/setIsMobile', this.$vuetify.breakpoint.xsOnly)
   }
 
   isDev = isDev

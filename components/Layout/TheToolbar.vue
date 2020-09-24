@@ -1,10 +1,9 @@
 <template>
   <v-app-bar
     clipped-left
-    :color="isDev ? 'yellow lighten-5' : 'toolbar-color'"
     app
     flat
-    class="the-app-bar"
+    :class="(isDev ? 'isDev' : '') + ' the-app-bar'"
   >
     <v-app-bar-nav-icon
       v-ripple="{ center: true, class: 'white--text' }"
@@ -65,6 +64,11 @@ export default Vue.extend({
 <style lang="scss">
 .the-app-bar {
   margin-left: auto;
+  background-color: rgba(101, 216, 185, 0.5) !important;
+  backdrop-filter: blur(5px);
+  &.isDev {
+    background-color: rgba(255, 253, 231, 0.5) !important;
+  }
   // &.v-toolbar--collapsed {
   //   border-bottom-right-radius: 0px !important;
   //   border-bottom-left-radius: 24px !important;
