@@ -356,7 +356,7 @@ updatedAt: ${item.updatedAt}`
       p {
         padding: 6px 12px;
         margin: 6px 12px 0px 12px;
-        background-color: rgb(204 204 204 / 40%);
+        background-color: #cdeae6;
         &:first-child {
           margin-top: 12px;
         }
