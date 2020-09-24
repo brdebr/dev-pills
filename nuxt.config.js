@@ -2,8 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 import en from 'vuetify/src/locale/en'
 import es from 'vuetify/src/locale/es'
 const appName = 'Dev-Pills'
-const description = 'Personal blog to archive development tutorials, snippets, etc'
-let isDev = process.env.NODE_ENV !== 'production'
+const description =
+  'Personal blog to archive development tutorials, snippets, etc'
+const isDev = process.env.NODE_ENV !== 'production'
 
 const nuxtConfigs = {
   /*
@@ -27,7 +28,10 @@ const nuxtConfigs = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'theme-color', content: '#02796D' },
-      { name: 'google-site-verification', content: 'hFTz91qyhEobab5hFNJPF60Kkq8049WMrT6y-xibgAw' },
+      {
+        name: 'google-site-verification',
+        content: 'hFTz91qyhEobab5hFNJPF60Kkq8049WMrT6y-xibgAw',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -40,17 +44,12 @@ const nuxtConfigs = {
   /*
    ** Global CSS
    */
-  css: [
-    '@/assets/css/transitions.scss',
-    '@/assets/css/main.scss'
-  ],
+  css: ['@/assets/css/transitions.scss', '@/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    "@/plugins/NoAutoComplete.js"
-  ],
+  plugins: ['@/plugins/NoAutoComplete.js'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -59,11 +58,7 @@ const nuxtConfigs = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/moment'
-  ],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@nuxtjs/moment'],
   /*
    ** Nuxt.js modules
    */
@@ -73,7 +68,7 @@ const nuxtConfigs = {
     'nuxt-i18n',
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
 
   webfontloader: {
@@ -82,48 +77,45 @@ const nuxtConfigs = {
         'Merriweather:100,300,400,500,700,900',
         'IBM Plex Sans:100,300,400,500,700,900',
         'Roboto:100,300,400,500,700,900',
-      ]
-    }
+      ],
+    },
   },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
-  content: {
-
-  },
+  content: {},
 
   moment: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
-    plugin: false
+    plugin: false,
   },
 
   router: {
-    middleware: ["syncVuetifyLocale"]
+    middleware: ['syncVuetifyLocale'],
   },
 
   i18n: {
     locales: [
-      {code:'en', iso:'en-EN'},
-      {code:'es', iso:'es-ES'}
+      { code: 'en', iso: 'en-EN' },
+      { code: 'es', iso: 'es-ES' },
     ],
     defaultLocale: 'en',
     vueI18nLoader: true,
     strategy: 'prefix',
     seo: true,
     vueI18n: {
-      fallbackLocale: 'en'
-    }
+      fallbackLocale: 'en',
+    },
   },
 
   sitemap: {
     hostname: 'https://blog.bryan-web.dev',
-    i18n: true,
     i18n: {
       locales: ['en', 'es'],
-      routesNameSeparator: '___'
-    }
+      routesNameSeparator: '___',
+    },
   },
 
   pwa: {
@@ -131,33 +123,40 @@ const nuxtConfigs = {
       name: 'Dev-Pills',
       short_name: 'Dev-Pills',
       theme_color: '#02796D',
-      shortcuts : [
+      shortcuts: [
         {
-          name: "Home",
-          url: "/",
-          description: "Home page",
-          icons: [{ "src": "/shortcut-imgs/apps.png", "sizes": "96x96" }]
+          name: 'Home',
+          url: '/',
+          description: 'Home page',
+          icons: [{ src: '/shortcut-imgs/apps.png', sizes: '96x96' }],
         },
         {
-          name: "Snippets",
-          url: "/snippets",
-          description: "Small pieces of code/info",
-          icons: [{ "src": "/shortcut-imgs/code-json.png", "sizes": "96x96" }]
+          name: 'Snippets',
+          url: '/snippets',
+          description: 'Small pieces of code/info',
+          icons: [{ src: '/shortcut-imgs/code-json.png', sizes: '96x96' }],
         },
         {
-          name: "Toolbox",
-          url: "/toolbox",
-          description: "Various small tools for productivity",
-          icons: [{ "src": "/shortcut-imgs/iframe-variable-outline.png", "sizes": "96x96" }]
+          name: 'Toolbox',
+          url: '/toolbox',
+          description: 'Various small tools for productivity',
+          icons: [
+            {
+              src: '/shortcut-imgs/iframe-variable-outline.png',
+              sizes: '96x96',
+            },
+          ],
         },
         {
-          name: "About",
-          url: "/about",
-          description: "Information about the techs used to build this project",
-          icons: [{ "src": "/shortcut-imgs/information-outline.png", "sizes": "96x96" }]
-        }
-      ]
-    }
+          name: 'About',
+          url: '/about',
+          description: 'Information about the techs used to build this project',
+          icons: [
+            { src: '/shortcut-imgs/information-outline.png', sizes: '96x96' },
+          ],
+        },
+      ],
+    },
   },
   /*
    ** vuetify module configuration
@@ -167,9 +166,9 @@ const nuxtConfigs = {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       font: {
-        family: 'IBM Plex Sans'
+        family: 'IBM Plex Sans',
       },
-      icons: 'mdi'
+      icons: 'mdi',
     },
     treeShake: true,
     theme: {
@@ -184,7 +183,7 @@ const nuxtConfigs = {
           error: colors.red.base,
           warning: colors.amber.base,
           info: colors.lightBlue.base,
-          success: colors.lightGreen.base
+          success: colors.lightGreen.base,
         },
         dark: {
           primary: colors.teal.lighten1,
@@ -195,14 +194,14 @@ const nuxtConfigs = {
           error: colors.red.base,
           warning: colors.amber.base,
           info: colors.lightBlue.base,
-          success: colors.lightGreen.base
-        }
+          success: colors.lightGreen.base,
+        },
       },
     },
     lang: {
-      locales: { en , es },
+      locales: { en, es },
       current: 'en',
-    }
+    },
   },
   /*
    ** Build configuration
@@ -223,15 +222,15 @@ const nuxtConfigs = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
           options: {
-            fix: true
-          }
+            fix: true,
+          },
         })
       }
-    }
+    },
   },
   generate: {
-    fallback: true
-  }
+    fallback: true,
+  },
 }
 
 if(isDev){
@@ -241,4 +240,4 @@ if(isDev){
   }
 }
 
-export default nuxtConfigs;
+export default nuxtConfigs
