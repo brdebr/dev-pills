@@ -8,7 +8,7 @@ createdAt: 2020-09-06T21:50:41.660Z
 updatedAt: 2020-09-14T18:57:27.447Z
 ---
 
-Replace this at startup.bat:
+Replace this at **startup.bat:**
 
 ```batch
 call "%EXECUTABLE%" start %CMD_LINE_ARGS%
