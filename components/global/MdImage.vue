@@ -1,5 +1,7 @@
 <template>
-  <v-img :src="imgSrc()" :lazy-src="imgSrc()" :alt="alt" :title="alt" />
+  <div>
+    <v-img :src="imgSrc()" :lazy-src="imgSrc()" :alt="alt" :title="alt" />
+  </div>
 </template>
 
 <script>

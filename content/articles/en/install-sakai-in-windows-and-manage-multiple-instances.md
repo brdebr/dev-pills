@@ -47,6 +47,10 @@ To begin the installation first it's necessary to install all the dependencies a
 
 <mvn-builder></mvn-builder>
 
+<div class="my-4"></div>
+
+<md-image src="/svgs/sakai-graph.svg" class="px-5" alt="Sakai graph"></md-image>
+
 <br>
 Suspendisse nec cursus quam. Sed vel est cursus, tempor sem in, posuere mi. Cras malesuada egestas turpis et condimentum. Praesent dignissim purus luctus risus consectetur, in feugiat nisl convallis. Donec ac euismod ligula. Sed feugiat sollicitudin felis, sed posuere massa molestie at. Donec sit amet finibus leo. Ut sagittis pretium est, et hendrerit enim. Sed et lobortis urna. Maecenas accumsan dui ante, a suscipit nunc aliquet eget.
 
