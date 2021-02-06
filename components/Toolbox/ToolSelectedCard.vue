@@ -47,6 +47,7 @@ import { ToolItemI } from '@/pages/toolbox.vue'
 @Component({
   components: {
     't-percentage': () => import('@/components/Toolbox/Tools/Percentage.vue'),
+    't-bpm-finder': () => import('@/components/Toolbox/Tools/BpmFinder.vue'),
     't-date-format': () => import('@/components/Toolbox/Tools/DateFormat.vue'),
     't-cross-multiply': () =>
       import('@/components/Toolbox/Tools/CrossMultiply.vue'),

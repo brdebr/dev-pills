@@ -21,6 +21,12 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111c24",endColorstr="#111111",GradientType=1);
 }
 
+.tile-text-field{
+  .v-input__slot{
+    border-radius: 0 !important;
+  }
+}
+
 .no-bt{
   border-top: 0 !important;
 }
