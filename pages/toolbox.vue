@@ -183,6 +183,7 @@ const mapTabValues = (val: number) => {
 
 @Component({
   async asyncData(ctx) {
+    // @ts-ignore
     const tools: { list: [ToolItemI] } = await ctx.$content('tools').fetch()
     return {
       tools: tools.list.sort((a, b) =>
