@@ -125,6 +125,7 @@ export default class FakeUserTool extends Vue {
       lastname,
       email: this.faker.internet
         .email(firstname, lastname)
+        .toLowerCase()
         .replace('.com', '-mock.com'),
       password: 'Sakai.22',
     }

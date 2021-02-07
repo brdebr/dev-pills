@@ -87,7 +87,7 @@
           outlined
           class="d-flex mx-4 pt-2 no-bx no-bb"
         >
-          <v-row class="tools-container flex-wrap">
+          <v-row class="tools-container flex-wrap pb-3">
             <tool-selected-card
               v-for="(selectedT, i) in selectedTools"
               :key="`${selectedT.name.en} ${selectedT.id}`"
@@ -183,6 +183,7 @@ const mapTabValues = (val: number) => {
 
 @Component({
   async asyncData(ctx) {
+    // @ts-ignore
     const tools: { list: [ToolItemI] } = await ctx.$content('tools').fetch()
     return {
       tools: tools.list.sort((a, b) =>

@@ -11,6 +11,7 @@
       full-width
       :hide-no-data="!searchVal"
       hide-details
+      no-data-text="Doesn't work yet..."
       color="indigo accent-2"
       append-icon="mdi-magnify v-autocomplete--icon-no-rotate"
       class="rounded-0 flex-grow-1"

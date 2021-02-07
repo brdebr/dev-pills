@@ -86,7 +86,7 @@
               "es" : "Averiguar BPM"
           },
           "category": "audio",
-          "component": ""
+          "component": "t-bpm-finder"
         },
         {
           "name": {

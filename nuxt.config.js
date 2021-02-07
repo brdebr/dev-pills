@@ -210,6 +210,10 @@ const nuxtConfigs = {
   build: {
     analyze: false,
     extractCSS: true,
+    loaders: {
+      file: { esModule: false },
+      imgUrl: { esModule: false },
+    },
     /*
      ** You can extend webpack config here
      */
