@@ -116,6 +116,7 @@ const nuxtConfigs = {
       locales: ['en', 'es'],
       routesNameSeparator: '___',
     },
+    routes: ['/article/install-sakai-in-windows-and-manage-multiple-instances'],
   },
 
   pwa: {
@@ -237,7 +238,7 @@ const nuxtConfigs = {
   },
 }
 
-if(isDev){
+if (isDev) {
   nuxtConfigs.server = {
     port: 3003, // default: 3000
     host: '0.0.0.0', // default: localhost
