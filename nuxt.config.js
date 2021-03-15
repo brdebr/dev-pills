@@ -49,7 +49,7 @@ const nuxtConfigs = {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['@/plugins/NoAutoComplete.js'],
+  plugins: ['@/plugins/NoAutoComplete.ts'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

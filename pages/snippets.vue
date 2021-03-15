@@ -273,7 +273,7 @@ updatedAt: ${item.updatedAt}`
   }
 
   mounted() {
-    Prism.plugins.autoloader.languages_path = '/prism/components/'
+    Prism.plugins.autoloader.languages_path = `${window.location.origin}/prism/components/`
     if (this.isDev) {
       this.$nuxt.$on('content:update', this.refreshPrism)
     }
