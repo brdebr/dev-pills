@@ -1,5 +1,5 @@
 
-.nuxt-content-container{
+.nuxt-content-container,.nuxt-content{
     .nuxt-content-highlight {
       position: relative;
       code {
@@ -35,7 +35,7 @@
             z-index: 1;
             font-family: 'Material Design Icons';
             content: '\F0214';
-            color: #fff;
+            color: #a7a7a7;
           }
         }
         &.language-js {
@@ -87,7 +87,7 @@
             padding-left: 53px;
         }
         .line-highlight{
-            margin-top: 19px;
+            margin-top: 17px;
         }
         .line-numbers .line-numbers-rows{
             top: -1px;

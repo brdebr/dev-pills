@@ -113,7 +113,7 @@ export default class TheFooter extends Vue {
     bottom: -55px !important;
     backdrop-filter: blur(5px);
     &--mobile {
-      bottom: -110px !important;
+      bottom: -85px !important;
     }
     transition: bottom 0.15s ease-in-out;
     &:hover {

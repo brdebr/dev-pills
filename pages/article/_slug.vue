@@ -135,6 +135,19 @@ export default class ArticlePage extends Vue {
     word-break: break-word;
     font-weight: bold;
   }
+  .nuxt-content-container,
+  .nuxt-content {
+    blockquote {
+      opacity: 0.85;
+      font-style: italic;
+      border-left: 5px solid #058074;
+      background-color: #f5fffe;
+      padding: 14px 12px;
+      p {
+        margin: 0;
+      }
+    }
+  }
 }
 .article-body {
   p {

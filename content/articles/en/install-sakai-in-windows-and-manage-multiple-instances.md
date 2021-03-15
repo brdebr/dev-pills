@@ -24,8 +24,13 @@ It's based on the official Sakai installation guides ([Sakai 12](https://conflue
 ## What is Sakai
 <br>
 
-Sakai is open-source Collaboration and Learning Environment (CLE) software. The Sakai Community develops and distributes the open-source Sakai CLE, an enterprise-ready collaboration and courseware management platform that provides users with a suite of learning, portfolio, library and project tools.
-(quoted from [the Sakai wiki](https://confluence.sakaiproject.org/))
+ > Sakai is open-source Collaboration and Learning Environment (CLE) software. The Sakai Community develops and distributes the open-source Sakai CLE, an enterprise-ready collaboration and courseware management platform that provides users with a suite of learning, portfolio, library and project tools.
+
+Quoted from [the Sakai wiki](https://confluence.sakaiproject.org/), for more information visit the [sakai main website](https://www.sakailms.org/)
+
+> Sakai is a free, community source, educational software platform designed to support teaching, research and collaboration. Systems of this type are also known as Course Management Systems (CMS), Learning Management Systems (LMS), or Virtual Learning Environments (VLE). Sakai is developed by a community of academic institutions, commercial organizations and individuals. It is distributed under the Educational Community License (a type of open source license)
+
+Quoted from [the sakai wikipedia article](https://en.wikipedia.org/wiki/Sakai_(software))
 
 <div class="mb-5"></div>
 

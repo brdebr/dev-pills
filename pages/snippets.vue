@@ -41,7 +41,14 @@
               <span class="red--text text--darken-1 font-weight-bold"> X </span>
             </v-chip>
           </v-col>
-          <v-col class="flex-grow-0 d-flex align-center">
+          <v-col
+            cols="12"
+            sm="12"
+            md="6"
+            lg="4"
+            xl="3"
+            class="flex-grow-0 d-flex align-center justify-end"
+          >
             <v-text-field
               v-model="snippetSearch"
               :label="$t('search')"
@@ -273,7 +280,7 @@ updatedAt: ${item.updatedAt}`
   }
 
   mounted() {
-    Prism.plugins.autoloader.languages_path = '/prism/components/'
+    Prism.plugins.autoloader.languages_path = `${window.location.origin}/prism/components/`
     if (this.isDev) {
       this.$nuxt.$on('content:update', this.refreshPrism)
     }
