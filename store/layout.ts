@@ -7,6 +7,7 @@ export interface DrawerItemI {
   }
   to: string
   icon: string
+  disabled?: boolean
 }
 
 @Module({ namespaced: true, name: 'layout', stateFactory: true })
@@ -21,6 +22,10 @@ export default class LayoutStoreModule extends VuexModule {
   isMobile = true
 
   items: Array<DrawerItemI> = []
+
+  get homeItems() {
+    return this.items.filter((el) => el.icon !== 'mdi-apps')
+  }
 
   @Mutation
   toggleDrawer() {
