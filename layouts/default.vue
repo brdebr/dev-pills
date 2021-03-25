@@ -17,7 +17,6 @@
     <transition name="scale-transition">
       <v-btn
         v-show="showScrollTop"
-        :key="showScrollTop"
         v-scroll="onScroll"
         :dark="!$vuetify.theme.dark"
         absolute
