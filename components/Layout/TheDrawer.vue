@@ -152,11 +152,20 @@ export default Vue.extend({})
           }
         }
       }
+      .accent--text.text--darken-1 {
+        color: #007c82 !important;
+        caret-color: #007c82 !important;
+      }
     }
   }
   .drawer-item-title {
     font-size: 16px;
     letter-spacing: 0.7px;
   }
+}
+
+.the-active-color-for-the-selected-drawer-shoud-be-this {
+  color: #059876;
+  color: #059876;
 }
 </style>

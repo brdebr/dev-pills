@@ -55,6 +55,7 @@ import { ToolItemI } from '@/pages/toolbox.vue'
       import('@/components/Toolbox/Tools/ColorPalette.vue'),
     't-sum': () => import('@/components/Toolbox/Tools/Sum.vue'),
     't-fake-user': () => import('@/components/Toolbox/Tools/FakeUser.vue'),
+    't-metronome': () => import('@/components/Toolbox/Tools/Metronome.vue'),
   },
 })
 export default class ToolSelectedCard extends Vue {

@@ -94,7 +94,7 @@
               "es" : "Metrónomo"
           },
           "category": "audio",
-          "component": ""
+          "component": "t-metronome"
         },
         {
           "name": {
