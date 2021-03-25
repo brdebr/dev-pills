@@ -280,10 +280,12 @@ updatedAt: ${item.updatedAt}`
   }
 
   mounted() {
-    Prism.plugins.autoloader.languages_path = `${window.location.origin}/prism/components/`.replace(
-      '_nuxt/',
-      ''
-    )
+    if (!this.isDev) {
+      Prism.plugins.autoloader.languages_path =
+        'https://blog.bryan-web.dev/prism/components/'
+    } else {
+      Prism.plugins.autoloader.languages_path = '/prism/components/'
+    }
     if (this.isDev) {
       this.$nuxt.$on('content:update', this.refreshPrism)
     }
