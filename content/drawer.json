@@ -31,12 +31,12 @@
         "es": "Notas/código"
       },
       "to": "/snippets",
-      "icon": "mdi-iframe-outline"
+      "icon": "mdi-application-brackets-outline"
     },
     {
       "title": {
         "en": "Cheatsheets",
-        "es": "Hojas de referencias"
+        "es": "Chuletas de código"
       },
       "disabled": true,
       "to": "/",

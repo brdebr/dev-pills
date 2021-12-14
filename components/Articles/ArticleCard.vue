@@ -138,7 +138,8 @@ export default class ArticleCard extends Vue {
   height: 100%;
   letter-spacing: 0.8px;
   line-height: 2rem;
-  background-color: transparentize(#006256, 0.05) !important;
+  background-color: transparentize(#003831, 0.10) !important;
+  backdrop-filter: blur(10px);
   > div {
     white-space: pre-line;
     font-family: Roboto;
